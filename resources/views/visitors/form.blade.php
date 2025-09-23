@@ -88,10 +88,10 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="card">Identificación</label>
-                <input type="number" id="card" name="card" class="form-control form-control-alternative"
+                <label class="form-control-label" for="identification_type">Identificación</label>
+                <input type="number" id="identification_type" name="identification_type" class="form-control form-control-alternative"
                     placeholder="Ingresar su numero de cédula"
-                    value="{{ old('card', $visitors->card) }}">
+                    value="{{ old('identification_type', $visitors->identification_type) }}">
             </div>
         </div>
     </div>
