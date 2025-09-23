@@ -75,11 +75,11 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label for="sex">sexo</label>
-                <select name="sex" id="sex" class="form-control">
+                <label for="gender">sexo</label>
+                <select name="gender" id="gender" class="form-control">
                     <option value="" disabled>seleccione su sexo</option>
-                    <option value="Femenino" {{ old('sex', $visitors->sex ?? '') == 'Femenino' ? 'selected' : ''}}>Femenino</option>
-                    <option value="Masculino" {{ old('sex', $visitors->sex ?? '') == 'Masculino' ? 'selected' : ''}}>Masculino</option>
+                    <option value="Femenino" {{ old('gender', $visitors->gender ?? '') == 'Femenino' ? 'selected' : ''}}>Femenino</option>
+                    <option value="Masculino" {{ old('gender', $visitors->gender ?? '') == 'Masculino' ? 'selected' : ''}}>Masculino</option>
                 </select>
             </div>
         </div>
