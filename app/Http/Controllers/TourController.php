@@ -35,7 +35,7 @@ class TourController extends Controller
     public function store(TourRequest $request)
     {
         Tour::create($request->validated());
-        return redirect()->route('tours.index')->with('success', 'la reservacion a sido creada con exito');
+        return redirect()->route('tours.index')->with('success', 'el tur a sido creado con exito');
     }
 
     public function show(string $id)
@@ -63,13 +63,13 @@ class TourController extends Controller
         $tours = Tour::find($id);
         $tours->update($request->validated());
 
-        return redirect()->route('tours.index')->with('update', 'la reservacion actualizada con éxito');
+        return redirect()->route('tours.index')->with('update', 'el tur actualizado con éxito');
     }
 
     public function destroy(int $id)
     {
         $tours = Tour::find($id);
         $tours->delete();
-        return redirect()->route('tours.index')->with('deleted', 'la reservacion eliminada correctamente');
+        return redirect()->route('tours.index')->with('deleted', 'el tur eliminado correctamente');
     }
 }
