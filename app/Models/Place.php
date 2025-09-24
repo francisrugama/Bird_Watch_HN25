@@ -15,7 +15,7 @@ class Place extends Model
         'avilability_schedule',
         'description',
         'tour_id',
-        'hotel_id',
+        'hotel_id'
 
     ];
 
