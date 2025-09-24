@@ -6,24 +6,24 @@ use Illuminate\Http\Request;
 
 //use App\Models\Tution;
 
-use App\Models\Historial;
-use App\Http\Request\HistorialRequest;
+use App\Models\Historial_detail;
+use App\Http\Request\Historial_detailRequest;
 use App\Models\Tour;
 use App\Models\Reservation;
 use App\Models\Visitor;
 
-class HistorialController extends Controller
+class Historial_detailController extends Controller
 {
     
     public function index()
     {
-        $historials = Historial::with('tours, reservations, visitors')->paginate(10);
+        $historials = Historial_detail::with('tours, reservations, visitors')->paginate(10);
         return view('historials.index', compact('historials'));
     }
 
     public function create()
     {
-        $historials = new Historial();
+        $historials = new Historial_detail();
         $tours = Tour::all();
         $reservations = Reservation::all();
         $visitors = Visitor::all();
@@ -32,13 +32,13 @@ class HistorialController extends Controller
 
     public function store(HistorialRequest $request)
     {
-        Historial::create($request->validated());
+        Historial_detail::create($request->validated());
         return redirect()->route('historials.index')->with('success', 'el historial a sido creado con exito');
     }
 
     public function show(string $id)
     {
-        $historials = Historial::find($id);
+        $historials = Historial_detail::find($id);
         $tours = Tour::all();
         $reservations = Reservation::all();
         $visitors = Visitor::all();
@@ -47,7 +47,7 @@ class HistorialController extends Controller
 
     public function edit(imt $id)
     {
-        $historials = Historial::find($id);
+        $historials = Historial_detail::find($id);
         $tours = Tour::all();
         $reservations = Reservation::all();
         $visitors = Visitor::all();
@@ -56,7 +56,7 @@ class HistorialController extends Controller
 
     public function update(Request $request, int $id)
     {
-        $historials = Historial::find($id);
+        $historials = Historial_detail::find($id);
         $historials->update($request->validated());
 
         return redirect()->route('historials.index')->with('update', 'el historial actualizado con éxito');
@@ -64,7 +64,7 @@ class HistorialController extends Controller
 
     public function destroy(int $id)
     {
-        $historials = Historial::find($id);
+        $historials = Historial_detail::find($id);
         $historials->delete();
         return redirect()->route('historials.index')->with('deleted', 'el historial eliminado correctamente');
     }
