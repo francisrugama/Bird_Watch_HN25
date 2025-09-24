@@ -32,7 +32,7 @@ class HistorialController extends Controller
 
     public function store(HistorialRequest $request)
     {
-        Tour::create($request->validated());
+        Historial::create($request->validated());
         return redirect()->route('historials.index')->with('success', 'el historial a sido creado con exito');
     }
 
