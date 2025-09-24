@@ -26,7 +26,7 @@ class HotelRequest extends FormRequest
             'description' => 'required|string',
             'type_habitation' => 'required|string|max:255',
             'address' => 'required|string|min:8|max:255',
-            'status' => 'required|string|max:12',
+            'status' => 'required|string|max:255',
             'price_night' => 'required|decimal:0,2',
             'phone' => ['nullable', 'string', 'max:15', Rule::unique('hotels')->ignore($this->hotel)],
             'responsible' => 'required|string|max:255',

@@ -22,7 +22,40 @@ class ReservationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'status' => 'required|string|max:255',
+            'people' => 'required|string|max:45',
+            'reservation_date' => 'required|date',
+            'other_service' => 'required|string|max:200',
+            'price_person' => 'required|decimal:0,2',
+            'total' => 'required|decimal:0.2',
+            'visitor_id' => 'required',
+        ];
+    }
+    public function messages(): array
+    {
+        return [
+            'status.required' => 'El estado es obligatorio.',
+            'status.string' => 'El estado debe ser un texto válido.',
+            'status.max' => 'El estado no puede superar los 255 caracteres.',
+
+            'people.required' => 'El número de personas es obligatorio.',
+            'people.string' => 'El campo personas debe ser un texto válido.',
+            'people.max' => 'El campo personas no puede superar los 45 caracteres.',
+
+            'reservation_date.required' => 'La fecha de la reservación es obligatoria.',
+            'reservation_date.date' => 'La fecha de la reservación debe tener un formato válido.',
+
+            'other_service.required' => 'El campo otros servicios es obligatorio.',
+            'other_service.string' => 'El campo otros servicios debe ser un texto válido.',
+            'other_service.max' => 'El campo otros servicios no puede superar los 200 caracteres.',
+
+            'price_person.required' => 'El precio por persona es obligatorio.',
+            'price_person.decimal' => 'El precio por persona debe tener máximo 2 decimales.',
+
+            'total.required' => 'El total es obligatorio.',
+            'total.decimal' => 'El total debe ser un número válido con máximo 2 decimales.',
+
+            'visitor_id.required' => 'El visitante es obligatorio.',
         ];
     }
 }
