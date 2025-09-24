@@ -7,7 +7,7 @@
                 <div class="card-header border-0">
                     <div class="d-flex justify-content-between align-items-center">
                         <h3 class="mb-0">aministradores</h3>
-                        <a href="{{ route('teachers.create') }}" class="btn btn-primary">
+                        <a href="{{ route('admins.create') }}" class="btn btn-primary">
                             <i class="fas fa-plus"> Nuevo aministrador</i>
                         </a>
                     </div>
@@ -27,25 +27,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($teachers as $teacher)
+                            @foreach ($admins as $admin)
                                 <tr>
-                                    <td>{{ $teacher->name }}</td>
-                                    <td>{{ $teacher->email }}</td>
-                                    <td>{{ $teacher->phone }}</td>
-                                    <td>{{ $teacher->age }}</td>
-                                    <td>{{ $teacher->country }}</td>
-                                    <td>{{ $teacher->gender }}</td>
+                                    <td>{{ $admin->name }}</td>
+                                    <td>{{ $admin->email }}</td>
+                                    <td>{{ $admin->phone }}</td>
+                                    <td>{{ $admin->age }}</td>
+                                    <td>{{ $admin->country }}</td>
+                                    <td>{{ $admin->gender }}</td>
 
                                     <td style="white-space: nowrap; display: flex; align-items: center;">
-                                        <a href="{{ route('teachers.show', $teacher->$id) }}"
+                                        <a href="{{ route('admins.show', $admin->$id) }}"
                                             class="btn btn-primary btn-sm" style="margin-right: 5px;">
                                             <i class="fas fa-eye">Mostrar</i>
                                         </a>
-                                        <a href="{{ route('teachers.edit', $teacher->$id) }}" class="btn btn-info btn-sm"
+                                        <a href="{{ route('admins.edit', $admin->$id) }}" class="btn btn-info btn-sm"
                                             style="margin-right: 5px">
                                             <i class="fas fa-edit">Editar</i>
                                         </a>
-                                        <form action="{{ route('teachers.destroy', $teacher->$id) }}" method="POST"
+                                        <form action="{{ route('admins.destroy', $admin->$id) }}" method="POST"
                                             style="display: inline-block; margin: 0; display: flex; align-items: center;"
                                             onsubmit="return confirm('¿Está seguro que desea eliminar este aministrador? Esta acción no se puede deshacer.')">
                                             @csrf
