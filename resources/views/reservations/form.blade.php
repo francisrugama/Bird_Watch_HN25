@@ -21,18 +21,9 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="form-group">
-                <label class="form-control-label" for="reservation_date">fecha de reserva</label>
-                <input type="date" id="reservation_date" name="reservation_date" class="form-control form-control-alternative"
-                    placeholder="Ingresar la fecha de reserva"
-                    value="{{ old('reservation_date', $reservations->reservation_date) }}">
-            </div>
-        </div>
-    </div>
 
-    <div class="row">
+
+<div class="row">
         <div class="col-lg-6">
             <div class="form-group">
                 <label class="form-control-label" for="people_count">cantidad maxima personas</label>
@@ -44,13 +35,31 @@
     </div>
 
 
+
+
+
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="form-control-label" for="reservation_date">fecha de reserva</label>
+                <input type="date" id="reservation_date" name="reservation_date" class="form-control form-control-alternative"
+                    placeholder="Ingresar la fecha de reserva"
+                    value="{{ old('reservation_date', $reservations->reservation_date) }}">
+            </div>
+        </div>
+    </div>
+
+    
+
+
  <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="other_services">otros servicios</label>
-                <input type="text" id="other_services" name="other_services" class="form-control form-control-alternative"
+                <label class="form-control-label" for="other_service">otros servicios</label>
+                <input type="text" id="other_service" name="other_service" class="form-control form-control-alternative"
                     placeholder="Ingresar otros servicios"
-                    value="{{ old('other_services', $reservations->other_services) }}">
+                    value="{{ old('other_service', $reservations->other_service) }}">
             </div>
         </div>
     </div>

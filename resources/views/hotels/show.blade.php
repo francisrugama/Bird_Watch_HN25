@@ -1,5 +1,5 @@
 @extends ('layouts.panel')
-@section("title", 'Visitor/Show')
+@section("title", 'Hotes/Show')
 
 @section("content")
     <div class="col-xl-12 order-x-1">
@@ -8,10 +8,10 @@
             <div class="card-header bg-white border-0">
                 <div class="row align-items-center">
                     <div class="col-8">
-                        <h3 class="nb-0"> <i class="fas fa-newspaper"></i> Ver Visitante</h3>
+                        <h3 class="nb-0"> <i class="fas fa-newspaper"></i> Ver Reserva</h3>
                     </div>
                     <div class="col-4 text-right">
-                        <a href="{{ route('visitors.index' ) }}" class="btn btn-sm btn-primary">
+                        <a href="{{ route('hotels.index' ) }}" class="btn btn-sm btn-primary">
                             <i class="fa fa-list"></i> Volver
                         </a>
                     </div>
@@ -19,16 +19,16 @@
             </div>
 
             <div class="card-body">
-                <h6 class="heading-small text-muted mb-4">Información del Visitante</h6>
+                <h6 class="heading-small text-muted mb-4">Información deL hotel</h6>
                 <div class="pl-lg-4">
 
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="name">
-                                    <i class="fa fa-user"></i> Nombre Completo
+                                    <i class="fa fa-user"></i> nombre del hotel
                                 </label>
-                                <p>{{ $visitor->name }}</p>
+                                <p>{{ $hotel->name }}</p>
                             </div>
                         </div>
                     </div>
@@ -36,10 +36,54 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label class="form-control-label" for="email">
-                                    <i class="fa fa-user"></i> correo
+                                <label class="form-control-label" for="descripcion">
+                                    <i class="fa fa-user"></i> descripcion
                                 </label>
-                                <p>{{ $visitor->email }}</p>
+                                <p>{{ $hotel->description }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" for="type_abitation">
+                                    <i class="fa fa-user"></i> tipo de habitacion
+                                </label>
+                                <p>{{ $hotel->type_abitation }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" for="address">
+                                    <i class="fas fa-envelope"></i> direccion
+                                </label>
+                                <p>{{ $hotel->address }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" for="status">
+                                    <i class="fa fa-user"></i> status
+                                </label>
+                                <p>{{ $hotel->status }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" for="price_per_person">
+                                    <i class="fa fa-user"></i> precio por persona
+                                </label>
+                                <p>{{ $hotel->price_per_person }}</p>
                             </div>
                         </div>
                     </div>
@@ -48,9 +92,9 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="telephone">
-                                    <i class="fa fa-user"></i> numero telefonico
+                                    <i class="fa fa-user"></i> teléfono
                                 </label>
-                                <p>{{ $visitor->telephone }}</p>
+                                <p>{{ $hotel->telephone }}</p>
                             </div>
                         </div>
                     </div>
@@ -58,57 +102,43 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label class="form-control-label" for="age">
-                                    <i class="fas fa-envelope"></i> edad
+                                <label class="form-control-label" for="responsible">
+                                    <i class="fa fa-user"></i> responsable
                                 </label>
-                                <p>{{ $visitor->age }}</p>
+                                <p>{{ $hotel->responsible }}</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="row">
+
+
+
+
+<div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label class="form-control-label" for="language">
-                                    <i class="fa fa-user"></i> idioma
+                                <label class="form-control-label" for="qualification">
+                                    <i class="fa fa-user"></i> calificación
                                 </label>
-                                <p>{{ $visitor->language }}</p>
+                                <p>{{ $hotel->qualification }}</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <label class="form-control-label" for="country">
-                                    <i class="fa fa-user"></i> nacionalidad
-                                </label>
-                                <p>{{ $visitor->country }}</p>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <label class="form-control-label" for="gender">
-                                    <i class="fa fa-user"></i> genero
-                                </label>
-                                <p>{{ $visitor->gender }}</p>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <label class="form-control-label" for="identification">
-                                    <i class="fa fa-user"></i> identificacion
-                                </label>
-                                <p>{{ $visitor->identification_type }}</p>
-                            </div>
-                        </div>
-                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

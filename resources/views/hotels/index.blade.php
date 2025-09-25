@@ -1,5 +1,5 @@
 @extends('layouts.panel')
-@section('title', 'Reservation')
+@section('title', 'Hotel')
 
 @section('content')
     <div class="row">
@@ -8,9 +8,9 @@
 
                 <div class="card-header border-0">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h3 class="mb-0">Reservas</h3>
-                        <a href="{{ route('reservations.create') }}" class="btn btn-primary">
-                            <i class="fas fa-plus"></i> Nueva Reserva
+                        <h3 class="mb-0">Hoteles</h3>
+                        <a href="{{ route('hotels.create') }}" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Nuevo Hotel
                         </a>
                     </div>
                 </div>
@@ -19,41 +19,43 @@
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
+                                <th scope="col">nombre</th>
+                                <th scope="col">descripcion</th>
+                                <th scope="col">tipo de habitacion</th>
+                                <th scope="col">Direcion</th>
                                 <th scope="col">estado</th>
-                                <th scope="col">persona</th>
-                                <th scope="col">cantidad de personas</th>
-                                <th scope="col">Fecha de la reserva</th>
-                                <th scope="col">otros servicios</th>
-                                <th scope="col">precio por personas</th>
-                                <th scope="col">total</th>
-                                <th scope="col">id del visitante</th>
+                                <th scope="col">precio por noche</th>
+                                <th scope="col">telefono</th>
+                                <th scope="col">responsable</th>
+                                <th scope="col">calificación</th>
                                 
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($reservations as $reservation)
+                            @foreach ($hotels as $hotel)
                                 <tr>
 
-                                    <td>{{ $reservation->status}}</td>
-                                    <td>{{ $reservation->people}}</td>
-                                    <td>{{ $reservation->people_count}}</td>
-                                    <td>{{ $reservation->reservation_date}}</td>
-                                    <td>{{ $reservation->other_service}}</td>
-                                    <td>{{ $reservation->price_per_person}}</td>
-                                    <td>{{ $reservation->total}}</td>
-                                    <td>{{ $reservation->id_visitor}}</td>
+                                    <td>{{ $hotel->name }}</td>
+                                    <td>{{ $hotel->description }}</td>
+                                    <td>{{ $hotel->type_abitation }}</td>
+                                    <td>{{ $hotel->address }}</td>
+                                    <td>{{ $hotel->status }}</td>
+                                    <td>{{ $hotel->price_night }}</td>
+                                    <td>{{ $hotel->telephone }}</td>
+                                    <td>{{ $hotel->responsible }}</td>
+                                    <td>{{ $hotel->qualification }}</td>
 
                                     <td style="white-space: nowrap; display: flex; align-items: center;">
-                                        <a href="{{ route('reservations.show', $reservation->id) }}" class="btn btn-primary btn-sm" style="margin-right: 5px">
+                                        <a href="{{ route('hotels.show', $hotel->id) }}" class="btn btn-primary btn-sm" style="margin-right: 5px">
                                             <i class="fas fa-eye"></i> Mostrar
                                         </a>
 
-                                        <a href="{{ route('reservations.edit', $reservation->id) }}" class="btn btn-info btn-sm" style="margin-right: 5px">
+                                        <a href="{{ route('hotels.edit', $hotel->id) }}" class="btn btn-info btn-sm" style="margin-right: 5px">
                                             <i class="fas fa-edit"></i> Editar
                                         </a>
-                                        <form action="{{ route('reservations.destroy', $reservation->id) }}" method="POST"
+                                        <form action="{{ route('hotels.destroy', $hotel->id) }}" method="POST"
                                             style="display: inline-block; margin: 0; display: flex; align-items: center;"
-                                            onsubmit="return confirm('¿Está seguro que desea eliminar esta reserva? Esta acción no se puede deshacer.');">
+                                            onsubmit="return confirm('¿Está seguro que desea eliminar este hotel? Esta acción no se puede deshacer.');">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm">
@@ -69,7 +71,7 @@
 
                 <div class="card-footer py-4">
                     <nav aria-label="..." class="d-flex flex-wrap justify-content-center justify-content-lg-start">
-                        {{ $reservations->links() }}
+                        {{ $hotels->links() }}
                     </nav>
                 </div>
             </div>

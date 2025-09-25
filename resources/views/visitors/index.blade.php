@@ -34,8 +34,8 @@
                                 <tr>
 
                                     <td>{{ $visitor->name}}</td>
-                                    <td>{{ $visitor->mail}}</td>
-                                    <td>{{ $visitor->phone_number}}</td>
+                                    <td>{{ $visitor->email}}</td>
+                                    <td>{{ $visitor->telephone}}</td>
                                     <td>{{ $visitor->age}}</td>
                                     <td>{{ $visitor->language}}</td>
                                     <td>{{ $visitor->country}}</td>
