@@ -29,7 +29,7 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <label class="form-control-label" for="availability_schedule"></label>
-                <input type="text" id="availability_schedule" name="availability_schedule" class="form-control form-control-alternative"
+                <input type="date" id="availability_schedule" name="availability_schedule" class="form-control form-control-alternative"
                 placeholder="ingresar disponibilidad de horario"
                 value="{{ old('availability_schedule', $places->availability_schedule)}}">
             </select>
@@ -82,7 +82,7 @@
                         @foreach ($hotels as $hotel)
                         <option value="{{ $hotel->id }}"
                         {{ old('hotel_id', $places->hotel_id ?? '')== $hotel->id ? 'selected' : ""}}>
-                        {{ $responsible->name}}
+                        {{ $place->name}}
                   </option>
                 @endforeach
            </select>
