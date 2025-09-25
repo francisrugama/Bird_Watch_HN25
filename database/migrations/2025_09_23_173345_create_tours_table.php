@@ -15,6 +15,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('description');
+            $table->string('type_activity');
             $table->string('duration');
             $table->string('location');
             $table->string('type_transport');
