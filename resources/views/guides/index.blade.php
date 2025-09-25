@@ -29,13 +29,13 @@
                    <tbody>
                        @foreach($guides as $guide)
                             <tr>
-                              <td>{{$guides->name}}</td>
-                              <td>{{$guides->email}}</td>
-                              <td>{{$guides->telephone}}</td>
-                              <td>{{$guides->experience}}</td>
-                              <td>{{$guides->language}}</td>
-                              <td>{{$guides->age}}</td>
-                              <td>{{$guides->gender}}</td>                      
+                              <td>{{$guide->name}}</td>
+                              <td>{{$guide->email}}</td>
+                              <td>{{$guide->telephone}}</td>
+                              <td>{{$guide->experience}}</td>
+                              <td>{{$guide->language}}</td>
+                              <td>{{$guide->age}}</td>
+                              <td>{{$guide->gender}}</td>                      
 
                               <td style="white-space: nowrap; display: flex; align-items: center;">
                                   <a href="{{ route ('guides.show', $guide->id) }}" class="btn btn-primary btn-sm" style"margin-right: 5px;">
