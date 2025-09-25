@@ -12,9 +12,9 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="form:grup">
-                <label class="form-control-label" for="description">correo del administrador</label>
+                <label class="form-control-label" for="description">descripcion de las calificaciones de tur</label>
                 <input type="text" id="description" name="description" class="form-control form-cntrol-altenative"
-                    placeholder="ingrese el correo electronico" values="{{ old('description', $tours_categorie->description) }}">
+                    placeholder="ingrese las calificaciones de tur" values="{{ old('description', $tours_categorie->description) }}">
             </div>
         </div>
     </div>
