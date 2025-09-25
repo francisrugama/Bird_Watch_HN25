@@ -69,10 +69,10 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label class="form-control-label" for="other_services">
+                                <label class="form-control-label" for="other_service">
                                     <i class="fa fa-user"></i> otros servicios
                                 </label>
-                                <p>{{ $reservation->other_services }}</p>
+                                <p>{{ $reservation->other_service }}</p>
                             </div>
                         </div>
                     </div>

@@ -24,10 +24,10 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="phone">Numero de celular</label>
-                <input type="number" id="phone" name="phone" class="form-control form-control-alternative"
+                <label class="form-control-label" for="telephone">Numero de celular</label>
+                <input type="number" id="telephone" name="telephone" class="form-control form-control-alternative"
                     placeholder="Ingresar el numero de celular del cliente"
-                    value="{{ old('phone', $visitors->phone) }}">
+                    value="{{ old('telephone', $visitors->telephone) }}">
             </div>
         </div>
     </div>
@@ -44,7 +44,11 @@
     </div>
 
 
- <div class="row">
+
+
+
+
+<div class="row">
         <div class="col-lg-6">
             <div class="form-group">
                 <label class="form-control-label" for="language">language</label>
@@ -57,7 +61,9 @@
 
 
 
- <div class="row">
+
+
+<div class="row">
         <div class="col-lg-6">
             <div class="form-group">
                 <label class="form-control-label" for="country">pais</label>
@@ -68,6 +74,8 @@
         </div>
     </div>
 
+
+ 
 
 
 
