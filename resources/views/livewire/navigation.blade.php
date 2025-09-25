@@ -72,3 +72,18 @@
        
     </ul>
 </div>
+
+
+  <li class="nav-item {{ Request::route()->named('places.index') ? 'active' : '' }}">
+            <a class="nav-link {{ Request::route()->named('places.index') ? 'active' : '' }}"
+                href="{{ route('places.index') }}" wire:navigate>
+                <i class="fas fa-dove text-orange"></i> Plazas
+            </a>
+        </li>
+
+        <li class="nav-item {{ Request::route()->named('guides.index') ? 'active' : '' }}">
+            <a class="nav-link {{ Request::route()->named('guides.index') ? 'active' : '' }}"
+                href="{{ route('guides.index') }}" wire:navigate>
+                <i class="fas fa-user text-yellow"></i> Guías
+            </a>
+        </li>

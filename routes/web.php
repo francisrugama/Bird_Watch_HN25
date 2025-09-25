@@ -4,6 +4,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Livewire\Products\ProductList;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PlaceController;
+use App\Http\Controllers\GuideController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,6 +31,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit', fn () => view('examples.ejemplo.edit'))->name('ejemplo.edit');
         Route::get('/show', fn () => view('examples.ejemplo.show'))->name('ejemplo.show');
     });
+
+    Route::resource('/suppliers', PlaceController::class);
+    Route::resource('guides', GuideController::class);
+
 
     //rutas con controlador y prefix
 
