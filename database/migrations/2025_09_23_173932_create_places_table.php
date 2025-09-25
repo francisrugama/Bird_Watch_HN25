@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('description');
 
 
-            $table->integer('tour_id')->unsigned();
+            $table->integer(column: 'tour_id')->unsigned();
             $table->foreign('tour_id')->references('id')
             ->on('tours')->onDelete('cascade')->onUpdate('cascade');
 
