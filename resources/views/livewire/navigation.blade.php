@@ -28,15 +28,7 @@
     <!-- Divider -->
     <hr class="my-3">
     <!-- Heading -->
-    <h6 class="navbar-heading text-muted">Panel de Administración</h6>
-    <ul class="navbar-nav">
-        <li class="nav-item {{ Request::route()->named('ejemplo.index') ? 'active' : '' }}">
-            <a class="nav-link {{ Request::route()->named('ejemplo.index') ? 'active' : '' }}"
-                href="{{ route('ejemplo.index') }}" wire:navigate>
-                <i class="fas fa-book text-purple"></i> Ejemplo
-            </a>
-        </li>
-    </ul>
+    
     <!-- Divider -->
     <hr class="my-3">
     <!-- Heading -->
@@ -69,21 +61,68 @@
     <h6 class="navbar-heading text-muted">Ejemplos</h6>
     <!-- Navigation -->
     <ul class="navbar-nav mb-md-3">
-       
-    </ul>
-</div>
+      
 
 
-  <li class="nav-item {{ Request::route()->named('places.index') ? 'active' : '' }}">
-            <a class="nav-link {{ Request::route()->named('places.index') ? 'active' : '' }}"
-                href="{{ route('places.index') }}" wire:navigate>
-                <i class="fas fa-dove text-orange"></i> Plazas
+    <li class="nav-item {{ Request::route()->named('visitors.index') ? 'active' : '' }}">
+            <a class="nav-link {{ Request::route()->named('visitors.index') ? 'active' : '' }}"
+                href="{{ route('visitors.index') }}" wire:navigate>
+                <i class="fas fa-dove text-orange"></i> Visitantes
+            </a>
+        </li>
+
+         <li class="nav-item {{ Request::route()->named('hotels.index') ? 'active' : '' }}">
+            <a class="nav-link {{ Request::route()->named('hotels.index') ? 'active' : '' }}"
+                href="{{ route('hotels.index') }}" wire:navigate>
+                <i class="fas fa-dove text-orange"></i> Hoteles
             </a>
         </li>
 
         <li class="nav-item {{ Request::route()->named('guides.index') ? 'active' : '' }}">
             <a class="nav-link {{ Request::route()->named('guides.index') ? 'active' : '' }}"
                 href="{{ route('guides.index') }}" wire:navigate>
-                <i class="fas fa-user text-yellow"></i> Guías
+                <i class="fas fa-dove text-orange"></i> Guias
+            </a>
+        </li>
+
+            <li class="nav-item {{ Request::route()->named('tours.index') ? 'active' : '' }}">
+                <a class="nav-link {{ Request::route()->named('tours.index') ? 'active' : '' }}"
+                    href="{{ route('tours.index') }}" wire:navigate>
+                    <i class="fas fa-dove text-orange"></i> Recorridos
+                </a>
+            </li>
+
+            <li class="nav-item {{ Request::route()->named('tours_categories.index') ? 'active' : '' }}">
+                <a class="nav-link {{ Request::route()->named('tours_categories.index') ? 'active' : '' }}"
+                    href="{{ route('tours_categories.index') }}" wire:navigate>
+                    <i class="fas fa-dove text-orange"></i> Categorias de Recorridos
+                </a>
+            </li>
+
+        <li class="nav-item {{ Request::route()->named('places.index') ? 'active' : '' }}">
+            <a class="nav-link {{ Request::route()->named('places.index') ? 'active' : '' }}"
+                href="{{ route('places.index') }}" wire:navigate>
+                <i class="fas fa-map-marker-alt text-orange"></i> Lugares
+            </a>
+        </li>
+
+        <li class="nav-item {{ Request::route()->named('reservations.index') ? 'active' : '' }}">
+            <a class="nav-link {{ Request::route()->named('reservations.index') ? 'active' : '' }}"
+                href="{{ route('reservations.index') }}" wire:navigate>
+                <i class="fas fa-book text-orange"></i> Reservaciones
+            </a>
+        </li>
+
+        <li class="nav-item {{ Request::route()->named('historial_details.index') ? 'active' : '' }}">
+            <a class="nav-link {{ Request::route()->named('historial_details.index') ? 'active' : '' }}"
+                href="{{ route('historial_details.index') }}" wire:navigate>
+                <i class="fas fa-book text-orange"></i> Historial de Reservaciones
+            </a>
+        </li>
+
+        <li class="nav-item {{ Request::route()->named('admins.index') ? 'active' : '' }}">
+            <a class="nav-link {{ Request::route()->named('admins.index') ? 'active' : '' }}"
+                href="{{ route('admins.index') }}" wire:navigate>
+                <i class="fas fa-book text-orange"></i> Administradores
             </a>
         </li>
