@@ -17,13 +17,13 @@ class Historial_detailController extends Controller
     
     public function index()
     {
-        $historial_detaials = Historial_detail::with('tours, reservations, visitors')->paginate(10);
+        $historial_details = Historial_detail::with('tours, reservations, visitors')->paginate(10);
         return view('historial.index', compact('historial'));
     }
 
     public function create()
     {
-        $historial_detaials = new Historial_detail();
+        $historial_details = new Historial_detail();
         $tours = Tour::all();
         $reservations = Reservation::all();
         $visitors = Visitor::all();
@@ -38,7 +38,7 @@ class Historial_detailController extends Controller
 
     public function show(string $id)
     {
-        $historial_detaials = Historial_detail::find($id);
+        $historial_details = Historial_detail::find($id);
         $tours = Tour::all();
         $reservations = Reservation::all();
         $visitors = Visitor::all();
@@ -47,7 +47,7 @@ class Historial_detailController extends Controller
 
     public function edit(imt $id)
     {
-        $historial_detaials = Historial_detail::find($id);
+        $historial_details = Historial_detail::find($id);
         $tours = Tour::all();
         $reservations = Reservation::all();
         $visitors = Visitor::all();
@@ -56,16 +56,16 @@ class Historial_detailController extends Controller
 
     public function update(Request $request, int $id)
     {
-        $historial_detaials = Historial_detail::find($id);
-        $historial_detaials->update($request->validated());
+        $historial_details = Historial_detail::find($id);
+        $historial_details->update($request->validated());
 
         return redirect()->route('historial_detaials.index')->with('update', 'el historial actualizado con éxito');
     }
 
     public function destroy(int $id)
     {
-        $historial_detaials = Historial_detail::find($id);
-        $historial_detaials->delete();
+        $historial_details = Historial_detail::find($id);
+        $historial_details->delete();
         return redirect()->route('historial_detaials.index')->with('deleted', 'el historial eliminado correctamente');
     }
 }

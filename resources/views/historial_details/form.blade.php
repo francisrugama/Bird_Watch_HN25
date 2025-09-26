@@ -4,7 +4,7 @@
             <div class="form:grup">
                 <label class="form-control-label" for="name">nombre del historial</label>
                 <input type="text" id="name" name="name" class="form-control form-cntrol-altenative"
-                    placeholder="ingresa el nombre" values="{{ old('name', $historial_detaial->name) }}">
+                    placeholder="ingresa el nombre" values="{{ old('name', $historial_detail->name) }}">
             </div>
         </div>
     </div>
@@ -15,7 +15,7 @@
                 <label class="form-control-label" for="status">estado del histoeial</label>
                 <input type="text" id="status" name="status" class="form-control form-cntrol-altenative"
                     placeholder="ingrese el estado"
-                    values="{{ old('status', $historial_detaial->status) }}">
+                    values="{{ old('status', $historial_detail->status) }}">
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
                 <label class="form-control-label" for="people">personas</label>
                 <input type="text" id="people" name="people"
                     class="form-control form-cntrol-altenative" placeholder="ingrese la persona"
-                    values="{{ old('people', $historial_detaial->people) }}">
+                    values="{{ old('people', $historial_detail->people) }}">
             </div>
         </div>
     </div>
@@ -36,7 +36,7 @@
             <div class="form:grup">
                 <label class="form-control-label" for="type_service">tipos de servicios</label>
                 <input type="text" id="type_service" name="type_service" class="form-control form-cntrol-altenative"
-                    placeholder="ingrese los tipos de servicios" values="{{ old('type_service', $historial_detaial->type_service) }}">
+                    placeholder="ingrese los tipos de servicios" values="{{ old('type_service', $historial_detail->type_service) }}">
             </div>
         </div>
     </div>
@@ -47,7 +47,7 @@
                 <label class="form-control-label" for="total">total</label>
                 <input type="text" id="total" name="total" class="form-control form-cntrol-altenative"
                     placeholder="ingrese el total"
-                    values="{{ old('total', $historial_detaial->total) }}">
+                    values="{{ old('total', $historial_detail->total) }}">
             </div>
         </div>
     </div>
@@ -61,7 +61,7 @@
                 <option disabled selected>Seleccionar una reservacion</option>
                 @foreach ($reservations as $reservation)
                     <option value="{{ $reservation->id }}" 
-                        {{ old('reservation_id', $historial_detaials->reservation_id ?? '') == $reservation->id ? 'selected' : '' }}>
+                        {{ old('reservation_id', $historial_details->reservation_id ?? '') == $reservation->id ? 'selected' : '' }}>
                         {{ $reservation->name }}
                     </option>
                 @endforeach
@@ -79,7 +79,7 @@
                 <option disabled selected>Seleccionar un visitante</option>
                 @foreach ($visitors as $visitor)
                     <option value="{{ $visitor->id }}" 
-                        {{ old('visitor_id', $historial_detaials->visitor_id ?? '') == $visitor->id ? 'selected' : '' }}>
+                        {{ old('visitor_id', $historial_details->visitor_id ?? '') == $visitor->id ? 'selected' : '' }}>
                         {{ $visitor->name }}
                     </option>
                 @endforeach
@@ -97,7 +97,7 @@
                 <option disabled selected>Seleccionar un tur</option>
                 @foreach ($tours as $tour)
                     <option value="{{ $tour->id }}" 
-                        {{ old('tour_id', $historial_detaials->tour_id ?? '') == $tour->id ? 'selected' : '' }}>
+                        {{ old('tour_id', $historial_details->tour_id ?? '') == $tour->id ? 'selected' : '' }}>
                         {{ $tour->name }}
                     </option>
                 @endforeach
