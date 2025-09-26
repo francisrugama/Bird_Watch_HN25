@@ -21,16 +21,18 @@
                             <tr>
                                 <th scope="col">Nombre el cliente</th>
                                 <th scope="col">Correo</th>
-                                 <th scope="col">Numero teléfonico</th>                          
+                                 <th scope="col">Numero teléfonico</th>
                                 <th scope="col">Edad</th>
-                                <th scope="col">language</th>
+                                <th scope="col">Lenguaje</th>
                                  <th scope="col">Nacionalidad</th>
-                                <th scope="col">gender</th>
+                                <th scope="col">Genero</th>
                                 <th scope="col">Identificación</th>
+                                <th scope="col">Numero de Identificación</th>
+                                <th scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($clients as $client)
+                            @foreach ($visitors as $Visitor)
                                 <tr>
 
                                     <td>{{ $visitor->name}}</td>
@@ -41,6 +43,8 @@
                                     <td>{{ $visitor->country}}</td>
                                     <td>{{ $visitor->gender}}</td>
                                     <td>{{ $visitor->identification_type}}</td>
+                                    <td>{{ $visitor->identification_number}}</td>
+
 
                                     <td style="white-space: nowrap; display: flex; align-items: center;">
                                         <a href="{{ route('visitors.show', $visitor->id) }}" class="btn btn-primary btn-sm" style="margin-right: 5px">

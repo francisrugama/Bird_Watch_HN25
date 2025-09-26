@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="email">correo</label>
+                <label class="form-control-label" for="email">Correo</label>
                 <input type="text" id="email" name="age" class="form-control form-control-alternative"
                     placeholder="ingresar el correo"
                     value="{{ old('email', $visitors->email) }}">
@@ -75,7 +75,7 @@
     </div>
 
 
- 
+
 
 
 
@@ -96,17 +96,29 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="identification_type">Identificación</label>
-                <input type="number" id="identification_type" name="identification_type" class="form-control form-control-alternative"
+                <label class="form-control-label" for="identification_type">Tipo de Identificación</label>
+                <input type="text" id="identification_type" name="identification_type" class="form-control form-control-alternative"
                     placeholder="Ingresar su numero de cédula"
                     value="{{ old('identification_type', $visitors->identification_type) }}">
             </div>
         </div>
     </div>
 
-    
 
-    
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="form-control-label" for="identification_number">Numero de Identificación</label>
+                <input type="number" id="identification_number" name="identification_number" class="form-control form-control-alternative"
+                    placeholder="Ingresar su numero de cédula"
+                    value="{{ old('identification_number', $visitors->identification_number) }}">
+            </div>
+        </div>
+    </div>
+
+
+
+
 
 
 
