@@ -60,7 +60,7 @@
                                         </a>
                                         <form action="{{ route('places.destroy', $place->id) }}" method="POST"
                                             style="display: inline-block; margin: 0; display: flex; align-items: center;"
-                                            onsubmit="return confirm('¿Está seguro que desea eliminar este lugar? ¡Esta acción no se puede deshacer.!')">
+                                            onsubmit="return confirm('¿Estás seguro que desea eliminar este lugar? ¡Esta acción no se puede deshacer.!')">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm">
