@@ -16,7 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('availability_schedule');
-            $table->string('description');
+            $table->string('type_reserve');
+            $table->text('description');
+
 
 
             $table->integer(column: 'tour_id')->unsigned();
