@@ -24,6 +24,7 @@ class ReservationRequest extends FormRequest
         return [
             'status' => 'required|string|max:255',
             'people' => 'required|string|max:45',
+            'people_count'=> 'required|string|max:3',
             'reservation_date' => 'required|date',
             'other_service' => 'required|string|max:200',
             'price_person' => 'required|decimal:0,2',
@@ -41,6 +42,10 @@ class ReservationRequest extends FormRequest
             'people.required' => 'El número de personas es obligatorio.',
             'people.string' => 'El campo personas debe ser un texto válido.',
             'people.max' => 'El campo personas no puede superar los 45 caracteres.',
+
+            'people_count.required'=> 'La cantidad de personas es requerida',
+            'People_count.string'=> 'La Cantidad de personas debe de llevar solo caracteres',
+            'People_count.max'=> 'La Cantidad de personas no puede exceder el maximo de 3 caracteres',
 
             'reservation_date.required' => 'La fecha de la reservación es obligatoria.',
             'reservation_date.date' => 'La fecha de la reservación debe tener un formato válido.',

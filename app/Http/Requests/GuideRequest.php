@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class GuideRequest extends FormRequest
 {
@@ -24,7 +25,7 @@ class GuideRequest extends FormRequest
         return [
             'name' => 'required|string|min:8|max:255',
             'email' => ['required', 'max:255', Rule::unique('guides')->ignore($this->guide)],
-            'Phone' => ['nullable', 'string', 'max:15', Rule::unique('guides')->ignore($this->guide)],
+            'telephone' => ['nullable', 'string', 'max:15', Rule::unique('guides')->ignore($this->guide)],
             'experience' => 'required|string|max:255',
             'language' => 'required|string|max:55',
             'age' => 'equired|int',
@@ -43,8 +44,8 @@ class GuideRequest extends FormRequest
             'email.max' => 'El correo electrónico no puede tener más de 255 caracteres.',
             'email.unique' => 'El correo electrónico ya se ha tomado.',
 
-            'phone.required' => 'El número teléfonico es obligatorio.',
-            'phone.max' => 'El número teléfonico no puede tener más de 15 caracteres.',
+            'telephone.required' => 'El número teléfonico es obligatorio.',
+            'telephone.max' => 'El número teléfonico no puede tener más de 15 caracteres.',
             'phone.unique' => 'El número teléfonico ya se ha tomado.',
 
             'experience.required' => 'La experiencia es obligatoria.',

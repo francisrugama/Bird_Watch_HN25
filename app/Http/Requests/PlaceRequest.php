@@ -23,10 +23,10 @@ class PlaceRequest extends FormRequest
     {
         return [
             'name' => 'required|string|min:8|max:255',
+            'description' => 'required|string',
             'address' => 'required|string|min:8|max:255',
             'availability_schedule' => 'required|string|max:200',
             'type_reserve' => 'required|string|max:200',
-            'description' => 'required|string',
             'tour_id' => 'required',
             'hotel_id' => 'required',
         ];
@@ -38,6 +38,9 @@ class PlaceRequest extends FormRequest
             'name.string' => 'El nombre debe ser un texto válido.',
             'name.min' => 'El nombre debe tener al menos 8 caracteres.',
             'name.max' => 'El nombre no puede superar los 255 caracteres.',
+
+            'description.required' => 'La descripción es obligatoria.',
+            'description.string' => 'La descripción debe ser un texto válido.',
 
             'address.required' => 'La dirección es obligatoria.',
             'address.string' => 'La dirección debe ser un texto válido.',
@@ -51,10 +54,7 @@ class PlaceRequest extends FormRequest
             'type_reserve.required' => 'El tipo de reserva es obligatorio.',
             'type_reserve.string' => 'El tipo de reserva debe ser un texto válido.',
             'type_reserve.max' => 'El tipo de reserva no puede superar los 200 caracteres.',
-
-            'description.required' => 'La descripción es obligatoria.',
-            'description.string' => 'La descripción debe ser un texto válido.',
-
+            
             'tour_id.required' => 'Debe seleccionar un tour válido.',
 
             'hotel_id.required' => 'Debe seleccionar un hotel válido.',

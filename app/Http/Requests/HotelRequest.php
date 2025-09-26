@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class HotelRequest extends FormRequest
 {
@@ -28,7 +29,7 @@ class HotelRequest extends FormRequest
             'address' => 'required|string|min:8|max:255',
             'status' => 'required|string|max:255',
             'price_night' => 'required|decimal:0,2',
-            'phone' => ['nullable', 'string', 'max:15', Rule::unique('hotels')->ignore($this->hotel)],
+            'telephone' => ['nullable', 'string', 'max:15', Rule::unique('hotels')->ignore($this->hotel)],
             'responsible' => 'required|string|max:255',
             'qualification' => 'required|string',
         ];
@@ -59,9 +60,9 @@ class HotelRequest extends FormRequest
             'price_night.required' => 'El precio por noche es obligatorio.',
             'price_night.decimal' => 'El precio por noche debe tener máximo 2 decimales.',
 
-            'phone.string' => 'El teléfono debe ser un texto válido.',
-            'phone.max' => 'El teléfono no puede superar los 15 caracteres.',
-            'phone.unique' => 'El teléfono ya está registrado para otro hotel.',
+            'telephone.string' => 'El teléfono debe ser un texto válido.',
+            'telephone.max' => 'El teléfono no puede superar los 15 caracteres.',
+            'telephone.unique' => 'El teléfono ya está registrado para otro hotel.',
 
             'responsible.required' => 'El responsable es obligatorio.',
             'responsible.string' => 'El responsable debe ser un texto válido.',

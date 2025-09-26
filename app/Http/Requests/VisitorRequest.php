@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class VisitorRequest extends FormRequest
 {
@@ -24,13 +25,13 @@ class VisitorRequest extends FormRequest
         return [
             'name' => 'required|string|min:8|max:255',
             'email' => ['required', 'max:255', Rule::unique('visitors')->ignore($this->visitor)],
-            'Phone' => ['nullable', 'string', 'max:15', Rule::unique('visitors')->ignore($this->visitor)],
+            'telephone' => ['nullable', 'string', 'max:15', Rule::unique('visitors')->ignore($this->visitor)],
             'age' => 'required|int',
             'language' => 'required|string|max:55',
             'country' => 'required|string|max:39',
             'gender' => 'required',
             'identification_type' => ['nullable', 'string', 'min:16', 'max:20' , Rule::unique('visitors')->ignore($this->visitor)],
-            'Number_identification' => ['nullable', 'string', 'min:16', 'max:20' , Rule::unique('visitors')->ignore($this->visitor)],
+            'Identification_number' => ['nullable', 'string', 'min:16', 'max:20' , Rule::unique('visitors')->ignore($this->visitor)],
         ];
     }
     public function messages(): array
@@ -67,10 +68,10 @@ class VisitorRequest extends FormRequest
             'identification_type.max' => 'El tipo de identificación no puede superar los 20 caracteres.',
             'identification_type.unique' => 'El tipo de identificación ya está registrado.',
 
-            'Number_identification.string' => 'El número de identificación debe ser un texto válido.',
-            'Number_identification.min' => 'El número de identificación debe tener al menos 16 caracteres.',
-            'Number_identification.max' => 'El número de identificación no puede superar los 20 caracteres.',
-            'Number_identification.unique' => 'El número de identificación ya está registrado.',
+            'Identification_number.string' => 'El número de identificación debe ser un texto válido.',
+            'Identification_number.min' => 'El número de identificación debe tener al menos 16 caracteres.',
+            'Identification_number.max' => 'El número de identificación no puede superar los 20 caracteres.',
+            'Identification_number.unique' => 'El número de identificación ya está registrado.',
         ];
     }
 }
