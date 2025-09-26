@@ -97,7 +97,7 @@
 <div class="pl-lg-4">
     <div class="form-group">
         <button type="submit" class="btn btn-primary">
-            <i class="fas fa-save"></i>Guardar materia prima
+            <i class="fas fa-save"></i>Guardar Lugar
         </button>
     </div>
 </div>
