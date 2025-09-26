@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('language');
             $table->string('country');
             $table->string('gender', 10);
-            $table->string('identification_type');
+            $table->string('identification_type',20)->unique();
+            $table->string('identification_number',20)->unique();
             $table->timestamps();
         });
     }

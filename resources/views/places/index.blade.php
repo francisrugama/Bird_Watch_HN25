@@ -23,7 +23,7 @@
                                 <th scope="col">Disponibilidad de horario</th>
                                 <th scope="col">Descripcion</th>
                                 <th scope="col">Recorrido</th>
-                                <th scope="col">Totel</th>
+                                <th scope="col">Hotel</th>
                                 <th scope="col">Acciones</th>
 
                             </tr>
@@ -35,6 +35,7 @@
                                     <td>{{ $place->description }}</td>
                                     <td>{{ $place->address }}</td>
                                     <td>{{ $place->availability_schedule }}</td>
+                                    <td>{{ $place->type_reserve }}</td>
                                     <td>{{ $place->description }}</td>
                                     <td>{{ $place->tour_id }}</td>
                                     <td>{{ $place->hotel_id }}</td>
