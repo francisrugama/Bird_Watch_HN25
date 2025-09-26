@@ -2,10 +2,16 @@
 
 
 use App\Http\Controllers\ProfileController;
-use App\Livewire\Products\ProductList;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PlaceController;
+use App\Http\Controllers\VisitorController;
+use App\Http\Controllers\HotelController;
 use App\Http\Controllers\GuideController;
+use App\Http\Controllers\TourController;
+use App\Http\Controllers\PlaceController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\TourCategoryController;
+use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\HistorialDetailController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,8 +38,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/show', fn () => view('examples.ejemplo.show'))->name('ejemplo.show');
     });
 
-    Route::resource('/suppliers', PlaceController::class);
-    Route::resource('guides', GuideController::class);
+    Route::resource('/suppliers', VisitorController::class);
+    Route::resource('guides', HotelController::class);
+    Route::resource('tours', GuideController::class);
+    Route::resource('places', PlaceController::class);
+    Route::resource('admins', AdminController::class);
+    Route::resource('tour_categories', TourCategoryController::class);
+    Route::resource('reservations', ReservationController::class);
+    Route::resource('historial_details', HistorialDetailController::class);
 
 
     //rutas con controlador y prefix
