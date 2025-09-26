@@ -1,6 +1,6 @@
 @extends('layouts.panel')
 
-@section('title', 'historial/Actualizar')
+@section('title', 'profesor/Actualizar')
 
 @section('content')
 
@@ -10,12 +10,12 @@
                 <div class="row align-items-center">
                     <div class="col-8">
                         <h3 class="mb-0">
-                            <i class="fas fa-plus-circle"x</i> Actualizar historial
+                            <i class="fas fa-plus-circle"x</i> Actualizar profesor
                         </h3>
 
                     </div>
                     <div class="col-4 text-right">
-                        <a href="ff route('historial_detaials.index') ))" class="btn btn-sm btn-primary">
+                        <a href="ff route('historial_details.index') ))" class="btn btn-sm btn-primary">
                             <i class="fas fa-arrow- left"></i> Volver
                         </a>
                     </div>
@@ -23,10 +23,10 @@
             </div>
 
             <div class="card-body container-fluid">
-                <form action="f/ route('historial_detaials.update', $historial_detaials->$id) 1" method="POST">
+                <form action="f/ route('historial_details.update', $historial_details->$id) 1" method="POST">
                     @csrf
                     @method('PUT')
-                    @include('historial_detaials.form')
+                    @include('historial_details.form')
                 </form>
             </div>
         </div>

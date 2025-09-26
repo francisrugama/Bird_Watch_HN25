@@ -7,7 +7,7 @@
                 <div class="card-header border-0">
                     <div class="d-flex justify-content-between align-items-center">
                         <h3 class="mb-0">historial</h3>
-                        <a href="{{ route('historial_detaials.create') }}" class="btn btn-primary">
+                        <a href="{{ route('historial_details.create') }}" class="btn btn-primary">
                             <i class="fas fa-plus"> Nueva historial</i>
                         </a>
                     </div>
@@ -29,28 +29,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($historial_detaials as $historial_detaial)
+                            @foreach ($historial_details as $historial_detail)
                                 <tr>
-                                    <td>{{ $historial_detaial->name }}</td>
-                                    <td>{{ $historial_detaial->status }}</td>
-                                    <td>{{ $historial_detaial->people }}</td>
-                                    <td>{{ $historial_detaial->type_service }}</td>
-                                    <td>{{ $historial_detaial->total }}</td>
-                                    <td>{{ $historial_detaial->reservation->name }}</td>
-                                    <td>{{ $historial_detaial->visitor->name }}</td>
-                                    <td>{{ $historial_detaial->tour->name }}</td>
+                                    <td>{{ $historial_detail->name }}</td>
+                                    <td>{{ $historial_detail->status }}</td>
+                                    <td>{{ $historial_detail->people }}</td>
+                                    <td>{{ $historial_detail->type_service }}</td>
+                                    <td>{{ $historial_detail->total }}</td>
+                                    <td>{{ $historial_detail->reservation->name }}</td>
+                                    <td>{{ $historial_detail->visitor->name }}</td>
+                                    <td>{{ $historial_detail->tour->name }}</td>
 
 
                                     <td style="white-space: nowrap; display: flex; align-items: center;">
-                                        <a href="{{ route('historial_detaials.show', $historial_detaial->$id) }}"
+                                        <a href="{{ route('historial_details.show', $historial_detail->$id) }}"
                                             class="btn btn-primary btn-sm" style="margin-right: 5px;">
                                             <i class="fas fa-eye">Mostrar</i>
                                         </a>
-                                        <a href="{{ route('historial_detaials.edit', $historial_detaial->$id) }}" class="btn btn-info btn-sm"
+                                        <a href="{{ route('historial_details.edit', $historial_detail->$id) }}" class="btn btn-info btn-sm"
                                             style="margin-right: 5px">
                                             <i class="fas fa-edit">Editar</i>
                                         </a>
-                                        <form action="{{ route('historial_detaials.destroy', $historial_detaial->$id) }}" method="POST"
+                                        <form action="{{ route('historial_details.destroy', $historial_detail->$id) }}" method="POST"
                                             style="display: inline-block; margin: 0; display: flex; align-items: center;""
                                             onsubmit="return confirm('¿Está seguro que desea eliminar este historial? Esta acción no se puede deshacer.')">
                                             @csrf
