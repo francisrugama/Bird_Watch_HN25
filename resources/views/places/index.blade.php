@@ -1,5 +1,5 @@
 @extends('layouts.panel')
-@section('title', 'Plaza/Listar')
+@section('title', 'Lugar/Listar')
 
 @section('content')
     <div class="row">
@@ -7,9 +7,9 @@
             <div class="card shadow">
                 <div class="card-header border-0">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h3 class="mb-0">Materia prima</h3>
+                        <h3 class="mb-0">Lugares</h3>
                         <a href="{{ route('places.create') }}" class="btn btn-primary">
-                            <i class="fas fa-plus">Nueva plaza</i>
+                            <i class="fas fa-plus">Nueva Lugar</i>
                         </a>
                     </div>
                 </div>
@@ -36,7 +36,9 @@
                                     <td>{{ $place->address }}</td>
                                     <td>{{ $place->availability_schedule }}</td>
                                     <td>{{ $place->description }}</td>
-                                    <span class= "badge badge-pill badge-primary">{{$raw_material->id}}</span>
+                                    <td>{{ $place->tour_id }}</td>
+                                    <td>{{ $place->hotel_id }}</td>
+                                    <span class= "badge badge-pill badge-primary">{{$place->id}}</span>
                                     <td>
                                     {{$place->hotel->name}}
                                     </td>
@@ -57,7 +59,7 @@
                                         </a>
                                         <form action="{{ route('places.destroy', $place->id) }}" method="POST"
                                             style="display: inline-block; margin: 0; display: flex; align-items: center;"
-                                            onsubmit="return confirm('¿Está seguro que desea eliminar esta materia prima? ¡Esta acción no se puede deshacer.!')">
+                                            onsubmit="return confirm('¿Está seguro que desea eliminar este lugar? ¡Esta acción no se puede deshacer.!')">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm">

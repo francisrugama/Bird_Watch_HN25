@@ -1,5 +1,5 @@
 @extends('layouts.panel')
-@section('title', 'Plaza/mostrar')
+@section('title', 'Lugar/mostrar')
 
 @section('content')
     <div class="col-xl-12 order-x1-1">
