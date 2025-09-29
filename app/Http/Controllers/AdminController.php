@@ -25,26 +25,26 @@ class AdminController extends Controller
         return redirect()->route('admins.index')->with('success', 'administrador creado con exito');
     }
 
-    public function show($id) // Quita el type-hint "int"
+    public function show($id) 
     {
         $admins = Admin::findOrFail($id);
         return view('admins.show', compact('admins'));
     }
 
-    public function edit($id) // Quita el type-hint "int"
+    public function edit($id)
     {
         $admins = Admin::findOrFail($id);
         return view('admins.edit', compact('admins'));
     }
 
-    public function update(AdminRequest $request, $id) // Quita el type-hint "int"
+    public function update(AdminRequest $request, $id)
     {
         $admins = Admin::findOrFail($id);
         $admins->update($request->validated());
         return redirect()->route('admins.index')->with('update', 'administrador actualizado con éxito');
     }
 
-    public function destroy($id) // Quita el type-hint "int"
+    public function destroy($id)
     {
         $admins = Admin::findOrFail($id);
         $admins->delete();

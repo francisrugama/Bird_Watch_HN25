@@ -9,7 +9,7 @@ class TourCategoryController extends Controller
 {
     public function index()
     {
-        $tour_categories = TourCategory::latest()->paginate(10);
+        $tours_categories = TourCategory::latest()->paginate(10);
         return view('tours_categories.index', compact('tours_categories'));
     }
 
