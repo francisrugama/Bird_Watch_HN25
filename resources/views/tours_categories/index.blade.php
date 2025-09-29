@@ -23,21 +23,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($tours_categories as $tours_categorie)
+                            @foreach ($tours_categories as $tours_category)
                                 <tr>
                                     <td>{{ $tours_categorie->name }}</td>
                                     <td>{{ $tours_categorie->description }}</td>
 
                                     <td style="white-space: nowrap; display: flex; align-items: center;">
-                                        <a href="{{ route('tours_categories.show', $tours_categorie->$id) }}"
+                                        <a href="{{ route('tours_categories.show', $tours_category->id) }}"
                                             class="btn btn-primary btn-sm" style="margin-right: 5px;">
                                             <i class="fas fa-eye">Mostrar</i>
                                         </a>
-                                        <a href="{{ route('tours_categories.edit', $tours_categorie->$id) }}" class="btn btn-info btn-sm"
+                                        <a href="{{ route('tours_categories.edit', $tours_category->id) }}" class="btn btn-info btn-sm"
                                             style="margin-right: 5px">
                                             <i class="fas fa-edit">Editar</i>
                                         </a>
-                                        <form action="{{ route('tours_categories.destroy', $tours_categorie->$id) }}" method="POST"
+                                        <form action="{{ route('tours_categories.destroy', $tours_category->id) }}" method="POST"
                                             style="display: inline-block; margin: 0; display: flex; align-items: center;"
                                             onsubmit="return confirm('¿Está seguro que desea eliminar esta categoria de tur? Esta acción no se puede deshacer.')">
                                             @csrf
