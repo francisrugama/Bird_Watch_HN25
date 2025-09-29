@@ -15,7 +15,7 @@ Este repositorio proporciona un proyecto de Laravel que requieren un panel de ad
 
 ## Requisitos Previos
 
-Antes de comenzar a utilizar este prollecto, asegúrate de tener instalado:
+Antes de comenzar a utilizar este prollecto, asegúrate de tener instalado :
 
 - [PHP](https://www.php.net/) >= 8.2
 - [Composer](https://getcomposer.org/)
