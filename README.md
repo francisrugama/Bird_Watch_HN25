@@ -16,7 +16,11 @@ Este repositorio proporciona una plantilla prediseñada para proyectos de Larave
 
 ## Requisitos Previos
 
+<<<<<<< HEAD
 Antes de comenzar a utilizar esta plantilla, asegúrate de tener instalado:
+=======
+Antes de comenzar a utilizar este prollecto, asegúrate de tener instalado :
+>>>>>>> 9a3b1e9 (feed: edit readme)
 
 - [PHP](https://www.php.net/) >= 8.2
 - [Composer](https://getcomposer.org/)
