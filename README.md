@@ -24,7 +24,7 @@
 ## 🛠️ Tecnologías
 
 - **Backend**: Laravel 10+
-- **Frontend**: Argon Dashboard + Tailwind CSS
+- **Frontend**: Dashboard + Tailwind CSS
 - **Base de Datos**: MySQL
 - **Autenticación**: Laravel Breeze
 - **Pagos**: Integración con pasarelas de pago locales
@@ -43,7 +43,7 @@ Antes de instalar el proyecto, asegúrate de tener:
 
 1. **Clona el repositorio**:
    ```bash
-   git clone https://github.com/tuusuario/bird-watch.git
+   git clone https://github.com/francisrugama/Bird_Watch_HN25.git
    cd bird-watch
    ```
 
@@ -85,58 +85,16 @@ Antes de instalar el proyecto, asegúrate de tener:
 8. **Accede a la aplicación**:
    Abre tu navegador en `http://localhost:8000`
 
-## 🗂️ Estructura del Proyecto
-
-```
-bird-watch/
-├── app/
-│   ├── Models/
-│   │   ├── Hotel.php
-│   │   ├── Tour.php
-│   │   ├── BirdSpecies.php
-│   │   └── Reservation.php
-│   ├── Http/Controllers/
-│   │   ├── HotelController.php
-│   │   ├── TourController.php
-│   │   └── BookingController.php
-│   └── Services/
-├── resources/views/
-│   ├── hotels/
-│   ├── tours/
-│   ├── birds/
-│   └── components/
-├── database/
-│   ├── migrations/
-│   └── seeders/
-└── public/
-```
 
 ## 🌟 Características Técnicas
 
-- **Panel Administrativo**: Argon Dashboard integrado
+- **Panel Administrativo**: Dashboard integrado
 - **Diseño Responsive**: Compatible con todos los dispositivos
 - **Sistema de Reservas**: Flujo completo de reservación
 - **Búsqueda Avanzada**: Filtros por especie, ubicación y temporada
 - **Gestión de Usuarios**: Roles y permisos
 - **API RESTful**: Para futuras integraciones móviles
 
-## 🐦 Especies Destacadas
-
-Nicaragua alberga más de 700 especies de aves, incluyendo:
-- Guardabarranco (ave nacional)
-- Quetzal
-- Colibríes
-- Tangaras
-- Rapaces
-
-## 🤝 Contribuir
-
-¡Agradecemos las contribuciones! Por favor:
-1. Haz fork del proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
 
 ## 📄 Licencia
 
