@@ -14,7 +14,7 @@ use App\Http\Controllers\HistorialDetailController;
 use App\Http\Controllers\TourCategoryController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Route::get('/dashboard', function () {
