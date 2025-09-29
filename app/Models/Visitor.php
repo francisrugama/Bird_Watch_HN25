@@ -14,8 +14,10 @@ class Visitor extends Model
         'email',
         'telephone',
         'age',
+        'language',
         'country',
         'gender',
-        'indentifcation_type'
+        'indentifcation_type',
+        'identification_number',
     ];
 }

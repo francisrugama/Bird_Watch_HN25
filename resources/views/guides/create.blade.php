@@ -1,5 +1,5 @@
 @extends('layouts.panel')
- 
+
  @section('title','guias/Actualizar')
 
  @section('content')
@@ -14,14 +14,14 @@
                          <i class="fas fa-plus-circle">
 
                          </i> Actualizar guia
-                    </h3> 
+                    </h3>
                     <div class="col-4 text-right">
                         <a href="{{ route('guides.index') }}" class="btn btn-sm btn-primary">
                             <i class="fas fa-arrow-left"></i> volver
-                        </a> 
-                    </div> 
+                        </a>
+                    </div>
                           <div class="card-body container-fluid">
-                               <form action="{{ route('guides.update', $guides->id) }}" method="POST">
+                               <form action="{{ route('guides.store' ) }}" method="POST">
                                   @csrf
                                   @method('PUT')
                                   @include('guides.form')
@@ -31,5 +31,5 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
         @endsection

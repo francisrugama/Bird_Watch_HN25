@@ -28,7 +28,7 @@
     <!-- Divider -->
     <hr class="my-3">
     <!-- Heading -->
-    
+
     <!-- Divider -->
     <hr class="my-3">
     <!-- Heading -->
@@ -61,7 +61,7 @@
     <h6 class="navbar-heading text-muted">Ejemplos</h6>
     <!-- Navigation -->
     <ul class="navbar-nav mb-md-3">
-      
+
 
 
     <li class="nav-item {{ Request::route()->named('visitors.index') ? 'active' : '' }}">
@@ -92,9 +92,9 @@
                 </a>
             </li>
 
-            <li class="nav-item {{ Request::route()->named('tours_categories.index') ? 'active' : '' }}">
-                <a class="nav-link {{ Request::route()->named('tours_categories.index') ? 'active' : '' }}"
-                    href="{{ route('tours_categories.index') }}" wire:navigate>
+            <li class="nav-item {{ Request::route()->named('tour_categories.index') ? 'active' : '' }}">
+                <a class="nav-link {{ Request::route()->named('tour_categories.index') ? 'active' : '' }}"
+                    href="{{ route('tour_categories.index') }}" wire:navigate>
                     <i class="fas fa-dove text-orange"></i> Categorias de Recorridos
                 </a>
             </li>

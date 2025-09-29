@@ -9,9 +9,9 @@ use App\Http\Controllers\GuideController;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\TourCategoryController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\HistorialDetailController;
+use App\Http\Controllers\TourCategoryController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -41,12 +41,12 @@ Route::middleware('auth')->group(function () {
     Route::resource('visitors', VisitorController::class);
     Route::resource('hotels', HotelController::class);
     Route::resource('guides', GuideController::class);
-    Route::resource('tours', TourController::class);
     Route::resource('places', PlaceController::class);
     Route::resource('admins', AdminController::class);
+    Route::resource('tours', TourController::class);
     Route::resource('tour_categories', TourCategoryController::class);
     Route::resource('reservations', ReservationController::class);
-    Route::resource('historial_details', HistorialDetailController::class);
+     Route::resource('historial_details', HistorialDetailController::class);
 
 
     //rutas con controlador y prefix
