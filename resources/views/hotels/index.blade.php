@@ -28,7 +28,7 @@
                                 <th scope="col">telefono</th>
                                 <th scope="col">responsable</th>
                                 <th scope="col">calificación</th>
-                                
+
                             </tr>
                         </thead>
                         <tbody>
@@ -36,8 +36,8 @@
                                 <tr>
 
                                     <td>{{ $hotel->name }}</td>
-                                    <td>{{ $hotel->description }}</td>
-                                    <td>{{ $hotel->type_abitation }}</td>
+                                    <td>{{ $hotel->descriptions }}</td>
+                                    <td>{{ $hotel->type_habitation }}</td>
                                     <td>{{ $hotel->address }}</td>
                                     <td>{{ $hotel->status }}</td>
                                     <td>{{ $hotel->price_night }}</td>

@@ -24,7 +24,7 @@ class HotelRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'description' => 'required|string',
+            'descriptions' => 'required|string',
             'type_habitation' => 'required|string|max:255',
             'address' => 'required|string|min:8|max:255',
             'status' => 'required|string|max:255',
@@ -41,8 +41,8 @@ class HotelRequest extends FormRequest
             'name.string' => 'El nombre debe ser un texto válido.',
             'name.max' => 'El nombre no puede superar los 255 caracteres.',
 
-            'description.required' => 'La descripción es obligatoria.',
-            'description.string' => 'La descripción debe ser un texto válido.',
+            'descriptions.required' => 'La descripción es obligatoria.',
+            'descriptions.string' => 'La descripción debe ser un texto válido.',
 
             'type_habitation.required' => 'El tipo de habitación es obligatorio.',
             'type_habitation.string' => 'El tipo de habitación debe ser un texto válido.',
