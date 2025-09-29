@@ -11,7 +11,7 @@
                     </div>
                     <div class="colo-4 text-righ">
                         <a href="{{ route('admins.index') }}" class="btn btn-sm btn-primary">
-                            <i class="fas fa-arrow-left"></i> volver
+                            <i class="fas fa-user-tie"></i></i>volver
                         </a>
                     </div>
                 </div>

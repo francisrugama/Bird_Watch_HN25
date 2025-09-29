@@ -67,7 +67,7 @@
     <li class="nav-item {{ Request::route()->named('visitors.index') ? 'active' : '' }}">
             <a class="nav-link {{ Request::route()->named('visitors.index') ? 'active' : '' }}"
                 href="{{ route('visitors.index') }}" wire:navigate>
-                <i class="fas fa-dove text-orange"></i> Visitantes
+                <i class="fas fa-walking text-orange"></i> Visitantes
             </a>
         </li>
 

@@ -16,7 +16,7 @@
                     </div>
                     <div class="col-4 text-right">
                         <a href="ff route('admins.index') ))" class="btn btn-sm btn-primary">
-                            <i class="fas fa-arrow- left"></i> Volver
+                            <i class="fas fa-list"></i> volver
                         </a>
                     </div>
                 </div>
