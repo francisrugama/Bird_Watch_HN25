@@ -7,7 +7,7 @@ use App\Models\Tour;
 use App\Http\Request\TourRequest;
 use App\Models\Guide;
 use App\Models\Reservation;
-use App\Models\Tours_categorie;
+use App\Models\TourCategory;
 use App\Models\Admin;
 
 class TourController extends Controller
