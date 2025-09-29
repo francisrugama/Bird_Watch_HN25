@@ -6,7 +6,7 @@
             <div class="card shadow">
                 <div class="card-header border-0">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h3 class="mb-0">aministradores</h3>
+                        <h3 class="mb-0">Administrador</h3>
                         <a href="{{ route('admins.create') }}" class="btn btn-primary">
                             <i class="fas fa-plus"> Nuevo aministrador</i>
                         </a>
