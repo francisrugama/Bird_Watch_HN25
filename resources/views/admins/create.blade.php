@@ -19,7 +19,7 @@
             <div class="card-body container-fluid">
                 <form action="{{ route('admins.store') }}" method="POST">
                     @csrf
-                    @include('admins.from')
+                    @include('admins.form')
                 </form>
             </div>
         </div>
