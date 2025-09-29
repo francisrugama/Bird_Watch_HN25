@@ -38,9 +38,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/show', fn () => view('examples.ejemplo.show'))->name('ejemplo.show');
     });
 
-    Route::resource('/suppliers', VisitorController::class);
-    Route::resource('guides', HotelController::class);
-    Route::resource('tours', GuideController::class);
+    Route::resource('visitors', VisitorController::class);
+    Route::resource('hotels', HotelController::class);
+    Route::resource('guides', GuideController::class);
+    Route::resource('tours', TourController::class);
     Route::resource('places', PlaceController::class);
     Route::resource('admins', AdminController::class);
     Route::resource('tour_categories', TourCategoryController::class);
@@ -52,7 +53,8 @@ Route::middleware('auth')->group(function () {
 
 
     //rutas de posts de tipo resource
-    
+
 });
 
 require __DIR__ . '/auth.php';
+
