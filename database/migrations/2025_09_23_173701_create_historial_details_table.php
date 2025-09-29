@@ -20,16 +20,13 @@ return new class extends Migration
             $table->decimal('total',8, 2);
 
             $table->integer('reservation_id')->unsigned();
-            $table->foreign('reservation_id')->references('id')->on('reservations')
-            ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('reservation_id')->references('id')->on('reservations')->onDelete('cascade')->onUpdate('cascade');
 
             $table->integer('visitor_id')->unsigned();
-            $table->foreign('visitor_id')->references('id')->on('visitors')
-            ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('visitor_id')->references('id')->on('visitors')->onDelete('cascade')->onUpdate('cascade');
 
             $table->integer('tour_id')->unsigned();
-            $table->foreign('tour_id')->references('id')->on('tours')
-            ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('tour_id')->references('id')->on('tours')->onDelete('cascade')->onUpdate('cascade');
 
 
             $table->timestamps();

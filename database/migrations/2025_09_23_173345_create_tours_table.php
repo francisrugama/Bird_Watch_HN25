@@ -23,20 +23,16 @@ return new class extends Migration
             $table->string('max_capacity');
 
             $table->integer('reservation_id')->unsigned();
-            $table->foreign('reservation_id')->references('id')->on('reservations')
-            ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('reservation_id')->references('id')->on('reservations') ->onDelete('cascade')->onUpdate('cascade');
 
             $table->integer('guide_id')->unsigned();
-            $table->foreign('guide_id')->references('id')->on('guides')
-            ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('guide_id')->references('id')->on('guides')->onDelete('cascade')->onUpdate('cascade');
 
             $table->integer('tour_category_id')->unsigned();
-            $table->foreign('tour_category_id')->references('id')->on('tours_categories')
-            ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('tour_category_id')->references('id')->on('tours_categories')->onDelete('cascade')->onUpdate('cascade');
 
             $table->integer('admin_id')->unsigned();
-            $table->foreign('admin_id')->references('id')->on('admins')
-            ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

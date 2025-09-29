@@ -37,7 +37,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="email">
-                                    <i class="fa fa-user"></i> correo
+                                    <i class="fa fa-user"></i> Correo
                                 </label>
                                 <p>{{ $visitor->email }}</p>
                             </div>
@@ -48,7 +48,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="telephone">
-                                    <i class="fa fa-user"></i> numero telefonico
+                                    <i class="fa fa-user"></i> Numero telefonico
                                 </label>
                                 <p>{{ $visitor->telephone }}</p>
                             </div>
@@ -59,7 +59,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="age">
-                                    <i class="fas fa-envelope"></i> edad
+                                    <i class="fas fa-envelope"></i> Edad
                                 </label>
                                 <p>{{ $visitor->age }}</p>
                             </div>
@@ -70,7 +70,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="language">
-                                    <i class="fa fa-user"></i> idioma
+                                    <i class="fa fa-user"></i> Idioma
                                 </label>
                                 <p>{{ $visitor->language }}</p>
                             </div>
@@ -81,7 +81,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="country">
-                                    <i class="fa fa-user"></i> nacionalidad
+                                    <i class="fa fa-user"></i> Nacionalidad
                                 </label>
                                 <p>{{ $visitor->country }}</p>
                             </div>
@@ -92,7 +92,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="gender">
-                                    <i class="fa fa-user"></i> genero
+                                    <i class="fa fa-user"></i> Genero
                                 </label>
                                 <p>{{ $visitor->gender }}</p>
                             </div>
@@ -102,15 +102,24 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label class="form-control-label" for="identification">
-                                    <i class="fa fa-user"></i> identificacion
+                                <label class="form-control-label" for="identification_type">
+                                    <i class="fa fa-user"></i> Tipo de identificacion
                                 </label>
                                 <p>{{ $visitor->identification_type }}</p>
                             </div>
                         </div>
                     </div>
 
-
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" for="identification_number">
+                                    <i class="fa fa-user"></i> Tipo de identificacion
+                                </label>
+                                <p>{{ $visitor->identification_number }}</p>
+                            </div>
+                        </div>
+                    </div>
 
 
                 </div>
