@@ -13,8 +13,8 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="email">correo</label>
-                <input type="text" id="email" name="age" class="form-control form-control-alternative"
+                <label class="form-control-label" for="email">Correo</label>
+                <input type="text" id="email" name="email" class="form-control form-control-alternative"
                     placeholder="ingresar el correo"
                     value="{{ old('email', $visitors->email) }}">
             </div>
@@ -25,7 +25,7 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <label class="form-control-label" for="telephone">Numero de celular</label>
-                <input type="number" id="telephone" name="telephone" class="form-control form-control-alternative"
+                <input type="text" id="telephone" name="telephone" class="form-control form-control-alternative"
                     placeholder="Ingresar el numero de celular del cliente"
                     value="{{ old('telephone', $visitors->telephone) }}">
             </div>
@@ -51,7 +51,7 @@
 <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="language">language</label>
+                <label class="form-control-label" for="language">Idioma</label>
                 <input type="text" id="language" name="language" class="form-control form-control-alternative"
                     placeholder="Ingresar el idioma"
                     value="{{ old('language', $visitors->language) }}">
@@ -75,7 +75,7 @@
     </div>
 
 
- 
+
 
 
 
@@ -96,17 +96,29 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="identification_type">Identificación</label>
-                <input type="number" id="identification_type" name="identification_type" class="form-control form-control-alternative"
-                    placeholder="Ingresar su numero de cédula"
+                <label class="form-control-label" for="identification_type">Tipo de Identificación</label>
+                <input type="text" id="identification_type" name="identification_type" class="form-control form-control-alternative"
+                    placeholder="Ingresar el tipo de identificación"
                     value="{{ old('identification_type', $visitors->identification_type) }}">
             </div>
         </div>
     </div>
 
-    
 
-    
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="form-control-label" for="identification_number">Numero de Identificación</label>
+                <input type="Text" id="identification_number" name="identification_number" class="form-control form-control-alternative"
+                    placeholder="Ingresar su numero de cédula"
+                    value="{{ old('identification_number', $visitors->identification_number) }}">
+            </div>
+        </div>
+    </div>
+
+
+
+
 
 
 
