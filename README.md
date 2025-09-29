@@ -3,20 +3,19 @@
 [![Estado de la construcción](https://img.shields.io/badge/estado-construcci%C3%B3n_exitosa-brightgreen.svg)](https://github.com/tuusuario/turepositorio)
 [![Licencia](https://img.shields.io/badge/licencia-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-Este repositorio proporciona una plantilla prediseñada para proyectos de Laravel que requieren un panel de administración. La plantilla está integrada con Argon Dashboard, una plantilla de panel de administración hermosa y de código abierto desarrollada por Creative Tim.
+Este repositorio proporciona un proyecto de Laravel que requieren un panel de administración. el prollecto está integrado con bird wacht Dashboard, un prollecto de panel de administración hermosa y de código abierto desarrollada por dragon work.
 
 ## Características
 
-- Integración de Argon Dashboard para una interfaz de usuario elegante y moderna.
+- Integración de bird wacht Dashboard para una interfaz de usuario elegante y moderna.
 - Estructura de carpetas predefinida para una organización eficiente del código.
-- Vistas predefinidas para páginas comunes como inicio, perfil, ajustes, etc.
 - Formularios predefinidos con validaciones básicas para una rápida implementación.
 - Autenticación de usuario lista para usar con páginas de inicio de sesión y registro.
 - Documentación clara y detallada para ayudar a los desarrolladores a comenzar rápidamente.
 
 ## Requisitos Previos
 
-Antes de comenzar a utilizar esta plantilla, asegúrate de tener instalado:
+Antes de comenzar a utilizar este prollecto, asegúrate de tener instalado :
 
 - [PHP](https://www.php.net/) >= 8.2
 - [Composer](https://getcomposer.org/)
@@ -28,13 +27,13 @@ Antes de comenzar a utilizar esta plantilla, asegúrate de tener instalado:
 1. Clona este repositorio en tu máquina local:
 
     ```bash
-    git clone https://github.com/StevenU21/argon](https://github.com/limberrodriguezCT/Argon.git
+    git clone https://github.com/francisrugama/Bird_Watch_HN25.git](https://github.com/limberrodriguezCT/Argon.git
     ```
 
 2. Navega a la carpeta del proyecto:
 
     ```bash
-    cd argon
+    cd Bird_Watch_HN25
     ```
 
 3. Instala las dependencias PHP usando Composer:
