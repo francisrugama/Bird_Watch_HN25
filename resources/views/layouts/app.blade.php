@@ -96,7 +96,7 @@
                 <div class="header-body text-center mb-7">
                     <div class="row justify-content-center">
                         <div class="col-lg-5 col-md-6">
-                            <h1 class="text-black">¡Bienvenido to Birdwatch!</h1>
+                            <h1 class="text-black">¡Bienvenido a Birdwatch!</h1>
                             <p class="text-lead text-light">Inicia Sesión o crea una Cuenta para Continuar.</p>
                         </div>
                     </div>

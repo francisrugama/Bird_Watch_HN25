@@ -1,5 +1,5 @@
 @extends('layouts.panel')
-@section('title', 'aministradores')
+@section('title', 'Administrador')
 @section('content')
     <div class="row">
         <div class="col">
@@ -37,15 +37,15 @@
                                     <td>{{ $admin->gender }}</td>
 
                                     <td style="white-space: nowrap; display: flex; align-items: center;">
-                                        <a href="{{ route('admins.show', $admin->$id) }}"
+                                        <a href="{{ route('admins.show', $admin->id) }}"
                                             class="btn btn-primary btn-sm" style="margin-right: 5px;">
                                             <i class="fas fa-eye">Mostrar</i>
                                         </a>
-                                        <a href="{{ route('admins.edit', $admin->$id) }}" class="btn btn-info btn-sm"
+                                        <a href="{{ route('admins.edit', $admin->id) }}" class="btn btn-info btn-sm"
                                             style="margin-right: 5px">
                                             <i class="fas fa-edit">Editar</i>
                                         </a>
-                                        <form action="{{ route('admins.destroy', $admin->$id) }}" method="POST"
+                                        <form action="{{ route('admins.destroy', $admin->id) }}" method="POST"
                                             style="display: inline-block; margin: 0; display: flex; align-items: center;"
                                             onsubmit="return confirm('¿Está seguro que desea eliminar este aministrador? Esta acción no se puede deshacer.')">
                                             @csrf

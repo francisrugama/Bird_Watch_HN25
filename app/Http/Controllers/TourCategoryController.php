@@ -9,32 +9,32 @@ class TourCategoryController extends Controller
 {
     public function index()
     {
-        $tourCategories = TourCategory::latest()->paginate(10);
-        return view('tours_categories.index', compact('tourCategories'));
+        $tour_categories = TourCategory::latest()->paginate(10);
+        return view('tours_categories.index', compact('tours_categories'));
     }
 
     public function create()
     {
         $tours_categories = new TourCategory();
-        return view('tours_categories.create', compact('tourCategory'));
+        return view('tours_categories.create', compact('tours_categories'));
     }
 
     public function store(TourCategoryRequest $request)
     {
         TourCategory::create($request->validated());
-        return redirect()->route('tours_categories.index')->with('success', 'Categoría de tour creada con éxito');
+        return redirect()->route('tours_categories.index')->with('success', 'Categoría de Recorrido creada con éxito');
     }
 
     public function show(int $id)
     {
         $tours_categories = TourCategory::find($id);
-        return view('tours_categories.show', compact('tourCategory'));
+        return view('tours_categories.show', compact('tours_categories'));
     }
 
     public function edit(int $id)
     {
         $tours_categories = TourCategory::find($id);
-        return view('tours_categories.edit', compact('tourCategory'));
+        return view('tours_categories.edit', compact('tours_categories'));
     }
 
     public function update(TourCategoryRequest $request, int $id)

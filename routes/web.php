@@ -42,9 +42,11 @@ Route::middleware('auth')->group(function () {
     Route::resource('hotels', HotelController::class);
     Route::resource('guides', GuideController::class);
     Route::resource('places', PlaceController::class);
-    Route::resource('admins', AdminController::class);
+    Route::resource('admins', AdminController::class)->parameters([
+    'admins' => 'id'
+]);
     Route::resource('tours', TourController::class);
-    Route::resource('tour_categories', TourCategoryController::class);
+    Route::resource('tours_categories', TourCategoryController::class);
     Route::resource('reservations', ReservationController::class);
      Route::resource('historial_details', HistorialDetailController::class);
 

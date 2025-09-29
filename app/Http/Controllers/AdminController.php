@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-//use Illuminate\Http\Request;
-
 use App\Models\Admin;
 use App\Http\Requests\AdminRequest;
 
@@ -27,29 +25,28 @@ class AdminController extends Controller
         return redirect()->route('admins.index')->with('success', 'administrador creado con exito');
     }
 
-    public function show(int $id)
+    public function show($id) // Quita el type-hint "int"
     {
-        $admins = Admin::find($id);
+        $admins = Admin::findOrFail($id);
         return view('admins.show', compact('admins'));
     }
 
-    public function edit(int $id)
+    public function edit($id) // Quita el type-hint "int"
     {
-        $admins = Admin::find($id);
+        $admins = Admin::findOrFail($id);
         return view('admins.edit', compact('admins'));
     }
 
-    public function update(AdminRequest $request, int $id)
+    public function update(AdminRequest $request, $id) // Quita el type-hint "int"
     {
-    $admins = Admin::find($id);
-    $admins->update($request->validated());
-
-    return redirect()->route('admins.index')->with('update', 'administrador actualizado con éxito');
+        $admins = Admin::findOrFail($id);
+        $admins->update($request->validated());
+        return redirect()->route('admins.index')->with('update', 'administrador actualizado con éxito');
     }
 
-    public function destroy(int $id)
+    public function destroy($id) // Quita el type-hint "int"
     {
-        $admins = Admin::find($id);
+        $admins = Admin::findOrFail($id);
         $admins->delete();
         return redirect()->route('admins.index')->with('deleted', 'administrador eliminado correctamente');
     }
