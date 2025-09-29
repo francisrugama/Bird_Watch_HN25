@@ -1,4 +1,5 @@
 @extends('layouts.panel')
+
 @section('title','Guia/Show')
 
 @section('content')
@@ -35,7 +36,7 @@
                         </div>
                     </div>
                 </div>
-          </div>  
+          </div>
   </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -52,7 +53,7 @@
                 <div class="col-lg-12">
                     <div class="form-group">
                         <label class="form-control-label" for="telephone">
-                            <i class="fas fa-envelope"></i> Numero de telefono 
+                            <i class="fas fa-envelope"></i> Numero de telefono
                         </label>
                            <p>{{ $guides->telephone }}</p>
                     </div>
@@ -85,7 +86,7 @@
                 <div class="col-lg-12">
                     <div class="form-group">
                         <label class="form-control-label" for="age">
-                            <i class="fas fa-envelope"></i> Edad 
+                            <i class="fas fa-envelope"></i> Edad
                         </label>
                            <p>{{ $guides->age }}</p>
                     </div>
@@ -96,7 +97,7 @@
                 <div class="col-lg-12">
                     <div class="form-group">
                         <label class="form-control-label" for="gender">
-                            <i class="fas fa-envelope"></i> Genero 
+                            <i class="fas fa-envelope"></i> Genero
                         </label>
                            <p>{{ $guides->gender }}</p>
                     </div>
