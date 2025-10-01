@@ -27,8 +27,8 @@ class ReservationRequest extends FormRequest
             'people_count'=> 'required|string|max:3',
             'reservation_date' => 'required|date',
             'other_service' => 'required|string|max:200',
-            'price_person' => 'required|decimal:0,2',
-            'total' => 'required|decimal:0.2',
+            'price_person' => 'required|decimal:0,82',
+            'total' => 'required|decimal:0,82',
             'visitor_id' => 'required',
         ];
     }
@@ -54,8 +54,8 @@ class ReservationRequest extends FormRequest
             'other_service.string' => 'El campo otros servicios debe ser un texto válido.',
             'other_service.max' => 'El campo otros servicios no puede superar los 200 caracteres.',
 
-            'price_person.required' => 'El precio por persona es obligatorio.',
-            'price_person.decimal' => 'El precio por persona debe tener máximo 2 decimales.',
+            'price_per_person.required' => 'El precio por persona es obligatorio.',
+            'price_per_person.decimal' => 'El precio por persona debe tener máximo 2 decimales.',
 
             'total.required' => 'El total es obligatorio.',
             'total.decimal' => 'El total debe ser un número válido con máximo 2 decimales.',

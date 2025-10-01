@@ -71,12 +71,6 @@
                                         <span class="nav-link-inner--text">Login</span>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link nav-link-icon text-white" href="{{ route('profile.edit') }}">
-                                        <i class="ni ni-single-02"></i>
-                                        <span class="nav-link-inner--text">Profile</span>
-                                    </a>
-                                </li>
                                 @if (Route::has('register'))
                                     <li class="nav-item">
                                         <a class="nav-link nav-link-icon text-white" href="{{ route('register') }}">
@@ -98,11 +92,7 @@
                 <div class="header-body text-center mb-7">
                     <div class="row justify-content-center">
                         <div class="col-lg-5 col-md-6">
-<<<<<<< HEAD
-                            <h1 class="text-black">¡Bienvenido a Birdwatch!</h1>
-=======
                             <h1 class="text-white font-weight-bold">¡Bienvenido a Birdwatch!</h1>
->>>>>>> f4faf1e (feat:i fixed somo views)
                             <p class="text-lead text-light">Inicia Sesión o crea una Cuenta para Continuar.</p>
                         </div>
                     </div>
@@ -123,7 +113,7 @@
             <div class="container">
                 <div class="row align-items-center justify-content-xl-between">
                     <div class="col-xl-6">
-                        
+
                     </div>
                     <div class="col-xl-6">
                         <ul class="nav nav-footer justify-content-center justify-content-xl-end">
@@ -133,7 +123,7 @@
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-white">Soporte</a>
                             </li>
-                        </ul>   
+                        </ul>
                     </div>
                 </div>
             </div>

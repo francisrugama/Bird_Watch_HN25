@@ -30,7 +30,7 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <label class="form-control-label" for="type_activity">Tipo de actividad</label>
-                <input type="number" id="type_activity" name="type_activity" class="form-control form-control-alternative"
+                <input type="text" id="type_activity" name="type_activity" class="form-control form-control-alternative"
                     placeholder="Ingresar tipo de actividad"
                     value="{{ old('type_activity', $tours->type_activity) }}">
             </div>

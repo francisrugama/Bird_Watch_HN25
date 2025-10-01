@@ -15,12 +15,13 @@ class Reservation extends Model
         'people_count',
         'reservation_date',
         'other_service',
-        'price_per_pice',
+        'price_person',
         'total',
         'visitor_id'
     ];
 
-    public function visitors(){
-        return $this ->belongsTo(Visitor::class);
+     public function visitors ()
+    {
+        return $this->hasMony(Visitor::class);
     }
 }

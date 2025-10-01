@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 //use App\Models\Tution;
 
 use App\Models\Place;
-use App\Http\Request\PlaceRequest;
+use App\Http\Requests\PlaceRequest;
 use App\Models\Tour;
 use App\Models\Hotel;
 
@@ -16,8 +16,8 @@ class PlaceController extends Controller
 
     public function index()
     {
-        $historials = Place::with('tours, hotels')->paginate(10);
-        return view('historials.index', compact('historials'));
+        $places = Place::with('tours, hotels')->paginate(10);
+        return view('places.index', compact('places'));
     }
 
     public function create()
@@ -25,7 +25,7 @@ class PlaceController extends Controller
         $places = new Place();
         $tours = Tour::all();
         $hotels = Hotel::all();
-        return view('places.create', compact('places, tours, hotels'));
+        return view('places.create', compact('places', 'tours', 'hotels'));
     }
 
     public function store(PlaceRequest $request)

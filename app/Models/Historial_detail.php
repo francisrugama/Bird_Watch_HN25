@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class HistorialDetail extends Model
+class Historial_detail extends Model
 {
     use HasFactory;
 
@@ -25,7 +25,7 @@ class HistorialDetail extends Model
     }
 
     public function visitors(){
-        return $this->belongsTo(Visitor::class);   
+        return $this->belongsTo(Visitor::class);
     }
 
     public function tours(){

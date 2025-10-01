@@ -27,7 +27,7 @@
                                 <th scope="col">precio por personas</th>
                                 <th scope="col">total</th>
                                 <th scope="col">id del visitante</th>
-                                
+
                             </tr>
                         </thead>
                         <tbody>
@@ -39,7 +39,7 @@
                                     <td>{{ $reservation->people_count}}</td>
                                     <td>{{ $reservation->reservation_date}}</td>
                                     <td>{{ $reservation->other_service}}</td>
-                                    <td>{{ $reservation->price_per_person}}</td>
+                                    <td>{{ $reservation->price_person}}</td>
                                     <td>{{ $reservation->total}}</td>
                                     <td>{{ $reservation->id_visitor}}</td>
 

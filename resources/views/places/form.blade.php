@@ -28,7 +28,7 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="availability_schedule"></label>
+                <label class="form-control-label" for="availability_schedule"> Fecha de dispunibilidad</label>
                 <input type="date" id="availability_schedule" name="availability_schedule" class="form-control form-control-alternative"
                 placeholder="ingresar disponibilidad de horario"
                 value="{{ old('availability_schedule', $places->availability_schedule)}}">
@@ -42,7 +42,7 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="description">fecha de aquisicion</label>
+                <label class="form-control-label" for="description">Descricción</label>
                 <input type="text" id="description" name="description" class="form-control form-control-alternative"
                 placeholder="fecha de aquisicion"
                 value="{{ old('description', $places->description)}}">
@@ -51,44 +51,52 @@
         </div>
     </div>
 
-     <div class= "col-lg-6">
-        <div class="form-group">
-            <label class= "form-control-label" for=subject_id>
-                <i class = "fas fa-user-graduate"></i> Seleccionar Recorrido
-
-                     </label>
-                     <select name="tour_id" id="tour_id" class="form-control form-control-alternative">
-                        <option disable selected->Seleccionar Recorrido</option>
-                        @foreach ($tours as $tour)
-                        <option value="{{ $tour->id }}"
-                        {{ old('tour_id', $places->tour_id ?? '')== $tour->id ? 'selected' : ""}}>
-                        {{ $place->name}}
-                  </option>
-                @endforeach
-           </select>
-           </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="form-control-label" for="type_reserve">Tipo de reserva</label>
+                <input type="text" id="type_reserve" name="type_reserve" class="form-control form-control-alternative"
+                placeholder="Tipo de reserva"
+                value="{{ old('type_reserve', $places->type_reserve)}}">
+            </select>
+            </div>
         </div>
+    </div>
 
-
-
-      <div class= "col-lg-6">
+<div class="row">
+    <div class="col-lg-6">
         <div class="form-group">
-            <label class= "form-control-label" for=subject_id>
-                <i class = "fas fa-user-graduate"></i> Seleccionar hotel
-
-                     </label>
-                     <select name="hotel_id" id="hotel_id" class="form-control form-control-alternative">
-                        <option disable selected->Seleccionar hotel</option>
-                        @foreach ($hotels as $hotel)
-                        <option value="{{ $hotel->id }}"
-                        {{ old('hotel_id', $places->hotel_id ?? '')== $hotel->id ? 'selected' : ""}}>
-                        {{ $place->name}}
-                  </option>
+            <label class="form-control-label" for="tour_id">Tours</label>
+            <select id="tour_id" name="tour_id" class="form-control form-control-alternative">
+                <option value="">Seleccionar tour</option>
+                @foreach($tours as $tour)
+                    <option value="{{ $tour->id }}" {{ old('tour_id', $places->tour) == $admin->id ? 'selected' : '' }}>
+                        {{ $tour->name }}
+                    </option>
                 @endforeach
-           </select>
-           </div>
+            </select>
         </div>
- 
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label class="form-control-label" for="hotel_id">Hotel</label>
+            <select id="hotel_id" name="hotel_id" class="form-control form-control-alternative">
+                <option value="">Seleccionar hotel</option>
+                @foreach($hotels as $hotel)
+                    <option value="{{ $hotel->id }}" {{ old('hotel_id', $places->hotel) == $hotel->id ? 'selected' : '' }}>
+                        {{ $hotel->name }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+</div>
+
 
 <hr class="my-4"/>
 
