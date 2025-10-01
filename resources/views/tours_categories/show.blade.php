@@ -28,7 +28,7 @@
                                 <label class="form-control-label" for="name">
                                     <i class="fas fa-user">Nombre</i>
                                 </label>
-                                <p>{{ $tours_categorie->name }}</p>
+                                <p>{{ $tour_categories->name }}</p>
                             </div>
                         </div>
                     </div>

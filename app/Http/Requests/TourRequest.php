@@ -32,7 +32,7 @@ class TourRequest extends FormRequest
             'max_capacity' => 'required|string|max:45',
             'reservations_id' => 'required',
             'guide_id' => 'required',
-            'categorie_id' => 'required',
+            'tour_categorie_id' => 'required',
             'admin_id' => 'required',
         ];
     }
@@ -76,7 +76,7 @@ class TourRequest extends FormRequest
 
             'guide_id.required' => 'El guía es obligatorio.',
 
-            'categorie_id.required' => 'La categoría es obligatoria.',
+            'tour_categorie_id.required' => 'La categoría es obligatoria.',
 
             'admin_id.required' => 'El administrador es obligatorio.',
         ];
