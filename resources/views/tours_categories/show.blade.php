@@ -1,6 +1,6 @@
 @extends('layouts.panel')
 
-@section('title', 'categorias de turs/mostrar')
+@section('title', 'categorias de Recorrido/mostrar')
 
 @section('content')
 
@@ -9,7 +9,7 @@
             <div class="card-header bg-white border-0">
                 <div class="row align-items-center">
                     <div class="col-8">
-                        <h3 class="nb-0"> <i class="fas fa-newspaper"></i> Ver Categoria de tours</h3>
+                        <h3 class="nb-0"> <i class="fas fa-newspaper"></i> Ver Categoria de recorrido</h3>
                     </div>
                     <div class="col-4 text-right">
                         <a href="(f route('tours_categories.index') ])" class="btn btn-sm btn-primary">
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <h6 class="heading-small text-muted mb-4">Información de categorias de turs</h6>
+                <h6 class="heading-small text-muted mb-4">Información de categorias de Recorrido</h6>
                 <div class="pl-1g-4">
 
                     <div class="row">
@@ -28,7 +28,7 @@
                                 <label class="form-control-label" for="name">
                                     <i class="fas fa-user">Nombre</i>
                                 </label>
-                                <p>{{ $tour_categories->name }}</p>
+                                <p>{{ $tours_categories->name }}</p>
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                                 <label class="form-control-label" for="description">
                                     <i class="fas fa-calendar-check">descripcion</i>
                                 </label>
-                                <p>{{ $tour_categorie->description }}</p>
+                                <p>{{ $tours_categories->description }}</p>
                             </div>
                         </div>
                     </div>
@@ -48,3 +48,4 @@
             </div>
         </div>
     </div>
+@endsection
