@@ -19,5 +19,6 @@ class Visitor extends Model
         'gender',
         'indentifcation_type',
         'identification_number',
+        'identification_type'
     ];
 }

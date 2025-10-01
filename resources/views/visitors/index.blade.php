@@ -21,10 +21,10 @@
                             <tr>
                                 <th scope="col">Nombre el cliente</th>
                                 <th scope="col">Correo</th>
-                                 <th scope="col">Numero teléfonico</th>
+                                <th scope="col">Numero teléfonico</th>
                                 <th scope="col">Edad</th>
-                                <th scope="col">Lenguaje</th>
-                                 <th scope="col">Nacionalidad</th>
+                                <th scope="col">Idioma</th>
+                                <th scope="col">Nacionalidad</th>
                                 <th scope="col">Genero</th>
                                 <th scope="col">Identificación</th>
                                 <th scope="col">Numero de Identificación</th>
@@ -32,7 +32,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($visitors as $Visitor)
+                            @foreach ($visitors as $visitor)
                                 <tr>
 
                                     <td>{{ $visitor->name}}</td>

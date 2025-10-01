@@ -1,5 +1,5 @@
 @extends('layouts.panel')
-@section('title', 'Tour')
+@section('title', 'Recorridos')
 
 @section('content')
     <div class="row">
@@ -8,9 +8,9 @@
 
                 <div class="card-header border-0">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h3 class="mb-0">Tours</h3>
+                        <h3 class="mb-0">Recorrido</h3>
                         <a href="{{ route('tours.create') }}" class="btn btn-primary">
-                            <i class="fas fa-plus"></i> Nuevo Tour
+                            <i class="fas fa-plus"></i> Nuevo Recorrido
                         </a>
                     </div>
                 </div>
@@ -46,9 +46,9 @@
                                     <td>{{ $tour->tour_language }}</td>
                                     <td>{{ $tour->max_capacity }}</td>
                                     <td>{{ $tour->id_reservations }}</td>
-                                    <td>{{ $tour->id_guides }}</td>
-                                    <td>{{ $tour->id_categories }}</td>
-                                    <td>{{ $tour->id_admin }}</td>
+                                    <td>{{ $tour->guides_id }}</td>
+                                    <td>{{ $tour->tour_categories_id }}</td>
+                                    <td>{{ $tour->admin_id }}</td>
 
                                     <td style="white-space: nowrap; display: flex; align-items: center;">
                                         <a href="{{ route('tours.show', $tour->id) }}" class="btn btn-primary btn-sm" style="margin-right: 5px">

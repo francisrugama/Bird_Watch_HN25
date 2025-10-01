@@ -23,7 +23,7 @@
                           <div class="card-body container-fluid">
                                <form action="{{ route('guides.store' ) }}" method="POST">
                                   @csrf
-                                  @method('PUT')
+                                  @method('POST')
                                   @include('guides.form')
                                </form>
                           </div>

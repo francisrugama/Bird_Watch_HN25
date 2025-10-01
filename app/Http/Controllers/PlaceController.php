@@ -13,7 +13,7 @@ use App\Models\Hotel;
 
 class PlaceController extends Controller
 {
-    
+
     public function index()
     {
         $historials = Place::with('tours, hotels')->paginate(10);
@@ -42,7 +42,7 @@ class PlaceController extends Controller
        return view('places.show', compact('places'));
     }
 
-    public function edit(imt $id)
+    public function edit(int $id)
     {
         $places = Place::find($id);
         $tours = Tour::all();

@@ -67,7 +67,7 @@
     <li class="nav-item {{ Request::route()->named('visitors.index') ? 'active' : '' }}">
             <a class="nav-link {{ Request::route()->named('visitors.index') ? 'active' : '' }}"
                 href="{{ route('visitors.index') }}" wire:navigate>
-                <i class="fas fa-dove text-orange"></i> Visitantes
+                <i class="fas fa-walking text-orange"></i> Visitantes
             </a>
         </li>
 
@@ -92,9 +92,9 @@
                 </a>
             </li>
 
-            <li class="nav-item {{ Request::route()->named('tour_categories.index') ? 'active' : '' }}">
-                <a class="nav-link {{ Request::route()->named('tour_categories.index') ? 'active' : '' }}"
-                    href="{{ route('tour_categories.index') }}" wire:navigate>
+            <li class="nav-item {{ Request::route()->named('tours_categories.index') ? 'active' : '' }}">
+                <a class="nav-link {{ Request::route()->named('tours_categories.index') ? 'active' : '' }}"
+                    href="{{ route('tours_categories.index') }}" wire:navigate>
                     <i class="fas fa-dove text-orange"></i> Categorias de Recorridos
                 </a>
             </li>

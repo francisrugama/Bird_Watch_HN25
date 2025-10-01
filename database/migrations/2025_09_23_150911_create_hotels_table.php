@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('type_habitation');
             $table->string('address');
             $table->string('status');
-            $table->decimal('price_night', 8, 2);
+            $table->decimal('price_night', 10, 2);
             $table->string('telephone', 15)->unique();
             $table->string('responsible');
             $table->string('qualification');
