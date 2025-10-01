@@ -17,7 +17,7 @@ class Historial_detailController extends Controller
     public function index()
     {
         $historial_details = Historial_detail::with('tours, reservations, visitors')->paginate(10);
-        return view('historial.index', compact('historial'));
+        return view('historial_detaials.index', compact('historial'));
     }
 
     public function create()
