@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 //use App\Models\Tution;
 
 use App\Models\Place;
-use App\Http\Request\PlaceRequest;
+use App\Http\Requests\PlaceRequest;
 use App\Models\Tour;
 use App\Models\Hotel;
 
@@ -42,7 +42,7 @@ class PlaceController extends Controller
        return view('places.show', compact('places'));
     }
 
-    public function edit(imt $id)
+    public function edit(int $id)
     {
         $places = Place::find($id);
         $tours = Tour::all();
