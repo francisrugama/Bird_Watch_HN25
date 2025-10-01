@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 //use App\Models\Tution;
 
 use App\Models\Tour;
-use App\Http\Request\TourRequest;
+use App\Http\Requests\TourRequest;
 use App\Models\Guide;
 use App\Models\Reservation;
-use App\Models\Tours_categorie;
+use App\Models\TourCategory;
 use App\Models\Admin;
 
 class TourController extends Controller
@@ -18,7 +18,7 @@ class TourController extends Controller
     
     public function index()
     {
-        $tours = Tour::with('reservations, guides, tours_categories, admins')->paginate(10);
+        $tours = Tour::with('reservations', 'guides', 'tours_categories', 'admins')->paginate(10);
         return view('tours.index', compact('tours'));
     }
 
@@ -27,15 +27,15 @@ class TourController extends Controller
         $tours = new Tour();
         $guides = Guide::all();
         $reservations = Reservation::all();
-        $tours_categories = Tours_categorie::all();
+        $tours_categories = TourCategory::all();
         $admins = Admin::all();
-        return view('tours.create', compact('tours, reservations, guides, tours_categories, admins'));
+        return view('tours.create', compact('tours', 'reservations', 'guides', 'tours_categories', 'admins'));
     }
 
     public function store(TourRequest $request)
     {
         Tour::create($request->validated());
-        return redirect()->route('tours.index')->with('success', 'el tur a sido creado con exito');
+        return redirect()->route('tours.index')->with('success', 'el Recorrido a sido creado con exito');
     }
 
     public function show(string $id)
@@ -43,19 +43,19 @@ class TourController extends Controller
         $tours = Tour::find($id);
         $guides = Guide::all();
         $reservations = Reservation::all();
-        $tours_categories = Tours_categorie::all();
+        $tours_categories = TourCategory::all();
         $admins = Admin::all();
        return view('tours.show', compact('tours'));
     }
 
-    public function edit(imt $id)
+    public function edit(int $id)
     {
         $tours = Tour::find($id);
         $guides = Guide::all();
         $reservations = Reservation::all();
-        $tours_categories = Tours_categorie::all();
+        $tours_categories = TourCategory::all();
         $admins = Admin::all();
-        return view('tours.edit', compact('tours, reservations, guides, tours_categories, admins'));
+        return view('tours.edit', compact('tours', 'reservations', 'guides', 'tours_categories', 'admins'));
     }
 
     public function update(Request $request, int $id)
@@ -63,13 +63,13 @@ class TourController extends Controller
         $tours = Tour::find($id);
         $tours->update($request->validated());
 
-        return redirect()->route('tours.index')->with('update', 'el tur actualizado con éxito');
+        return redirect()->route('tours.index')->with('update', 'el Recorrido a sido actualizado con éxito');
     }
 
     public function destroy(int $id)
     {
         $tours = Tour::find($id);
         $tours->delete();
-        return redirect()->route('tours.index')->with('deleted', 'el tur eliminado correctamente');
+        return redirect()->route('tours.index')->with('deleted', 'el Recorrido eliminado correctamente');
     }
 }

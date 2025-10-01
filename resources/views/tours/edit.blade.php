@@ -1,6 +1,6 @@
 @extends('layouts.panel')
 
-@section('title', 'Tour/Actualizar')
+@section('title', 'Recorrido/Actualizar')
 
 @section('content')
 
@@ -10,7 +10,7 @@
                 <div class="row align-items-center">
                     <div class="col-8">
                         <h3 class="mb-0">
-                            <i class="fas fa-plus-circle"></i> Registrar Tour</h3>
+                            <i class="fas fa-plus-circle"></i> Registrar Recorrido</h3>
                         </div>
                         <div class="col-4 text-right">
                             <a href="{{ route('tours.index')}}" class="btn btn-sm btn-primary">

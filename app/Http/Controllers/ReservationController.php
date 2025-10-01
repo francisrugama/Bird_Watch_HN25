@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 //use App\Models\Tution;
 
 use App\Models\Reservation;
-use App\Http\Request\ReservationRequest;
+use App\Http\Requests\ReservationRequest;
 use App\Models\Visitor;
 
 class ReservationController extends Controller
@@ -23,7 +23,7 @@ class ReservationController extends Controller
     {
         $reservations = new Reservation();
         $visitors = Visitor::all();
-        return view('reservations.create', compact('reservations, visitors'));
+        return view('reservations.create', compact('reservations', 'visitors'));
     }
 
     public function store(ReservationRequest $request)
@@ -39,7 +39,7 @@ class ReservationController extends Controller
        return view('reservations.show', compact('reservations'));
     }
 
-    public function edit(imt $id)
+    public function edit(int $id)
     {
         $reservations = Reservation::find($id);
         $visitors = Visitor::all();
