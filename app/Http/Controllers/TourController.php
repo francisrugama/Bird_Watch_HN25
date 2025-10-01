@@ -7,7 +7,7 @@ use App\Models\Tour;
 use App\Http\Requests\TourRequest;
 use App\Models\Guide;
 use App\Models\Reservation;
-use App\Models\TourCategory;
+use App\Models\Tour_categorie;
 use App\Models\Admin;
 
 class TourController extends Controller
@@ -23,7 +23,7 @@ class TourController extends Controller
         $tours = new Tour();
         $guides = Guide::all();
         $reservations = Reservation::all();
-        $tours_categories = TourCategory::all();
+        $tours_categories = Tour_categorie::all();
         $admins = Admin::all();
 
 
@@ -48,7 +48,7 @@ class TourController extends Controller
         $tours = Tour::find($id);
         $guides = Guide::all();
         $reservations = Reservation::all();
-        $tours_categories = TourCategory::all();
+        $tours_categories = Tour_categorie::all();
         $admins = Admin::all();
 
 
