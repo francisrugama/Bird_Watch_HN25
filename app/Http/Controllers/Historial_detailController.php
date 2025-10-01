@@ -4,17 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-//use App\Models\Tution;
 
 use App\Models\Historial_detail;
-use App\Http\Request\Historial_detailRequest;
+use App\Http\Requests\Historial_detailRequest;
 use App\Models\Tour;
 use App\Models\Reservation;
 use App\Models\Visitor;
 
 class Historial_detailController extends Controller
 {
-    
+
     public function index()
     {
         $historial_details = Historial_detail::with('tours, reservations, visitors')->paginate(10);
