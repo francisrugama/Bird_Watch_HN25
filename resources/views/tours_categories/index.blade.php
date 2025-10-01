@@ -23,35 +23,34 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($tours_categories as $tours_category)
-                                <tr>
-                                    <td>{{ $tours_categorie->name }}</td>
-                                    <td>{{ $tours_categorie->description }}</td>
 
-                                    <td style="white-space: nowrap; display: flex; align-items: center;">
-                                        <a href="{{ route('tours_categories.show', $tours_category->id) }}"
-                                            class="btn btn-primary btn-sm" style="margin-right: 5px;">
-                                            <i class="fas fa-eye">Mostrar</i>
-                                        </a>
-                                        <a href="{{ route('tours_categories.edit', $tours_category->id) }}" class="btn btn-info btn-sm"
-                                            style="margin-right: 5px">
-                                            <i class="fas fa-edit">Editar</i>
-                                        </a>
-                                        <form action="{{ route('tours_categories.destroy', $tours_category->id) }}" method="POST"
-                                            style="display: inline-block; margin: 0; display: flex; align-items: center;"
-                                            onsubmit="return confirm('¿Está seguro que desea eliminar esta categoria de tur? Esta acción no se puede deshacer.')">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm">
-                                                <i class="fas fa-trash">Eliminar</i>
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                        @foreach ($tours_categories as $tours_categorie)
+
+                            <tr>
+                                <td>{{ $tours_categorie->name }}</td>
+                                <td>{{ $tours_categorie->description }}</td>
+
+                                <td style="white-space: nowrap; display: flex; align-items: center;">
+                                    <a href="{{ route('tours_categories.show', $tours_categorie->id) }}"
+                                        class="btn btn-primary btn-sm" style="margin-right: 5px;">
+                                        <i class="fas fa-eye">Mostrar</i>
+                                    </a>
+
+                                    <a href="{{ route('tours_categories.edit', $tours_categorie->id) }}" class="btn btn-info btn-sm"
+                                        style="margin-right: 5px">
+                                        <i class="fas fa-edit">Editar</i>
+                                    </a>
+
+                                    <form action="{{ route('tours_categories.destroy', $tours_categorie->id) }}" method="POST"
+                                        style="display: inline-block; margin: 0; display: flex; align-items: center;"
+                                        onsubmit="return confirm('¿Está seguro que desea eliminar esta categoría?')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
 
                 <div class="card-footer py-4">
                     <nav aria-label="..." class="d-flex flex-wrap justify-content-center justify-content-lg-start">

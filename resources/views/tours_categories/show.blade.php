@@ -1,16 +1,19 @@
-@extends('layouts.panel') 
+@extends('layouts.panel')
+
 @section('title', 'categorias de turs/mostrar')
+
 @section('content')
+
     <div class="col-x1-12 order-x1-1">
         <div class="card bg-secondary shadow">
             <div class="card-header bg-white border-0">
                 <div class="row align-items-center">
                     <div class="col-8">
-                        <h3 class-"mb-0"><i class-"fas fa-newspaper">Ver categorias de turs</i> </h3>
+                        <h3 class="nb-0"> <i class="fas fa-newspaper"></i> Ver Categoria de tours</h3>
                     </div>
                     <div class="col-4 text-right">
                         <a href="(f route('tours_categories.index') ])" class="btn btn-sm btn-primary">
-                            <i class="fas fa-list">Volver</i> 
+                            <i class="fas fa-list">Volver</i>
                         </a>
                     </div>
                 </div>
@@ -21,22 +24,22 @@
 
                     <div class="row">
                         <div class="col-1g-12">
-                            <div class-"form-group">
+                            <div class="form-group">
                                 <label class="form-control-label" for="name">
-                                    <i class="fas fa-user">Nombre</i> 
+                                    <i class="fas fa-user">Nombre</i>
                                 </label>
-                                <p>{{ $tours_categorie->name }}</p>
+                                <p>{{ $tour_categories->name }}</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class-"col-1g-6">
+                        <div class="col-1g-6">
                             <div class="form-group">
                                 <label class="form-control-label" for="description">
-                                    <i class="fas fa-calendar-check">descripcion</i> 
+                                    <i class="fas fa-calendar-check">descripcion</i>
                                 </label>
-                                <p>{{ $tours_categorie->description }}</p>
+                                <p>{{ $tour_categorie->description }}</p>
                             </div>
                         </div>
                     </div>
