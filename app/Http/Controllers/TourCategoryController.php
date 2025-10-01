@@ -25,7 +25,7 @@ class TourCategoryController extends Controller
         return redirect()->route('tours_categories.index')->with('success', 'Categoría de Recorrido creada con éxito');
     }
 
-    public function show(int $id)
+    public function show(string $id)
     {
         $tours_categories = TourCategory::find($id);
         return view('tours_categories.show', compact('tours_categories'));
