@@ -26,7 +26,7 @@ class Historial_detailRequest extends FormRequest
             'status' => 'required|string|max:55',
             'people' => 'required|string|max:45',
             'type_service' => 'required|string|max:100',
-            'total' => 'required|decimal:0,2',
+            'total' => 'required|decimal:0,6',
             'reservation_id' => 'required',
             'visitor_id' => 'required',
             'tour_id' => 'required'

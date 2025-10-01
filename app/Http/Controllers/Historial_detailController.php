@@ -17,7 +17,7 @@ class Historial_detailController extends Controller
     public function index()
     {
         $historial_details = Historial_detail::with('tours, reservations, visitors')->paginate(10);
-        return view('historial_detaials.index', compact('historial'));
+        return view('historial_details.index', compact('historial_details'));
     }
 
     public function create()
@@ -26,13 +26,13 @@ class Historial_detailController extends Controller
         $tours = Tour::all();
         $reservations = Reservation::all();
         $visitors = Visitor::all();
-        return view('historial_detaials.create', compact('historial_detaials, tours, reservations, visitors'));
+        return view('historial_details.create', compact('historial_details', 'tours', 'reservations', 'visitors'));
     }
 
-    public function store(HistorialRequest $request)
+    public function store(Historial_detailRequest $request)
     {
         Historial_detail::create($request->validated());
-        return redirect()->route('historial_detaials.index')->with('success', 'el historial a sido creado con exito');
+        return redirect()->route('historial_details.index')->with('success', 'el historial a sido creado con exito');
     }
 
     public function show(string $id)
@@ -41,7 +41,7 @@ class Historial_detailController extends Controller
         $tours = Tour::all();
         $reservations = Reservation::all();
         $visitors = Visitor::all();
-       return view('historial_detaials.show', compact('historial_detaials'));
+       return view('historial_details.show', compact('historial_details'));
     }
 
     public function edit(imt $id)
@@ -50,7 +50,7 @@ class Historial_detailController extends Controller
         $tours = Tour::all();
         $reservations = Reservation::all();
         $visitors = Visitor::all();
-        return view('historial_detaials.edit', compact('historial_detaials, tours, reservations, visitors'));
+        return view('historial_details.edit', compact('historial_details, tours, reservations, visitors'));
     }
 
     public function update(Request $request, int $id)
@@ -58,13 +58,13 @@ class Historial_detailController extends Controller
         $historial_details = Historial_detail::find($id);
         $historial_details->update($request->validated());
 
-        return redirect()->route('historial_detaials.index')->with('update', 'el historial actualizado con éxito');
+        return redirect()->route('historial_details.index')->with('update', 'el historial actualizado con éxito');
     }
 
     public function destroy(int $id)
     {
         $historial_details = Historial_detail::find($id);
         $historial_details->delete();
-        return redirect()->route('historial_detaials.index')->with('deleted', 'el historial eliminado correctamente');
+        return redirect()->route('historial_details.index')->with('deleted', 'el historial eliminado correctamente');
     }
 }
