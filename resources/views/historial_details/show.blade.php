@@ -1,4 +1,4 @@
-@extends('layouts.panel') 
+@extends('layouts.panel')
 @section('title', 'historial/mostrar')
 @section('content')
 <div class="col-x1-12 order-x1-1">
@@ -10,7 +10,7 @@
                     </div>
                     <div class="col-4 text-right">
                         <a href="(f route('historial_detaials.index') ])" class="btn btn-sm btn-primary">
-                            <i class="fas fa-list">Volver</i> 
+                            <i class="fas fa-list">Volver</i>
                         </a>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
                         <div class="col-1g-12">
                             <div class-"form-group">
                                 <label class="form-control-label" for="name">
-                                    <i class="fas fa-user">nombre</i> 
+                                    <i class="fas fa-user">nombre</i>
                                 </label>
                                 <p>{{ $historil_detaial->name }}</p>
                             </div>
@@ -34,7 +34,7 @@
                         <div class="col-1g-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="status">
-                                    <i class="fas fa-envelope">etado</i> 
+                                    <i class="fas fa-envelope">etado</i>
                                 </label>
                                 <p>{{ $historil_detaial->status }}</p>
                             </div>
@@ -45,7 +45,7 @@
                         <div class-"col-1g-6">
                             <div class="form-group">
                                 <label class="form-control-label" for="people">
-                                    <i class="fas fa-calendar-check">personas</i> 
+                                    <i class="fas fa-calendar-check">personas</i>
                                 </label>
                                 <p>{{ $historil_detaial->people }}</p>
                             </div>
@@ -56,7 +56,7 @@
                         <div class-"col-1g-6">
                             <div class="form-group">
                                 <label class="form-control-label" for="type_service">
-                                    <i class="fas fa-calendar-check">tipo de servicio</i> 
+                                    <i class="fas fa-calendar-check">tipo de servicio</i>
                                 </label>
                                 <p>{{ $historil_detaial->type_service }}</p>
                             </div>
@@ -67,7 +67,7 @@
                         <div class-"col-1g-6">
                             <div class="form-group">
                                 <label class="form-control-label" for="total">
-                                    <i class="fas fa-calendar-check">total</i> 
+                                    <i class="fas fa-calendar-check">total</i>
                                 </label>
                                 <p>{{ $historil_detaial->total }}</p>
                             </div>
@@ -78,7 +78,7 @@
                         <div class-"col-1g-6">
                             <div class="form-group">
                                 <label class="form-control-label" for="reservation_id">
-                                    <i class="fas fa-calendar-check">reservacion</i> 
+                                    <i class="fas fa-calendar-check">reservacion</i>
                                 </label>
                                 <p>{{ $historil_detaial->reservation_id }}</p>
                             </div>
@@ -89,7 +89,7 @@
                         <div class-"col-1g-6">
                             <div class="form-group">
                                 <label class="form-control-label" for="visitor_id">
-                                    <i class="fas fa-calendar-check">visitante</i> 
+                                    <i class="fas fa-calendar-check">visitante</i>
                                 </label>
                                 <p>{{ $historil_detaial->visitor_id }}</p>
                             </div>
@@ -100,7 +100,7 @@
                         <div class-"col-1g-6">
                             <div class="form-group">
                                 <label class="form-control-label" for="tour_id">
-                                    <i class="fas fa-calendar-check">tur</i> 
+                                    <i class="fas fa-calendar-check">recorido</i>
                                 </label>
                                 <p>{{ $historil_detaial->tour_id }}</p>
                             </div>
