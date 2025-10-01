@@ -44,26 +44,31 @@ Antes de instalar el proyecto, asegúrate de tener:
 1. **Clona el repositorio**:
    ```bash
    git clone https://github.com/francisrugama/Bird_Watch_HN25.git
-   cd bird-watch
+   cd Bird_Watch_HN25
    ```
 
-2. **Instala dependencias PHP**:
+2. **Navega a la carpeta del proyecto:**:
+   ```bash
+   cd Bird_Watch_HN25
+   ```
+
+3. **Instala dependencias PHP**:
    ```bash
    composer install
    ```
 
-3. **Instala dependencias JavaScript**:
+4. **Instala dependencias JavaScript**:
    ```bash
-   npm install && npm run build
+   npm install 
    ```
 
-4. **Configura el entorno**:
+5. **Configura el entorno**:
    ```bash
    cp .env.example .env
    php artisan key:generate
    ```
 
-5. **Configura la base de datos**:
+6. **Configura la base de datos**:
    - Crea una base de datos MySQL
    - Actualiza el archivo `.env` con tus credenciales:
      ```env
@@ -72,17 +77,17 @@ Antes de instalar el proyecto, asegúrate de tener:
      DB_PASSWORD=tu_contraseña
      ```
 
-6. **Ejecuta migraciones y seeders**:
+7. **Ejecuta migraciones y seeders**:
    ```bash
    php artisan migrate --seed
    ```
 
-7. **Inicia el servidor**:
+8. **Inicia el servidor**:
    ```bash
    php artisan serve
    ```
 
-8. **Accede a la aplicación**:
+9. **Accede a la aplicación**:
    Abre tu navegador en `http://localhost:8000`
 
 
