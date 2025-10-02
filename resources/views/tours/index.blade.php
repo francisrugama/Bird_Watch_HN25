@@ -19,18 +19,18 @@
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col">nombre</th>
-                                <th scope="col">descripcion</th>
-                                <th scope="col">tipo de actividad</th>
-                                <th scope="col">duracion</th>
-                                <th scope="col">localidad</th>
-                                <th scope="col">tipo de transporte</th>
-                                <th scope="col">lenguaje del tour</th>
-                                <th scope="col">capacidad máxima</th>
-                                <th scope="col">id de reservacion</th>
-                                <th scope="col">id del guia</th>
-                                <th scope="col">id de categoria</th>
-                                <th scope="col">id del administrador</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Descripcion</th>
+                                <th scope="col">Tipo de actividad</th>
+                                <th scope="col">Duracion</th>
+                                <th scope="col">Localidad</th>
+                                <th scope="col">Tipo de transporte</th>
+                                <th scope="col">Lenguaje del tour</th>
+                                <th scope="col">Capacidad máxima</th>
+                                <th scope="col">Id de reservacion</th>
+                                <th scope="col">Id del guia</th>
+                                <th scope="col">Id de categoria de tour</th>
+                                <th scope="col">Id del administrador</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,8 +47,8 @@
                                     <td>{{ $tour->max_capacity }}</td>
                                     <td>{{ $tour->reservations->status }}</td>
                                     <td>{{ $tour->guides->name }}</td>
-                                    <td>{{ $tour->tour_categories->name }}</td>
-                                    <td>{{ $tour->admin->name }}</td>
+                                    <td>{{ $tour->tours_categories->name }}</td>
+                                    <td>{{ $tour->admins->name }}</td>
 
                                     <td style="white-space: nowrap; display: flex; align-items: center;">
                                         <a href="{{ route('tours.show', $tour->id) }}" class="btn btn-primary btn-sm" style="margin-right: 5px">

@@ -10,7 +10,7 @@ class Tour_categorie extends Model
     use HasFactory;
 
      protected $table = 'tours_categories';
-
+     
     protected $fillable =[
         'name',
         'description'

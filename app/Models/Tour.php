@@ -25,19 +25,23 @@ class Tour extends Model
         'admin_id'
     ];
 
-    public function reservations(){
+    public function reservations ()
+    {
         return $this->belongsTo(Reservation::class, 'reservation_id');
     }
 
-    public function guides(){
+    public function guides ()
+    {
         return $this->belongsTo(Guide::class, 'guide_id');
     }
 
-    public function tour_categories(){
-        return $this->belongsTo(Tour_categorie::class, 'tour_category_id');
+    public function tours_categories()
+    {
+        return $this->belongsTo(Tour_categorie::class, 'tour_categorie_id');
     }
 
-    public function admins(){
+    public function admins()
+    {
         return $this->belongsTo(Admin::class, 'admin_id');
     }
 }

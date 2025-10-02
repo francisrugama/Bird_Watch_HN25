@@ -57,6 +57,8 @@
                     </div>
 
 
+
+
                      <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
@@ -71,10 +73,10 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label class="form-control-label" for=supplier>
-                                    <i class="fas fa-user-graduate">Proveedor</i>
+                                <label class="form-control-label" for=tour_id>
+                                    <i class="fas fa-user-graduate">Tour</i>
                                 </label>
-                                <p>{{ $places->tour->name}}</p>
+                                <p>{{ $places->tours->name }}</p>
                             </div>
                         </div>
                     </div>
@@ -82,10 +84,10 @@
                      <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label class="form-control-label" for=responsible>
-                                    <i class="fas fa-user-graduate">Responsable</i>
+                                <label class="form-control-label" for=hotel_id>
+                                    <i class="fas fa-user-graduate">Hotel</i>
                                 </label>
-                                <p>{{ $places->hotel->name}}</p>
+                                <p>{{ $places->hotels->name }}</p>
                             </div>
                         </div>
                     </div>

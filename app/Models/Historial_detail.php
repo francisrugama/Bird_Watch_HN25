@@ -20,15 +20,15 @@ class Historial_detail extends Model
         'tour_id'
     ];
 
-    public function reservations(){
-        return $this->belongsTo(Reservation::class);
+    public function reservations() {
+        return $this->belongsTo(Reservation::class, 'reservation_id');
     }
 
     public function visitors(){
-        return $this->belongsTo(Visitor::class);
+        return $this->belongsTo(Visitor::class, 'visitor_id');
     }
 
     public function tours(){
-        return $this->belongsTo(Tour::class);
+        return $this->belongsTo(Tour::class, 'tour_id');
     }
 }

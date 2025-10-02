@@ -28,7 +28,7 @@
                                 <label class="form-control-label" for="name">
                                     <i class="fa fa-user"></i> nombre del tour
                                 </label>
-                                <p>{{ $tour->name }}</p>
+                                <p>{{ $tours->name }}</p>
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                                 <label class="form-control-label" for="description">
                                     <i class="fa fa-user"></i> descripcion
                                 </label>
-                                <p>{{ $tour->description }}</p>
+                                <p>{{ $tours->description }}</p>
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                                 <label class="form-control-label" for="type_activity">
                                     <i class="fa fa-user"></i> tipo de actividad
                                 </label>
-                                <p>{{ $tour->type_activity }}</p>
+                                <p>{{ $tours->type_activity }}</p>
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                                 <label class="form-control-label" for="duration">
                                     <i class="fas fa-envelope"></i> duración
                                 </label>
-                                <p>{{ $tour->duration }}</p>
+                                <p>{{ $tours->duration }}</p>
                             </div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                                 <label class="form-control-label" for="location">
                                     <i class="fa fa-user"></i> localidad
                                 </label>
-                                <p>{{ $tour->location }}</p>
+                                <p>{{ $tours->location }}</p>
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                                 <label class="form-control-label" for="type_transport">
                                     <i class="fa fa-user"></i> tipo de transporte
                                 </label>
-                                <p>{{ $tour->type_transport }}</p>
+                                <p>{{ $tours->type_transport }}</p>
                             </div>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                                 <label class="form-control-label" for="tour_language">
                                     <i class="fa fa-user"></i> idioma del tour
                                 </label>
-                                <p>{{ $tour->tour_language }}</p>
+                                <p>{{ $tours->tour_language }}</p>
                             </div>
                         </div>
                     </div>
@@ -108,7 +108,7 @@
                                 <label class="form-control-label" for="max_capacity">
                                     <i class="fa fa-user"></i> capacidad máxima
                                 </label>
-                                <p>{{ $tour->max_capacity }}</p>
+                                <p>{{ $tours->max_capacity }}</p>
                             </div>
                         </div>
                     </div>
@@ -123,7 +123,7 @@
                                 <label class="form-control-label" for="id_reservations">
                                     <i class="fa fa-user"></i> id de reservas
                                 </label>
-                                <p>{{ $tour->id_reservations }}</p>
+                                <p>{{ $tours->reservations->status }}</p>
                             </div>
                         </div>
                     </div>
@@ -139,7 +139,7 @@
                                 <label class="form-control-label" for="id_guides">
                                     <i class="fa fa-user"></i> id de guía
                                 </label>
-                                <p>{{ $tour->id_guides }}</p>
+                                <p>{{ $tours->guides->name }}</p>
                             </div>
                         </div>
                     </div>
@@ -159,7 +159,7 @@
                                 <label class="form-control-label" for="id_tour_categorie">
                                     <i class="fa fa-user"></i> Id de la categoría
                                 </label>
-                                <p>{{ $tour->id_tour_categorie }}</p>
+                                <p>{{ $tours->tours_categories->name }}</p>
                             </div>
                         </div>
                     </div>
@@ -174,7 +174,7 @@
                                 <label class="form-control-label" for="Id_admin">
                                     <i class="fa fa-user"></i> Id del administrador
                                 </label>
-                                <p>{{ $tour->id_admin }}</p>
+                                <p>{{ $tours->admins->name }}</p>
                             </div>
                         </div>
                     </div>
