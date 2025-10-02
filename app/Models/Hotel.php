@@ -20,4 +20,8 @@ class Hotel extends Model
         'responsible',
         'qualification'
     ];
+    public function places ()
+    {
+        return $this->hasMony(Place::class);
+    }
 }
