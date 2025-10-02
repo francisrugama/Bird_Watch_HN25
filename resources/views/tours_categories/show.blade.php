@@ -12,7 +12,7 @@
                         <h3 class="nb-0"> <i class="fas fa-newspaper"></i> Ver Categoria de recorrido</h3>
                     </div>
                     <div class="col-4 text-right">
-                        <a href="(f route('tours_categories.index') ])" class="btn btn-sm btn-primary">
+                        <a href="{{ route('tours_categories.index') }}" class="btn btn-sm btn-primary">
                             <i class="fas fa-list">Volver</i>
                         </a>
                     </div>
