@@ -22,6 +22,6 @@ class Hotel extends Model
     ];
     public function places ()
     {
-        return $this->hasMany(Place::class);
+        return $this->hasMany(Place::class, 'hotel_id');
     }
 }

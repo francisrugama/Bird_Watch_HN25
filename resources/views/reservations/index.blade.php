@@ -41,7 +41,7 @@
                                     <td>{{ $reservation->other_service}}</td>
                                     <td>{{ $reservation->price_person}}</td>
                                     <td>{{ $reservation->total}}</td>
-                                    <td>{{ $reservation->id_visitor}}</td>
+                                    <td>{{ $reservation->visitors->name}}</td>
 
                                     <td style="white-space: nowrap; display: flex; align-items: center;">
                                         <a href="{{ route('reservations.show', $reservation->id) }}" class="btn btn-primary btn-sm" style="margin-right: 5px">

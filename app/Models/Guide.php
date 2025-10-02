@@ -20,6 +20,6 @@ class Guide extends Model
     ];
     public function tours ()
     {
-        return $this->hasOne(Tour::class);
+        return $this->hasOne(Tour::class, 'guide_id');
     }
 }

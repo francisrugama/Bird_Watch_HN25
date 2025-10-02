@@ -105,7 +105,7 @@
                                 <label class="form-control-label" for="Id_visitor">
                                     <i class="fa fa-user"></i> Id del visitante
                                 </label>
-                                <p>{{ $reservations->id_visitor }}</p>
+                                <p>{{ $reservations->visitors->name }}</p>
                             </div>
                         </div>
                     </div>

@@ -21,7 +21,8 @@
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Direccion</th>
                                 <th scope="col">Disponibilidad de horario</th>
-                                <th scope="col">Descripcion</th>
+                                <th scope="col">Tipo de reserva</th>
+                                <th scope="col">Descripción</th>
                                 <th scope="col">Recorrido</th>
                                 <th scope="col">Hotel</th>
                                 <th scope="col">Acciones</th>
@@ -32,14 +33,13 @@
                             @foreach ($places as $place)
                                 <tr>
                                     <td>{{ $place->name }}</td>
-                                    <td>{{ $place->description }}</td>
                                     <td>{{ $place->address }}</td>
                                     <td>{{ $place->availability_schedule }}</td>
                                     <td>{{ $place->type_reserve }}</td>
                                     <td>{{ $place->description }}</td>
-                                    <td>{{$place->hotel->name}}</td>
-                                    <td>{{$place->tour->name}}</td>
-                                    <td>{{$place->created_at->format('d-m-y')}}</td>
+                                    <td>{{ $place->tours->name }}</td>
+                                    <td>{{ $place->hotels->name }}</td>
+                                    <td>{{ $place->created_at->format('d-m-y')}}</td>
 
 
                                     <td style="white-space: nowrap; display: flex; align-items: center;">

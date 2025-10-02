@@ -25,7 +25,7 @@
             <div class="form:grup">
                 <label class="form-control-label" for="type_service">tipos de servicios</label>
                 <input type="text" id="type_service" name="type_service"
-                    class="form-control form-cntrol-altenative" placeholder="ingrese la persona"
+                    class="form-control form-cntrol-altenative" placeholder="ingrese el servicio"
                     values="{{ old('type_service', $historial_details->type_service) }}">
             </div>
         </div>

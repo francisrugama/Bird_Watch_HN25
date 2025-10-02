@@ -9,6 +9,7 @@ class Reservation extends Model
 {
     use HasFactory;
 
+
     protected $fillable =[
         'status',
         'people',
@@ -22,6 +23,6 @@ class Reservation extends Model
 
      public function visitors()
      {
-        return $this->belongsTo(Visitor::class);
+        return $this->belongsTo(Visitor::class, 'visitor_id');
     }
 }
