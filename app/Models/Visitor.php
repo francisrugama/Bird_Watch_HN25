@@ -23,7 +23,7 @@ class Visitor extends Model
     ];
     public function historials_details ()
     {
-        return $this->hasMony(Historial_detail::class);
+        return $this->hasMany(Historial_detail::class);
     }
 
     public function reservations ()

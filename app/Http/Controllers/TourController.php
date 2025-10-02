@@ -14,7 +14,7 @@ class TourController extends Controller
 {
     public function index()
     {
-        $tours = Tour::with(['reservations', 'guides', 'tours_categories', 'admins'])->paginate(10);
+        $tours = Tour::with(['reservations', 'guides', 'tour_categories', 'admins'])->paginate(10);
         return view("tours.index", compact("tours"));
     }
 

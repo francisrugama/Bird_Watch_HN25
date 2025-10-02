@@ -102,7 +102,7 @@
 
 
 
-<div class="row">
+                    <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="max_capacity">
@@ -156,10 +156,10 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label class="form-control-label" for="id_categies">
+                                <label class="form-control-label" for="id_tour_categorie">
                                     <i class="fa fa-user"></i> Id de la categoría
                                 </label>
-                                <p>{{ $tour->id_categies }}</p>
+                                <p>{{ $tour->id_tour_categorie }}</p>
                             </div>
                         </div>
                     </div>

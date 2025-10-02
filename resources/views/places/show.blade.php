@@ -26,7 +26,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label for="name" class="form-control-label">
+                                <label class="form-control-label" for="name">
                                     <i class="fas fa-user">Nombre</i>
                                 </label>
                                 <p>{{ $places->name }}</p>
@@ -37,7 +37,7 @@
                      <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label for="address" class="form-control-label">
+                                <label  class="form-control-label" for="address">
                                     <i class="fas fa-user">Direccion</i>
                                 </label>
                                 <p>{{ $places->address }}</p>
@@ -48,7 +48,7 @@
                        <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label for="availability_schedule" class="form-control-label">
+                                <label  class="form-control-label" for="availability_schedule">
                                     <i class="fas fa-user">Disponibilidad de horario</i>
                                 </label>
                                 <p>{{ $places->availability_schedule }}</p>
@@ -60,7 +60,7 @@
                      <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label for="description" class="form-control-label">
+                                <label  class="form-control-label" for="description">
                                     <i class="fas fa-user">Descripcion</i>
                                 </label>
                                 <p>{{ $places->description }}</p>

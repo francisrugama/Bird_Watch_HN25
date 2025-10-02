@@ -37,18 +37,11 @@
                                     <td>{{ $place->availability_schedule }}</td>
                                     <td>{{ $place->type_reserve }}</td>
                                     <td>{{ $place->description }}</td>
-                                    <td>{{ $place->tour_id }}</td>
-                                    <td>{{ $place->hotel_id }}</td>
-                                    <span class= "badge badge-pill badge-primary">{{$place->id}}</span>
-                                    <td>
-                                    {{$place->hotel->name}}
-                                    </td>
-                                    <td>
-                                    {{$place->tour->name}}
-                                    </td>
-                                    <td>
-                                    {{$place->created_at->format('d-m-y')}}
-                                    </td>
+                                    <td>{{$place->hotel->name}}</td>
+                                    <td>{{$place->tour->name}}</td>
+                                    <td>{{$place->created_at->format('d-m-y')}}</td>
+
+
                                     <td style="white-space: nowrap; display: flex; align-items: center;">
                                         <a href="{{ route('places.show', $place->id) }}"
                                             class="btn btn-primary btn-sm" style="margin-right: 5px;">

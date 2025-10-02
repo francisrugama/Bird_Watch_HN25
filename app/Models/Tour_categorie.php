@@ -17,6 +17,6 @@ class Tour_categorie extends Model
     ];
     public function tours ()
     {
-        return $this->hasMony(Tour::class);
+        return $this->hasMany(Tour::class);
     }
 }

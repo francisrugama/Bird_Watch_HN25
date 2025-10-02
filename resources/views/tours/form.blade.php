@@ -134,7 +134,7 @@
                 <option value="">Seleccionar reserva</option>
                 @foreach($reservations as $reservation)
                     <option value="{{ $reservation->id }}" {{ old('reservation_id', $tours->reservation_id) == $reservation->id ? 'selected' : '' }}>
-                        {{ $reservation->name }}
+                        {{ $reservation->status }}
                     </option>
                 @endforeach
             </select>

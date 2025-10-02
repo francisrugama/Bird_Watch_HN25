@@ -22,6 +22,6 @@ class Hotel extends Model
     ];
     public function places ()
     {
-        return $this->hasMony(Place::class);
+        return $this->hasMany(Place::class);
     }
 }
