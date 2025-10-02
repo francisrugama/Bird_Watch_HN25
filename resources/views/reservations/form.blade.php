@@ -70,10 +70,10 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="precio_person">Precio por persona</label>
-                <input type="number" id="precio_person" name="precio_person" class="form-control form-control-alternative"
+                <label class="form-control-label" for="price_person">Precio por persona</label>
+                <input type="number" id="price_person" name="price_person" class="form-control form-control-alternative"
                     placeholder="Precio por persona"
-                    value="{{ old('precio_person', $reservations->precio_person) }}">
+                    value="{{ old('price_person', $reservations->price_person) }}">
             </div>
         </div>
     </div>
@@ -96,7 +96,7 @@
 <div class="row">
     <div class="col-lg-6">
         <div class="form-group">
-            <label class="form-control-label" for="">Visita</label>
+            <label class="form-control-label" for="visitor_id">Visita</label>
             <select id="visitor_id" name="visitor_id" class="form-control form-control-alternative">
                 <option value="">Seleccionar visita</option>
                 @foreach($visitors as $visitor)

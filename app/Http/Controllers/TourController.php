@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tour;
 use App\Http\Requests\TourRequest;
-use App\Models\Guide;
 use App\Models\Reservation;
+use App\Models\Guide;
 use App\Models\Tour_categorie;
 use App\Models\Admin;
 
@@ -14,15 +14,15 @@ class TourController extends Controller
 {
     public function index()
     {
-        $tours = Tour::with(['reservations', 'guides', 'tour_categories', 'admins'])->paginate(10);
+        $tours = Tour::with(['reservations', 'guides', 'tours_categories', 'admins'])->paginate(10);
         return view("tours.index", compact("tours"));
     }
 
     public function create()
     {
         $tours = new Tour();
-        $guides = Guide::all();
         $reservations = Reservation::all();
+        $guides = Guide::all();
         $tours_categories = Tour_categorie::all();
         $admins = Admin::all();
 
@@ -46,8 +46,8 @@ class TourController extends Controller
     public function edit(int $id)
     {
         $tours = Tour::find($id);
-        $guides = Guide::all();
         $reservations = Reservation::all();
+        $guides = Guide::all();
         $tours_categories = Tour_categorie::all();
         $admins = Admin::all();
 

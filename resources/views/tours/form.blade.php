@@ -129,12 +129,12 @@
 <div class="row">
     <div class="col-lg-6">
         <div class="form-group">
-            <label class="form-control-label" for="reservation_id">Reservación</label>
+            <label class="form-control-label" for="reservation_id">Reserva</label>
             <select id="reservation_id" name="reservation_id" class="form-control form-control-alternative">
-                <option value="">Seleccionar reservación</option>
+                <option value="">Seleccionar reserva</option>
                 @foreach($reservations as $reservation)
                     <option value="{{ $reservation->id }}" {{ old('reservation_id', $tours->reservation_id) == $reservation->id ? 'selected' : '' }}>
-                        {{ $reservation->id }}
+                        {{ $reservation->name }}
                     </option>
                 @endforeach
             </select>
@@ -161,12 +161,12 @@
 <div class="row">
     <div class="col-lg-6">
         <div class="form-group">
-            <label class="form-control-label" for="tour_category_id">Categoría</label>
-            <select id="tour_category_id" name="tour_category_id" class="form-control form-control-alternative">
+            <label class="form-control-label" for="tour_categorie_id">Categoría</label>
+            <select id="tour_categorie_id" name="tour_categorie_id" class="form-control form-control-alternative">
                 <option value="">Seleccionar categoría</option>
-                @foreach($tours_categories as $category)
-                    <option value="{{ $category->id }}" {{ old('tour_category_id', $tours->tour_category_id) == $category->id ? 'selected' : '' }}>
-                        {{ $category->name }}
+                @foreach($tours_categories as $tour_categorie)
+                    <option value="{{ $tour_categorie->id }}" {{ old('tour_categorie_id', $tours->tour_categorie_id) == $tour_categorie->id ? 'selected' : '' }}>
+                        {{ $tour_categorie->name }}
                     </option>
                 @endforeach
             </select>
