@@ -80,10 +80,10 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label class="form-control-label" for="price_per_person">
+                                <label class="form-control-label" for="price_person">
                                     <i class="fa fa-user"></i> precio por persona
                                 </label>
-                                <p>{{ $reservation->price_per_person }}</p>
+                                <p>{{ $reservation->price_person }}</p>
                             </div>
                         </div>
                     </div>

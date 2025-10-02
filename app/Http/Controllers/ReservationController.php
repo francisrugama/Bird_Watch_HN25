@@ -12,7 +12,7 @@ use App\Models\Visitor;
 
 class ReservationController extends Controller
 {
-    
+
     public function index()
     {
         $reservations = Reservation::with('visitors')->paginate(10);

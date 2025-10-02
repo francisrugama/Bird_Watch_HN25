@@ -14,7 +14,7 @@
                         </div>
                         <div class="col-4 text-right">
                             <a href="{{ route('tours.index') }}" class="btn btn-sm btn-primary">
-                                <i class="fas fa-arrow-left"></i> Volver
+                                <i class="fa-solid fa-truck"></i> Volver
                             </a>
                         </div>
                     </div>

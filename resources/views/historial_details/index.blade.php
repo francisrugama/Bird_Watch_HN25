@@ -19,12 +19,12 @@
                             <tr>
                                 <th scope="col">nombre</th>
                                 <th scope="col">estado</th>
-                                <th scope="col">persona</th>
                                 <th scope="col">tipo de servicio</th>
+                                <th scope="col">tipo de pago</th>
                                 <th scope="col">total</th>
                                 <th scope="col">nombre de reservacion</th>
                                 <th scope="col">nombre de visitante</th>
-                                <th scope="col">nombre de tur</th>
+                                <th scope="col">nombre de recorido</th>
                                 <th scope="col">acciones</th>
                             </tr>
                         </thead>
@@ -33,8 +33,8 @@
                                 <tr>
                                     <td>{{ $historial_detail->name }}</td>
                                     <td>{{ $historial_detail->status }}</td>
-                                    <td>{{ $historial_detail->people }}</td>
                                     <td>{{ $historial_detail->type_service }}</td>
+                                    <td>{{ $historial_detail->type_payment }}</td>
                                     <td>{{ $historial_detail->total }}</td>
                                     <td>{{ $historial_detail->reservation->name }}</td>
                                     <td>{{ $historial_detail->visitor->name }}</td>
@@ -68,7 +68,7 @@
 
                 <div class="card-footer py-4">
                     <nav aria-label="..." class="d-flex flex-wrap justify-content-center justify-content-lg-start">
-                        {{ $tutions->links() }}
+                        {{ $historial_details->links() }}
                     </nav>
                 </div>
             </div>

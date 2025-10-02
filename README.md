@@ -1,91 +1,117 @@
-# Plantilla de Laravel con Argon Dashboard Integrado
+# Bird Watch - Plataforma de Aviturismo Nicaragüense
 
-[![Estado de la construcción](https://img.shields.io/badge/estado-construcci%C3%B3n_exitosa-brightgreen.svg)](https://github.com/tuusuario/turepositorio)
+[![Estado del Proyecto](https://img.shields.io/badge/estado-en_desarrollo-yellow.svg)](https://github.com/tuusuario/bird-watch)
 [![Licencia](https://img.shields.io/badge/licencia-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Framework](https://img.shields.io/badge/framework-Laravel-red.svg)](https://laravel.com)
+[![Dashboard](https://img.shields.io/badge/dashboard-Argon-success.svg)](https://www.creative-tim.com/product/argon-dashboard)
 
-Este repositorio proporciona una plantilla prediseñada para proyectos de Laravel que requieren un panel de administración. La plantilla está integrada con Argon Dashboard, una plantilla de panel de administración hermosa y de código abierto desarrollada por Creative Tim.
+**Bird Watch** es una aplicación web especializada en aviturismo que conecta a los amantes de la observación de aves con los mejores destinos y servicios en Nicaragua. Ofrecemos una plataforma intuitiva para reservar hospedaje y encontrar tours especializados que se adapten a las necesidades específicas de cada observador de aves.
 
-## Características
+## 🦜 Características Principales
 
-- Integración de Argon Dashboard para una interfaz de usuario elegante y moderna.
-- Estructura de carpetas predefinida para una organización eficiente del código.
-- Vistas predefinidas para páginas comunes como inicio, perfil, ajustes, etc.
-- Formularios predefinidos con validaciones básicas para una rápida implementación.
-- Autenticación de usuario lista para usar con páginas de inicio de sesión y registro.
-- Documentación clara y detallada para ayudar a los desarrolladores a comenzar rápidamente.
+### Para Clientes
+- **Reserva de Hospedaje**: Sistema simplificado para encontrar y reservar hoteles especializados en aviturismo
+- **Tours Personalizados**: Catálogo de tours filtrables por tipo de aves, ubicación, dificultad y presupuesto
+- **Guías Especializados**: Acceso a guías locales expertos en aves nicaragüenses
+- **Galería de Aves**: Base de datos visual de especies autóctonas
+- **Reseñas y Calificaciones**: Sistema de opiniones de otros observadores de aves
 
-## Requisitos Previos
+### Para Proveedores
+- **Panel de Gestión**: Interfaz Argon Dashboard para administrar servicios
+- **Gestión de Reservas**: Sistema completo para manejar reservas de hoteles y tours
+- **Perfiles de Servicios**: Plataforma para mostrar sus servicios especializados
 
-Antes de comenzar a utilizar esta plantilla, asegúrate de tener instalado:
+## 🛠️ Tecnologías
+
+- **Backend**: Laravel 10+
+- **Frontend**: Dashboard + Tailwind CSS
+- **Base de Datos**: MySQL
+- **Autenticación**: Laravel Breeze
+- **Pagos**: Integración con pasarelas de pago locales
+
+## 📋 Requisitos Previos
+
+Antes de instalar el proyecto, asegúrate de tener:
 
 - [PHP](https://www.php.net/) >= 8.2
 - [Composer](https://getcomposer.org/)
-- [Node.js](https://nodejs.org/)
+- [Node.js](https://nodejs.org/) >= 16
 - [npm](https://www.npmjs.com/)
+- [MySQL](https://www.mysql.com/) >= 8.0
 
-## Instalación
+## 🚀 Instalación
 
-1. Clona este repositorio en tu máquina local:
+1. **Clona el repositorio**:
+   ```bash
+   git clone https://github.com/francisrugama/Bird_Watch_HN25.git
+   cd Bird_Watch_HN25
+   ```
 
-    ```bash
-    git clone https://github.com/StevenU21/argon](https://github.com/limberrodriguezCT/Argon.git
-    ```
+2. **Navega a la carpeta del proyecto:**:
+   ```bash
+   cd Bird_Watch_HN25
+   ```
 
-2. Navega a la carpeta del proyecto:
+3. **Instala dependencias PHP**:
+   ```bash
+   composer install
+   ```
 
-    ```bash
-    cd argon
-    ```
+4. **Instala dependencias JavaScript**:
+   ```bash
+   npm install 
+   ```
 
-3. Instala las dependencias PHP usando Composer:
+5. **Configura el entorno**:
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-    ```bash
-    composer install
-    ```
+6. **Configura la base de datos**:
+   - Crea una base de datos MySQL
+   - Actualiza el archivo `.env` con tus credenciales:
+     ```env
+     DB_DATABASE=bird_watch
+     DB_USERNAME=tu_usuario
+     DB_PASSWORD=tu_contraseña
+     ```
 
-4. Instala las dependencias de JavaScript:
+7. **Ejecuta migraciones y seeders**:
+   ```bash
+   php artisan migrate --seed
+   ```
 
-    ```bash
-    npm install
-    ```
+8. **Inicia el servidor**:
+   ```bash
+   php artisan serve
+   ```
 
-5. Copia el archivo de configuración de ejemplo y configura tu entorno:
+9. **Accede a la aplicación**:
+   Abre tu navegador en `http://localhost:8000`
 
-    ```bash
-    cp .env.example .env
-    php artisan key:generate
-    ```
 
-6. Configura Mailtrap para la funcionalidad de verificación de correo electrónico y otros servicios de correo:
-   
-   - Crea una cuenta en [Mailtrap](https://mailtrap.io/).
-   - Obtén tus credenciales de Mailtrap (username y password).
-   - Añade tus credenciales de Mailtrap en el archivo `.env` de tu proyecto:
+## 🌟 Características Técnicas
 
-    ```env
-    MAIL_MAILER=smtp
-    MAIL_HOST=smtp.mailtrap.io
-    MAIL_PORT=2525
-    MAIL_USERNAME=your_mailtrap_username
-    MAIL_PASSWORD=your_mailtrap_password
-    MAIL_ENCRYPTION=null
-    MAIL_FROM_ADDRESS=example@example.com
-    MAIL_FROM_NAME="${APP_NAME}"
-    ```
+- **Panel Administrativo**: Dashboard integrado
+- **Diseño Responsive**: Compatible con todos los dispositivos
+- **Sistema de Reservas**: Flujo completo de reservación
+- **Búsqueda Avanzada**: Filtros por especie, ubicación y temporada
+- **Gestión de Usuarios**: Roles y permisos
+- **API RESTful**: Para futuras integraciones móviles
 
-7. Ejecuta las migraciones de la base de datos y los seeders (si es necesario):
 
-    ```bash
-    php artisan migrate --seed
-    ```
+## 📄 Licencia
 
-8. Inicia el servidor de desarrollo:
+Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
 
-    ```bash
-    php artisan serve
-    ```
-## Licencia
+## 📞 Contacto
 
-Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para obtener más detalles.
+**Bird Watch Nicaragua**  
+✉️ info@birdwatch.com.ni  
+🌐 [www.birdwatch.com.ni](https://www.birdwatch.com.ni)  
+📱 Síguenos en redes sociales
 
 ---
+
+*Descubre la majestuosidad de las aves nicaragüenses con Bird Watch - Tu ventana al mundo del aviturismo* 🦜
