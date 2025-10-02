@@ -41,7 +41,7 @@ class Tour_categorieController extends Controller
     {
         $tours_categories = Tour_categorie::find($id);
         $tours_categories->update($request->validated());
-        return redirect()->route('tours_categories.index')->with('update', 'Categoría de tour actualizada con éxito');
+        return redirect()->route('tours_categories.index')->with('updated', 'Categoría de tour actualizada con éxito');
     }
 
     public function destroy(int $id)

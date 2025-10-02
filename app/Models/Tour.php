@@ -21,7 +21,7 @@ class Tour extends Model
         'max_capacity',
         'reservation_id',
         'guide_id',
-        'tour_category_id',
+        'tour_categorie_id',
         'admin_id'
     ];
 
@@ -34,7 +34,7 @@ class Tour extends Model
     }
 
     public function tour_categories(){
-        return $this->belongsTo(TourCategory::class, 'tour_category_id');
+        return $this->belongsTo(Tour_categorie::class, 'tour_category_id');
     }
 
     public function admins(){

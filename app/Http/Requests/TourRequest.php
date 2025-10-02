@@ -30,7 +30,7 @@ class TourRequest extends FormRequest
             'type_transport' => 'required|string|max:125',
             'tour_language' => 'required|string|max:100',
             'max_capacity' => 'required|string|max:45',
-            'reservations_id' => 'required',
+            'reservation_id' => 'required',
             'guide_id' => 'required',
             'tour_categorie_id' => 'required',
             'admin_id' => 'required',

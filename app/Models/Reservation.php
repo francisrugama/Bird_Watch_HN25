@@ -20,8 +20,8 @@ class Reservation extends Model
         'visitor_id'
     ];
 
-     public function visitors ()
-    {
-        return $this->hasMony(Visitor::class);
+     public function visitors()
+     {
+        return $this->belongsTo(Visitor::class);
     }
 }

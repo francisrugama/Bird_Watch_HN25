@@ -45,10 +45,10 @@
                                     <td>{{ $tour->type_transport }}</td>
                                     <td>{{ $tour->tour_language }}</td>
                                     <td>{{ $tour->max_capacity }}</td>
-                                    <td>{{ $tour->id_reservations }}</td>
-                                    <td>{{ $tour->guides_id }}</td>
-                                    <td>{{ $tour->tour_categories_id }}</td>
-                                    <td>{{ $tour->admin_id }}</td>
+                                    <td>{{ $tour->reservations->status }}</td>
+                                    <td>{{ $tour->guides->name }}</td>
+                                    <td>{{ $tour->tour_categories->name }}</td>
+                                    <td>{{ $tour->admin->name }}</td>
 
                                     <td style="white-space: nowrap; display: flex; align-items: center;">
                                         <a href="{{ route('tours.show', $tour->id) }}" class="btn btn-primary btn-sm" style="margin-right: 5px">

@@ -17,4 +17,8 @@ class Admin extends Model
         'country',
         'gender'
     ];
+    public function tours ()
+    {
+        return $this->hasMany(Tour::class);
+    }
 }
