@@ -23,10 +23,10 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="form:grup">
-                <label class="form-control-label" for="people">personas</label>
-                <input type="text" id="people" name="people"
+                <label class="form-control-label" for="type_service">tipos de servicios</label>
+                <input type="text" id="type_service" name="type_service"
                     class="form-control form-cntrol-altenative" placeholder="ingrese la persona"
-                    values="{{ old('people', $historial_details->people) }}">
+                    values="{{ old('type_service', $historial_details->type_service) }}">
             </div>
         </div>
     </div>
@@ -34,9 +34,9 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="form:grup">
-                <label class="form-control-label" for="type_service">tipos de servicios</label>
-                <input type="text" id="type_service" name="type_service" class="form-control form-cntrol-altenative"
-                    placeholder="ingrese los tipos de servicios" values="{{ old('type_service', $historial_details->type_service) }}">
+                <label class="form-control-label" for="type_payment">tipos de pago</label>
+                <input type="text" id="type_payment" name="type_payment" class="form-control form-cntrol-altenative"
+                    placeholder="ingrese los tipos de servicios" values="{{ old('type_payment', $historial_details->type_payment) }}">
             </div>
         </div>
     </div>
