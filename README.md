@@ -44,7 +44,6 @@ Antes de instalar el proyecto, asegúrate de tener:
 1. **Clona el repositorio**:
    ```bash
    git clone https://github.com/francisrugama/Bird_Watch_HN25.git
-   cd Bird_Watch_HN25
    ```
 
 2. **Navega a la carpeta del proyecto:**:
