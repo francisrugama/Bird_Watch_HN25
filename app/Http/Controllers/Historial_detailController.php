@@ -7,16 +7,16 @@ use Illuminate\Http\Request;
 
 use App\Models\Historial_detail;
 use App\Http\Requests\Historial_detailRequest;
-use App\Models\Tour;
 use App\Models\Reservation;
 use App\Models\Visitor;
+use App\Models\Tour;
 
 class Historial_detailController extends Controller
 {
 
     public function index()
     {
-        $historial_details = Historial_detail::with('tours, reservations, visitors')->paginate(10);
+        $historial_details = Historial_detail::with('reservations', 'visitors', 'tours')->paginate(10);
         return view('historial_details.index', compact('historial_details'));
     }
 
@@ -50,7 +50,7 @@ class Historial_detailController extends Controller
         $tours = Tour::all();
         $reservations = Reservation::all();
         $visitors = Visitor::all();
-        return view('historial_details.edit', compact('historial_details, tours, reservations, visitors'));
+        return view('historial_details.edit', compact('historial_details', 'tours', 'reservations', 'visitors'));
     }
 
     public function update(Request $request, int $id)

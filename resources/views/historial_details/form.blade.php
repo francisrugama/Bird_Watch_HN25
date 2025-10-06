@@ -68,7 +68,7 @@
 <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="total">Localidad</label>
+                <label class="form-control-label" for="total">total</label>
                 <input type="text" id="total" name="total" class="form-control form-control-alternative"
                     placeholder="Ingresar location"
                     value="{{ old('total', $historial_details->total) }}">

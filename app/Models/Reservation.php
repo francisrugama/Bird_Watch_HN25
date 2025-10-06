@@ -25,4 +25,9 @@ class Reservation extends Model
      {
         return $this->belongsTo(Visitor::class, 'visitor_id');
     }
+
+    public function historial_details()
+    {
+        return $this->hasMany(Historial_detail::class, 'reservation_id');
+    }
 }
