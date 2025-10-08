@@ -68,7 +68,7 @@
 <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="total">Localidad</label>
+                <label class="form-control-label" for="total">total</label>
                 <input type="text" id="total" name="total" class="form-control form-control-alternative"
                     placeholder="Ingresar location"
                     value="{{ old('total', $historial_details->total) }}">
@@ -127,11 +127,11 @@
 <div class="row">
     <div class="col-lg-6">
         <div class="form-group">
-            <label class="form-control-label" for="tour_categorie_id">Categoría</label>
-            <select id="tour_categorie_id" name="tour_categorie_id" class="form-control form-control-alternative">
-                <option value="">Seleccionar categoría</option>
+            <label class="form-control-label" for="tour_id">Categoría</label>
+            <select id="tour_id" name="tour_id" class="form-control form-control-alternative">
+                <option value="">Seleccionar recorido</option>
                 @foreach($tours as $tour)
-                    <option value="{{ $tour_id->id }}" {{ old('tour_id', $historial_details->tour_id) == $tour->id ? 'selected' : '' }}>
+                    <option value="{{ $tour->id }}" {{ old('tour_id', $historial_details->tour_id) == $tour->id ? 'selected' : '' }}>
                         {{ $tour->name }}
                     </option>
                 @endforeach
