@@ -9,6 +9,7 @@ class Reservation extends Model
 {
     use HasFactory;
 
+
     protected $fillable =[
         'status',
         'people',
@@ -20,8 +21,13 @@ class Reservation extends Model
         'visitor_id'
     ];
 
-     public function visitors ()
+     public function visitors()
+     {
+        return $this->belongsTo(Visitor::class, 'visitor_id');
+    }
+
+    public function historial_details()
     {
-        return $this->hasMony(Visitor::class);
+        return $this->hasMany(Historial_detail::class, 'reservation_id');
     }
 }

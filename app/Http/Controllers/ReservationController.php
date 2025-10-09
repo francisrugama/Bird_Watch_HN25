@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-//use App\Models\Tution;
 
 use App\Models\Reservation;
 use App\Http\Requests\ReservationRequest;
@@ -43,10 +42,10 @@ class ReservationController extends Controller
     {
         $reservations = Reservation::find($id);
         $visitors = Visitor::all();
-        return view('reservations.edit', compact('reservations, visitors'));
+         return view('reservations.edit', compact('reservations', 'visitors'));
     }
 
-    public function update(Request $request, int $id)
+    public function update(ReservationRequest $request, int $id)
     {
         $reservations = Reservation::find($id);
         $reservations->update($request->validated());

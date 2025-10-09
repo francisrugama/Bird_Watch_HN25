@@ -28,7 +28,7 @@
                                 <label class="form-control-label" for="status">
                                     <i class="fa fa-user"></i> estado de la reserva
                                 </label>
-                                <p>{{ $reservation->status }}</p>
+                                <p>{{ $reservations->status }}</p>
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                                 <label class="form-control-label" for="people">
                                     <i class="fa fa-user"></i> people
                                 </label>
-                                <p>{{ $reservation->people }}</p>
+                                <p>{{ $reservations->people }}</p>
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                                 <label class="form-control-label" for="reservation_date">
                                     <i class="fa fa-user"></i> fecha de la reserva
                                 </label>
-                                <p>{{ $reservation->reservation_date }}</p>
+                                <p>{{ $reservations->reservation_date }}</p>
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                                 <label class="form-control-label" for="people_count">
                                     <i class="fas fa-envelope"></i> cantidad de personas
                                 </label>
-                                <p>{{ $reservation->people_count }}</p>
+                                <p>{{ $reservations->people_count }}</p>
                             </div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                                 <label class="form-control-label" for="other_service">
                                     <i class="fa fa-user"></i> otros servicios
                                 </label>
-                                <p>{{ $reservation->other_service }}</p>
+                                <p>{{ $reservations->other_service }}</p>
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                                 <label class="form-control-label" for="price_person">
                                     <i class="fa fa-user"></i> precio por persona
                                 </label>
-                                <p>{{ $reservation->price_person }}</p>
+                                <p>{{ $reservations->price_person }}</p>
                             </div>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                                 <label class="form-control-label" for="total">
                                     <i class="fa fa-user"></i> total
                                 </label>
-                                <p>{{ $reservation->total }}</p>
+                                <p>{{ $reservations->total }}</p>
                             </div>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                                 <label class="form-control-label" for="Id_visitor">
                                     <i class="fa fa-user"></i> Id del visitante
                                 </label>
-                                <p>{{ $reservation->id_visitor }}</p>
+                                <p>{{ $reservations->visitors->name }}</p>
                             </div>
                         </div>
                     </div>

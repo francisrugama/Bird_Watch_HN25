@@ -109,6 +109,7 @@
 
 
 <div class="row">
+<<<<<<< HEAD
         <div class="col-lg-6">
             <div class="form-group">
                 <label class="form-control-label" for="id_reservations">id de reservacion</label>
@@ -116,6 +117,19 @@
                     placeholder="Ingresar id de reservacion"
                     value="{{ old('id_reservations', $tour->id_reservations) }}">
             </div>
+=======
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label class="form-control-label" for="reservation_id">Reserva</label>
+            <select id="reservation_id" name="reservation_id" class="form-control form-control-alternative">
+                <option value="">Seleccionar reserva</option>
+                @foreach($reservations as $reservation)
+                    <option value="{{ $reservation->id }}" {{ old('reservation_id', $tours->reservation_id) == $reservation->id ? 'selected' : '' }}>
+                        {{ $reservation->status }}
+                    </option>
+                @endforeach
+            </select>
+>>>>>>> main
         </div>
     </div>
 
@@ -139,6 +153,7 @@
 
 
 <div class="row">
+<<<<<<< HEAD
         <div class="col-lg-6">
             <div class="form-group">
                 <label class="form-control-label" for="id_categories">id de categoria</label>
@@ -146,6 +161,19 @@
                     placeholder="Ingresar id de categoria"
                     value="{{ old('id_categories', $tour->id_categories) }}">
             </div>
+=======
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label class="form-control-label" for="tour_categorie_id">Categoría</label>
+            <select id="tour_categorie_id" name="tour_categorie_id" class="form-control form-control-alternative">
+                <option value="">Seleccionar categoría</option>
+                @foreach($tours_categories as $tour_categorie)
+                    <option value="{{ $tour_categorie->id }}" {{ old('tour_categorie_id', $tours->tour_categorie_id) == $tour_categorie->id ? 'selected' : '' }}>
+                        {{ $tour_categorie->name }}
+                    </option>
+                @endforeach
+            </select>
+>>>>>>> main
         </div>
     </div>
 

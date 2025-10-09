@@ -15,9 +15,9 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="address">Descripcion</label>
+                <label class="form-control-label" for="address">Direccion</label>
                 <input type="text" id="address" name="address" class="form-control form-control-alternative"
-                placeholder="Ingresar Descripcion"
+                placeholder="Ingresar direccion"
                 value="{{ old('address', $places->address)}}">
             </select>
             </div>
@@ -39,17 +39,7 @@
 
 
 
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="form-group">
-                <label class="form-control-label" for="description">Descricción</label>
-                <input type="text" id="description" name="description" class="form-control form-control-alternative"
-                placeholder="fecha de aquisicion"
-                value="{{ old('description', $places->description)}}">
-            </select>
-            </div>
-        </div>
-    </div>
+
 
     <div class="row">
         <div class="col-lg-6">
@@ -63,6 +53,19 @@
         </div>
     </div>
 
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="form-control-label" for="description">Descricción</label>
+                <input type="text" id="description" name="description" class="form-control form-control-alternative"
+                placeholder="fecha de aquisicion"
+                value="{{ old('description', $places->description)}}">
+            </select>
+            </div>
+        </div>
+    </div>
+
 <div class="row">
     <div class="col-lg-6">
         <div class="form-group">
@@ -70,7 +73,7 @@
             <select id="tour_id" name="tour_id" class="form-control form-control-alternative">
                 <option value="">Seleccionar tour</option>
                 @foreach($tours as $tour)
-                    <option value="{{ $tour->id }}" {{ old('tour_id', $places->tour) == $admin->id ? 'selected' : '' }}>
+                    <option value="{{ $tour->id }}" {{ old('tour_id', $places->tour) == $tour->id ? 'selected' : '' }}>
                         {{ $tour->name }}
                     </option>
                 @endforeach
