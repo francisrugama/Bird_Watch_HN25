@@ -12,6 +12,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\Historial_detailController;
 use App\Http\Controllers\Tour_categorieController;
+use App\Http\Controllers\CatalogController;
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -48,7 +49,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('tours', TourController::class);
     Route::resource('tours_categories', Tour_categorieController::class);
     Route::resource('reservations', ReservationController::class);
-     Route::resource('historial_details', Historial_detailController::class);
+    Route::resource('historial_details', Historial_detailController::class);
+    Route::resource('catalogs', CatalogController::class);
 
 
     //rutas con controlador y prefix
