@@ -44,7 +44,7 @@ class Historial_detailController extends Controller
        return view('historial_details.show', compact('historial_details'));
     }
 
-    public function edit(imt $id)
+    public function edit(int $id)
     {
         $historial_details = Historial_detail::find($id);
         $tours = Tour::all();

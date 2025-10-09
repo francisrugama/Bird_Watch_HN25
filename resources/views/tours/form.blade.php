@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="description">Descripcion</label>
+                <label class="form-control-label" for="description">descripcion</label>
                 <input type="text" id="description" name="description" class="form-control form-control-alternative"
                     placeholder="ingresar descripcion"
                     value="{{ old('description', $tours->description) }}">
@@ -22,17 +22,17 @@
     </div>
 
 
-
+    
 
 
 
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="type_activity">Tipo de actividad</label>
-                <input type="text" id="type_activity" name="type_activity" class="form-control form-control-alternative"
+                <label class="form-control-label" for="type_activity">tipo de actividad</label>
+                <input type="number" id="type_activity" name="type_activity" class="form-control form-control-alternative"
                     placeholder="Ingresar tipo de actividad"
-                    value="{{ old('type_activity', $tours->type_activity) }}">
+                    value="{{ old('type_activity', $tour->type_activity) }}">
             </div>
         </div>
     </div>
@@ -49,39 +49,26 @@
 <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="duration">Duracion</label>
+                <label class="form-control-label" for="duration">Duration</label>
                 <input type="text" id="duration" name="duration" class="form-control form-control-alternative"
                     placeholder="Ingresar duration"
-                    value="{{ old('duration', $tours->duration) }}">
+                    value="{{ old('duration', $tour->duration) }}">
             </div>
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-<div class="row">
+    <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
                 <label class="form-control-label" for="location">Localidad</label>
                 <input type="text" id="location" name="location" class="form-control form-control-alternative"
                     placeholder="Ingresar location"
-                    value="{{ old('location', $tours->location) }}">
+                    value="{{ old('location', $tour->location) }}">
             </div>
         </div>
     </div>
 
-
-
-
-
-
-<div class="row">
+    <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
                 <label class="form-control-label" for="type_transport">Tipo de transporte</label>
@@ -93,14 +80,14 @@
     </div>
 
 
-
+    
 
 
 
 <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="tour_language">Lenguaje del recorrido</label>
+                <label class="form-control-label" for="tour_language">lenguaje del tour</label>
                 <input type="text" id="tour_language" name="tour_language" class="form-control form-control-alternative"
                     placeholder="Ingresar lenguaje del tour"
                     value="{{ old('tour_language', $tours->tour_language) }}">
@@ -108,15 +95,10 @@
         </div>
     </div>
 
-
-
-
-
-
-<div class="row">
+    <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="max_capacity">Capacidad Maxima</label>
+                <label class="form-control-label" for="max_capacity">capacidad máxima</label>
                 <input type="text" id="max_capacity" name="max_capacity" class="form-control form-control-alternative"
                     placeholder="Ingresar capacidad máxima"
                     value="{{ old('max_capacity', $tours->max_capacity) }}">
@@ -127,6 +109,15 @@
 
 
 <div class="row">
+<<<<<<< HEAD
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="form-control-label" for="id_reservations">id de reservacion</label>
+                <input type="text" id="id_reservations" name="id_reservations" class="form-control form-control-alternative"
+                    placeholder="Ingresar id de reservacion"
+                    value="{{ old('id_reservations', $tour->id_reservations) }}">
+            </div>
+=======
     <div class="col-lg-6">
         <div class="form-group">
             <label class="form-control-label" for="reservation_id">Reserva</label>
@@ -138,27 +129,39 @@
                     </option>
                 @endforeach
             </select>
+>>>>>>> main
         </div>
     </div>
-</div>
+
+
+
+
+
 
 <div class="row">
-    <div class="col-lg-6">
-        <div class="form-group">
-            <label class="form-control-label" for="guide_id">Guía</label>
-            <select id="guide_id" name="guide_id" class="form-control form-control-alternative">
-                <option value="">Seleccionar guía</option>
-                @foreach($guides as $guide)
-                    <option value="{{ $guide->id }}" {{ old('guide_id', $tours->guide_id) == $guide->id ? 'selected' : '' }}>
-                        {{ $guide->name }}
-                    </option>
-                @endforeach
-            </select>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="form-control-label" for="id_guides">id del guia</label>
+                <input type="text" id="id_guides" name="id_guides" class="form-control form-control-alternative"
+                    placeholder="Ingresar id del guia"
+                    value="{{ old('id_guides', $tour->id_guides) }}">
+            </div>
         </div>
     </div>
-</div>
+
+
+
 
 <div class="row">
+<<<<<<< HEAD
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="form-control-label" for="id_categories">id de categoria</label>
+                <input type="text" id="id_categories" name="id_categories" class="form-control form-control-alternative"
+                    placeholder="Ingresar id de categoria"
+                    value="{{ old('id_categories', $tour->id_categories) }}">
+            </div>
+=======
     <div class="col-lg-6">
         <div class="form-group">
             <label class="form-control-label" for="tour_categorie_id">Categoría</label>
@@ -170,25 +173,32 @@
                     </option>
                 @endforeach
             </select>
+>>>>>>> main
         </div>
     </div>
-</div>
+
+
+
+
+
+
 
 <div class="row">
-    <div class="col-lg-6">
-        <div class="form-group">
-            <label class="form-control-label" for="admin_id">Administrador</label>
-            <select id="admin_id" name="admin_id" class="form-control form-control-alternative">
-                <option value="">Seleccionar administrador</option>
-                @foreach($admins as $admin)
-                    <option value="{{ $admin->id }}" {{ old('admin_id', $tours->admin_id) == $admin->id ? 'selected' : '' }}>
-                        {{ $admin->name }}
-                    </option>
-                @endforeach
-            </select>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="form-control-label" for="id_admin">id del administrador</label>
+                <input type="text" id="id_admin" name="id_admin" class="form-control form-control-alternative"
+                    placeholder="Ingresar id del administrador"
+                    value="{{ old('id_admin', $tour->id_admin) }}">
+            </div>
         </div>
     </div>
-</div>
+
+
+
+
+
+
 
 
 
@@ -205,7 +215,7 @@
 <div class="pl-lg-4">
     <div class="form-group">
         <button type="submit" class="btn btn-primary">
-            <i class="fas fa-save"></i> Guardar Cliente
+            <i class="fas fa-save"></i> Guardar Rceorrido
         </button>
     </div>
 </div>

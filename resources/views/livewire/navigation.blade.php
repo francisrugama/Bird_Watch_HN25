@@ -124,5 +124,11 @@
                 <i class="fas fa-user-shield text-warning"></i> Administradores
             </a>
         </li>
+        <li class="nav-item {{ Request::route()->named('catalogs.index') ? 'active' : '' }}">
+            <a class="nav-link {{ Request::route()->named('catalogs.index') ? 'active' : '' }}"
+                href="{{ route('catalogs.index') }}" wire:navigate>
+                <i class="fas fa-book text-primary"></i> Catálogos
+            </a>
+        </li>
     </ul>
 </div>
