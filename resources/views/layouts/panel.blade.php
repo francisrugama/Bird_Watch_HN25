@@ -75,13 +75,15 @@
             <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
                 <div class="container-fluid">
                     <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block"
-                        href="{{ route('dashboard') }}">Dashboard</a>
+                        href="{{ route('dashboard') }}">dashboard</a>
                     <livewire:menu />
                 </div>
             </nav>
 
             <!-- Header -->
             <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+                    <a href="{{ route('tours.index') }}" style="text-decoration: none; color: inherit;">
+
                 @if (request()->routeIs('dashboard'))
                     <div class="container-fluid">
                         <div class="header-body">
@@ -91,12 +93,12 @@
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col">
-                                                    <h5 class="card-title text-uppercase text-muted mb-0">Dato 1</h5>
-                                                    <span class="h2 font-weight-bold mb-0">Ejemplo</span>
+                                                    <h5 class="card-title text-uppercase text-muted mb-0">Ir Catalogo</h5>
+                                                    <span class="h2 font-weight-bold mb-0">Catalogo</span>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
-                                                        <i class="fa-solid fa-chart-line"></i>
+                                                    <div class="icon icon-shape bg-green text-white rounded-circle shadow">
+                                                        <i class="fa-solid fa-dove"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -104,59 +106,11 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xl-3 col-lg-6">
-                                    <div class="card card-stats mb-4 mb-xl-0">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <h5 class="card-title text-uppercase text-muted mb-0">Dato 2</h5>
-                                                    <span class="h2 font-weight-bold mb-0">Ejemplo</span>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
-                                                        <i class="fa-solid fa-diagram-project"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                
 
-                                <div class="col-xl-3 col-lg-6">
-                                    <div class="card card-stats mb-4 mb-xl-0">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <h5 class="card-title text-uppercase text-muted mb-0">Dato 3</h5>
-                                                    <span class="h2 font-weight-bold mb-0">Ejemplo</span>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
-                                                        <i class="fa-solid fa-user-group"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                
 
-                                <div class="col-xl-3 col-lg-6">
-                                    <div class="card card-stats mb-4 mb-xl-0">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <h5 class="card-title text-uppercase text-muted mb-0">Dato 4</h5>
-                                                    <span class="h2 font-weight-bold mb-0">Ejemplo</span>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <div class="icon icon-shape bg-info text-white rounded-circle shadow">
-                                                        <i class="fa-solid fa-chart-percent"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                               
 
                             </div>
                         </div>
