@@ -82,7 +82,7 @@
 
             <!-- Header -->
             <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
-                    <a href="{{ route('tours.index') }}" style="text-decoration: none; color: inherit;">
+                    <a href="{{ route('catalogs.index') }}" style="text-decoration: none; color: inherit;">
 
                 @if (request()->routeIs('dashboard'))
                     <div class="container-fluid">
@@ -106,11 +106,11 @@
                                     </div>
                                 </div>
 
-                                
 
-                                
 
-                               
+
+
+
 
                             </div>
                         </div>
@@ -168,5 +168,5 @@
 <style>
     .bg-gradient-default {
         background: linear-gradient(87deg, #14532d 0, #14532d 100%) !important; /* Verde oscuro */
-    }                   
+    }
 </style>

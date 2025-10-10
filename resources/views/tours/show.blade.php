@@ -1,5 +1,5 @@
 @extends ('layouts.panel')
-@section("title", 'Show/Show')
+@section("title", 'Recorrido/Show')
 
 @section("content")
     <div class="col-xl-12 order-x-1">
@@ -19,14 +19,14 @@
             </div>
 
             <div class="card-body">
-                <h6 class="heading-small text-muted mb-4">Información del Tour</h6>
+                <h6 class="heading-small text-muted mb-4">Información del Recorrido</h6>
                 <div class="pl-lg-4">
 
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="name">
-                                    <i class="fa fa-user"></i> nombre del tour
+                                    <i class="fa fa-user"></i> nombre del Recorrido
                                 </label>
                                 <p>{{ $tours->name }}</p>
                             </div>
