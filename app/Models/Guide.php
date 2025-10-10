@@ -18,4 +18,8 @@ class Guide extends Model
         'age',
         'gender'
     ];
+    public function tours ()
+    {
+        return $this->hasOne(Tour::class, 'guide_id');
+    }
 }

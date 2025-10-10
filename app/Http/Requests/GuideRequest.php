@@ -28,7 +28,7 @@ class GuideRequest extends FormRequest
             'telephone' => ['nullable', 'string', 'max:15', Rule::unique('guides')->ignore($this->guide)],
             'experience' => 'required|string|max:255',
             'language' => 'required|string|max:55',
-            'age' => 'equired|int',
+            'age' => 'required|int',
             'gender' => 'required',
         ];
     }

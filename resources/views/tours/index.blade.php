@@ -1,14 +1,13 @@
 @extends('layouts.panel')
-@section('title', 'Recorrido')
+@section('title', 'Tour')
 
 @section('content')
     <div class="row">
         <div class="col">
             <div class="card shadow">
-
                 <div class="card-header border-0">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h3 class="mb-0">Tours</h3>
+                        <h3 class="mb-0">Recorrido</h3>
                         <a href="{{ route('tours.create') }}" class="btn btn-primary">
                             <i class="fas fa-plus"></i> Nuevo Recorrido
                         </a>
@@ -19,12 +18,18 @@
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Descripción</th>
-                                <th scope="col">Duración</th>
-                                <th scope="col">Localidad</th>
-                                <th scope="col">Capacidad máxima</th>
-                                <th scope="col">Acciones</th>
+                                <th scope="col">nombre</th>
+                                <th scope="col">descripcion</th>
+                                <th scope="col">tipo de actividad</th>
+                                <th scope="col">duracion</th>
+                                <th scope="col">localidad</th>
+                                <th scope="col">tipo de transporte</th>
+                                <th scope="col">lenguaje del tour</th>
+                                <th scope="col">capacidad máxima</th>
+                                <th scope="col">id de reservacion</th>
+                                <th scope="col">id del guia</th>
+                                <th scope="col">id de categoria</th>
+                                <th scope="col">id del administrador</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,6 +40,11 @@
                                     <td>{{ $tour->duration }}</td>
                                     <td>{{ $tour->location }}</td>
                                     <td>{{ $tour->max_capacity }}</td>
+                                    <td>{{ $tour->id_reservations }}</td>
+                                    <td>{{ $tour->id_guides }}</td>
+                                    <td>{{ $tour->id_categories }}</td>
+                                    <td>{{ $tour->id_admin }}</td>
+
                                     <td style="white-space: nowrap; display: flex; align-items: center;">
                                         <a href="{{ route('tours.show', $tour->id) }}" class="btn btn-primary btn-sm" style="margin-right: 5px">
                                             <i class="fas fa-eye"></i> Mostrar

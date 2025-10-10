@@ -2,9 +2,9 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="name">Nombre</label>
+                <label class="form-control-label" for="name">name</label>
                 <input type="text" id="name" name="name" class="form-control form-control-alternative"
-                    placeholder="Ingresar nombre"
+                    placeholder="Ingresar name"
                     value="{{ old('name', $tours->name) }}">
             </div>
         </div>
@@ -13,20 +13,46 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="description">Descripción</label>
-                <textarea id="description" name="description" class="form-control form-control-alternative"
-                    placeholder="Ingresar descripción">{{ old('description', $tours->description) }}</textarea>
+                <label class="form-control-label" for="description">descripcion</label>
+                <input type="text" id="description" name="description" class="form-control form-control-alternative"
+                    placeholder="ingresar descripcion"
+                    value="{{ old('description', $tours->description) }}">
             </div>
         </div>
     </div>
 
+
+    
+
+
+
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="duration">Duración</label>
+                <label class="form-control-label" for="type_activity">tipo de actividad</label>
+                <input type="number" id="type_activity" name="type_activity" class="form-control form-control-alternative"
+                    placeholder="Ingresar tipo de actividad"
+                    value="{{ old('type_activity', $tour->type_activity) }}">
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="form-control-label" for="duration">Duration</label>
                 <input type="text" id="duration" name="duration" class="form-control form-control-alternative"
-                    placeholder="Ingresar duración"
-                    value="{{ old('duration', $tours->duration) }}">
+                    placeholder="Ingresar duration"
+                    value="{{ old('duration', $tour->duration) }}">
             </div>
         </div>
     </div>
@@ -36,8 +62,8 @@
             <div class="form-group">
                 <label class="form-control-label" for="location">Localidad</label>
                 <input type="text" id="location" name="location" class="form-control form-control-alternative"
-                    placeholder="Ingresar localidad"
-                    value="{{ old('location', $tours->location) }}">
+                    placeholder="Ingresar location"
+                    value="{{ old('location', $tour->location) }}">
             </div>
         </div>
     </div>
@@ -53,10 +79,15 @@
         </div>
     </div>
 
-    <div class="row">
+
+    
+
+
+
+<div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="tour_language">Lenguaje del tour</label>
+                <label class="form-control-label" for="tour_language">lenguaje del tour</label>
                 <input type="text" id="tour_language" name="tour_language" class="form-control form-control-alternative"
                     placeholder="Ingresar lenguaje del tour"
                     value="{{ old('tour_language', $tours->tour_language) }}">
@@ -67,77 +98,86 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="max_capacity">Capacidad máxima</label>
-                <input type="number" id="max_capacity" name="max_capacity" class="form-control form-control-alternative"
+                <label class="form-control-label" for="max_capacity">capacidad máxima</label>
+                <input type="text" id="max_capacity" name="max_capacity" class="form-control form-control-alternative"
                     placeholder="Ingresar capacidad máxima"
                     value="{{ old('max_capacity', $tours->max_capacity) }}">
             </div>
         </div>
     </div>
 
-    <div class="row">
+
+
+<div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="reservation_id">Reservación</label>
-                <select id="reservation_id" name="reservation_id" class="form-control form-control-alternative">
-                    <option value="">Seleccionar reservación</option>
-                    @foreach($reservations as $reservation)
-                        <option value="{{ $reservation->id }}" {{ old('reservation_id', $tours->reservation_id) == $reservation->id ? 'selected' : '' }}>
-                            {{ $reservation->id }}
-                        </option>
-                    @endforeach
-                </select>
+                <label class="form-control-label" for="id_reservations">id de reservacion</label>
+                <input type="text" id="id_reservations" name="id_reservations" class="form-control form-control-alternative"
+                    placeholder="Ingresar id de reservacion"
+                    value="{{ old('id_reservations', $tour->id_reservations) }}">
             </div>
         </div>
     </div>
 
-    <div class="row">
+
+
+
+
+
+<div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="guide_id">Guía</label>
-                <select id="guide_id" name="guide_id" class="form-control form-control-alternative">
-                    <option value="">Seleccionar guía</option>
-                    @foreach($guides as $guide)
-                        <option value="{{ $guide->id }}" {{ old('guide_id', $tours->guide_id) == $guide->id ? 'selected' : '' }}>
-                            {{ $guide->name ?? $guide->id }}
-                        </option>
-                    @endforeach
-                </select>
+                <label class="form-control-label" for="id_guides">id del guia</label>
+                <input type="text" id="id_guides" name="id_guides" class="form-control form-control-alternative"
+                    placeholder="Ingresar id del guia"
+                    value="{{ old('id_guides', $tour->id_guides) }}">
             </div>
         </div>
     </div>
 
-    <div class="row">
+
+
+
+<div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="tour_category_id">Categoría</label>
-                <select id="tour_category_id" name="tour_category_id" class="form-control form-control-alternative">
-                    <option value="">Seleccionar categoría</option>
-                    @foreach($tours_categories as $category)
-                        <option value="{{ $category->id }}" {{ old('tour_category_id', $tours->tour_category_id) == $category->id ? 'selected' : '' }}>
-                            {{ $category->name }}
-                        </option>
-                    @endforeach
-                </select>
+                <label class="form-control-label" for="id_categories">id de categoria</label>
+                <input type="text" id="id_categories" name="id_categories" class="form-control form-control-alternative"
+                    placeholder="Ingresar id de categoria"
+                    value="{{ old('id_categories', $tour->id_categories) }}">
             </div>
         </div>
     </div>
 
-    <div class="row">
+
+
+
+
+
+
+<div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="admin_id">Administrador</label>
-                <select id="admin_id" name="admin_id" class="form-control form-control-alternative">
-                    <option value="">Seleccionar administrador</option>
-                    @foreach($admins as $admin)
-                        <option value="{{ $admin->id }}" {{ old('admin_id', $tour->admin_id) == $admin->id ? 'selected' : '' }}>
-                            {{ $admin->name ?? $admin->id }}
-                        </option>
-                    @endforeach
-                </select>
+                <label class="form-control-label" for="id_admin">id del administrador</label>
+                <input type="text" id="id_admin" name="id_admin" class="form-control form-control-alternative"
+                    placeholder="Ingresar id del administrador"
+                    value="{{ old('id_admin', $tour->id_admin) }}">
             </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
 
 <hr class="my-4" />

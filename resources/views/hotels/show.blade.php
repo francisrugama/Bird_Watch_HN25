@@ -28,7 +28,7 @@
                                 <label class="form-control-label" for="name">
                                     <i class="fa fa-user"></i> nombre del hotel
                                 </label>
-                                <p>{{ $hotel->name }}</p>
+                                <p>{{ $hotels->name }}</p>
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                                 <label class="form-control-label" for="descripcion">
                                     <i class="fa fa-user"></i> descripcion
                                 </label>
-                                <p>{{ $hotel->description }}</p>
+                                <p>{{ $hotels->descriptions }}</p>
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                                 <label class="form-control-label" for="type_abitation">
                                     <i class="fa fa-user"></i> tipo de habitacion
                                 </label>
-                                <p>{{ $hotel->type_abitation }}</p>
+                                <p>{{ $hotels->type_habitation }}</p>
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                                 <label class="form-control-label" for="address">
                                     <i class="fas fa-envelope"></i> direccion
                                 </label>
-                                <p>{{ $hotel->address }}</p>
+                                <p>{{ $hotels->address }}</p>
                             </div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                                 <label class="form-control-label" for="status">
                                     <i class="fa fa-user"></i> status
                                 </label>
-                                <p>{{ $hotel->status }}</p>
+                                <p>{{ $hotels->status }}</p>
                             </div>
                         </div>
                     </div>
@@ -80,10 +80,10 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label class="form-control-label" for="price_per_person">
-                                    <i class="fa fa-user"></i> precio por persona
+                                <label class="form-control-label" for="price_night">
+                                    <i class="fa fa-user"></i> precio por noche
                                 </label>
-                                <p>{{ $hotel->price_per_person }}</p>
+                                <p>{{ $hotels->price_night }}</p>
                             </div>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                                 <label class="form-control-label" for="telephone">
                                     <i class="fa fa-user"></i> teléfono
                                 </label>
-                                <p>{{ $hotel->telephone }}</p>
+                                <p>{{ $hotels->telephone }}</p>
                             </div>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                                 <label class="form-control-label" for="responsible">
                                     <i class="fa fa-user"></i> responsable
                                 </label>
-                                <p>{{ $hotel->responsible }}</p>
+                                <p>{{ $hotels->responsible }}</p>
                             </div>
                         </div>
                     </div>
@@ -120,29 +120,10 @@
                                 <label class="form-control-label" for="qualification">
                                     <i class="fa fa-user"></i> calificación
                                 </label>
-                                <p>{{ $hotel->qualification }}</p>
+                                <p>{{ $hotels->qualification }}</p>
                             </div>
                         </div>
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 </div>
             </div>
 

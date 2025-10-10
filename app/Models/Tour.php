@@ -10,9 +10,10 @@ class Tour extends Model
 {
     use HasFactory;
 
-    protected $fillable =[
+    protected $fillable = [
         'name',
         'description',
+        'type_activity',
         'duration',
         'location',
         'type_transport',
@@ -20,23 +21,26 @@ class Tour extends Model
         'max_capacity',
         'reservation_id',
         'guide_id',
-        'tour_category_id',
+        'tour_categorie_id',
         'admin_id'
     ];
 
-    public function reservations(){
-        return $this->belongsTo(Reservation::class);
+    public function reservations ()
+    {
+        return $this->belongsTo(Reservation::class, 'reservation_id');
     }
 
-    public function guides(){
-        return $this->belongsTo(Guide::class);
+    public function guides ()
+    {
+        return $this->belongsTo(Guide::class, 'guide_id');
     }
 
-    public function tours_categories(){
+    public function tour_categories(){
         return $this->belongsTo(TourCategory::class);
     }
 
-    public function admins(){
-        return $this->belongsTo(Admin::class);
+    public function admins()
+    {
+        return $this->belongsTo(Admin::class, 'admin_id');
     }
 }
