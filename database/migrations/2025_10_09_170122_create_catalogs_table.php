@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('catalogs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->text('description')->nullable();
+            $table->text('description');
             $table->string('image')->nullable();
             $table->timestamps();
         });
