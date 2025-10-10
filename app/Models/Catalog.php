@@ -9,6 +9,8 @@ class Catalog extends Model
 {
     use HasFactory;
 
+        protected $table = 'tours_categories';
+
     protected $fillable = [
         'title',
         'description',
