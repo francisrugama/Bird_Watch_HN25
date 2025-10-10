@@ -24,9 +24,9 @@ class Historial_detailRequest extends FormRequest
         return [
             'name' => 'required|string|min:8|max:255',
             'status' => 'required|string|max:55',
-            'people' => 'required|string|max:45',
-            'type_service' => 'required|string|max:100',
-            'total' => 'required|decimal:0,2',
+            'type_service' => 'required|string|max:45',
+            'type_payment' => 'required|string|max:100',
+            'total' => 'required|decimal:0,3',
             'reservation_id' => 'required',
             'visitor_id' => 'required',
             'tour_id' => 'required'
@@ -44,16 +44,16 @@ class Historial_detailRequest extends FormRequest
             'status.string' => 'El estado debe ser un texto válido.',
             'status.max' => 'El estado no puede superar los 55 caracteres.',
 
-            'people.required' => 'El número de personas es obligatorio.',
-            'people.string' => 'El campo personas debe ser un texto válido.',
-            'people.max' => 'El campo personas no puede superar los 45 caracteres.',
-
             'type_service.required' => 'El tipo de servicio es obligatorio.',
             'type_service.string' => 'El tipo de servicio debe ser un texto válido.',
             'type_service.max' => 'El tipo de servicio no puede superar los 100 caracteres.',
 
+            'type_payment.required' => 'El número de personas es obligatorio.',
+            'type_payment.string' => 'El campo personas debe ser un texto válido.',
+            'type_payment.max' => 'El campo personas no puede superar los 45 caracteres.',
+
             'total.required' => 'El total es obligatorio.',
-            'total.decimal' => 'El total debe ser un número válido con máximo 2 decimales.',
+            'total.decimal' => 'El total debe ser un número válido con máximo 3 decimales.',
 
             'reservation_id.required' => 'La reserva es obligatoria.',
 

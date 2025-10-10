@@ -7,17 +7,17 @@ use Illuminate\Http\Request;
 //use App\Models\Tution;
 
 use App\Models\Place;
-use App\Http\Request\PlaceRequest;
+use App\Http\Requests\PlaceRequest;
 use App\Models\Tour;
 use App\Models\Hotel;
 
 class PlaceController extends Controller
 {
-    
+
     public function index()
     {
-        $historials = Place::with('tours, hotels')->paginate(10);
-        return view('historials.index', compact('historials'));
+        $places = Place::with('tours', 'hotels')->paginate(10);
+        return view('places.index', compact('places'));
     }
 
     public function create()
@@ -25,7 +25,7 @@ class PlaceController extends Controller
         $places = new Place();
         $tours = Tour::all();
         $hotels = Hotel::all();
-        return view('places.create', compact('places, tours, hotels'));
+        return view('places.create', compact('places', 'tours', 'hotels'));
     }
 
     public function store(PlaceRequest $request)
@@ -42,18 +42,18 @@ class PlaceController extends Controller
        return view('places.show', compact('places'));
     }
 
-    public function edit(imt $id)
+    public function edit(int $id)
     {
         $places = Place::find($id);
         $tours = Tour::all();
         $hotels = Hotel::all();
-        return view('places.edit', compact('places, tours, hotels,'));
+        return view('places.edit', compact('places', 'tours', 'hotels'));
     }
 
-    public function update(Request $request, int $id)
+    public function update(PlaceRequest $request, int $id)
     {
         $places = Place::find($id);
-        $places->update($request->validated());
+        $places->update($request->validated());;
 
         return redirect()->route('places.index')->with('update', 'el lugar actualizado con éxito');
     }

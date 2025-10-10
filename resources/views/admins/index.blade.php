@@ -1,12 +1,12 @@
 @extends('layouts.panel')
-@section('title', 'aministradores')
+@section('title', 'Administrador')
 @section('content')
     <div class="row">
         <div class="col">
             <div class="card shadow">
                 <div class="card-header border-0">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h3 class="mb-0">aministradores</h3>
+                        <h3 class="mb-0">Administrador</h3>
                         <a href="{{ route('admins.create') }}" class="btn btn-primary">
                             <i class="fas fa-plus"> Nuevo aministrador</i>
                         </a>
@@ -37,15 +37,15 @@
                                     <td>{{ $admin->gender }}</td>
 
                                     <td style="white-space: nowrap; display: flex; align-items: center;">
-                                        <a href="{{ route('admins.show', $admin->$id) }}"
+                                        <a href="{{ route('admins.show', $admin->id) }}"
                                             class="btn btn-primary btn-sm" style="margin-right: 5px;">
                                             <i class="fas fa-eye">Mostrar</i>
                                         </a>
-                                        <a href="{{ route('admins.edit', $admin->$id) }}" class="btn btn-info btn-sm"
+                                        <a href="{{ route('admins.edit', $admin->id) }}" class="btn btn-info btn-sm"
                                             style="margin-right: 5px">
                                             <i class="fas fa-edit">Editar</i>
                                         </a>
-                                        <form action="{{ route('admins.destroy', $admin->$id) }}" method="POST"
+                                        <form action="{{ route('admins.destroy', $admin->id) }}" method="POST"
                                             style="display: inline-block; margin: 0; display: flex; align-items: center;"
                                             onsubmit="return confirm('¿Está seguro que desea eliminar este aministrador? Esta acción no se puede deshacer.')">
                                             @csrf
@@ -63,7 +63,7 @@
 
                 <div class="card-footer py-4">
                     <nav aria-label="..." class="d-flex flex-wrap justify-content-center justify-content-lg-start">
-                        {{ $teachers->links() }}
+                        {{ $admins->links() }}
                     </nav>
                 </div>
             </div>

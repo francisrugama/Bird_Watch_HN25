@@ -25,7 +25,7 @@ class AdminRequest extends FormRequest
         return [
             'name' => 'required|string|min:8|max:255',
             'email' => ['required', 'max:255', Rule::unique('admins')->ignore($this->admin)],
-            'Phone' => ['nullable', 'string', 'max:15', Rule::unique('admins')->ignore($this->admin)],
+            'telephone' => ['nullable', 'string', 'max:15', Rule::unique('admins')->ignore($this->admin)],
             'age' => 'required|int',
             'country' => 'required|string|max:39',
             'gender' => 'required',

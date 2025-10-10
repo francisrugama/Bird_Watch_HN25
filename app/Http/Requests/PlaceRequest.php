@@ -54,7 +54,7 @@ class PlaceRequest extends FormRequest
             'type_reserve.required' => 'El tipo de reserva es obligatorio.',
             'type_reserve.string' => 'El tipo de reserva debe ser un texto válido.',
             'type_reserve.max' => 'El tipo de reserva no puede superar los 200 caracteres.',
-            
+
             'tour_id.required' => 'Debe seleccionar un tour válido.',
 
             'hotel_id.required' => 'Debe seleccionar un hotel válido.',

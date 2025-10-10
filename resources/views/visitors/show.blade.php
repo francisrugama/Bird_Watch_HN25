@@ -28,7 +28,7 @@
                                 <label class="form-control-label" for="name">
                                     <i class="fa fa-user"></i> Nombre Completo
                                 </label>
-                                <p>{{ $visitor->name }}</p>
+                                <p>{{ $visitors->name }}</p>
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                                 <label class="form-control-label" for="email">
                                     <i class="fa fa-user"></i> Correo
                                 </label>
-                                <p>{{ $visitor->email }}</p>
+                                <p>{{ $visitors->email }}</p>
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                                 <label class="form-control-label" for="telephone">
                                     <i class="fa fa-user"></i> Numero telefonico
                                 </label>
-                                <p>{{ $visitor->telephone }}</p>
+                                <p>{{ $visitors->telephone }}</p>
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                                 <label class="form-control-label" for="age">
                                     <i class="fas fa-envelope"></i> Edad
                                 </label>
-                                <p>{{ $visitor->age }}</p>
+                                <p>{{ $visitors->age }}</p>
                             </div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                                 <label class="form-control-label" for="language">
                                     <i class="fa fa-user"></i> Idioma
                                 </label>
-                                <p>{{ $visitor->language }}</p>
+                                <p>{{ $visitors->language }}</p>
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                                 <label class="form-control-label" for="country">
                                     <i class="fa fa-user"></i> Nacionalidad
                                 </label>
-                                <p>{{ $visitor->country }}</p>
+                                <p>{{ $visitors->country }}</p>
                             </div>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                                 <label class="form-control-label" for="gender">
                                     <i class="fa fa-user"></i> Genero
                                 </label>
-                                <p>{{ $visitor->gender }}</p>
+                                <p>{{ $visitors->gender }}</p>
                             </div>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                                 <label class="form-control-label" for="identification_type">
                                     <i class="fa fa-user"></i> Tipo de identificacion
                                 </label>
-                                <p>{{ $visitor->identification_type }}</p>
+                                <p>{{ $visitors->identification_type }}</p>
                             </div>
                         </div>
                     </div>
@@ -116,7 +116,7 @@
                                 <label class="form-control-label" for="identification_number">
                                     <i class="fa fa-user"></i> Tipo de identificacion
                                 </label>
-                                <p>{{ $visitor->identification_number }}</p>
+                                <p>{{ $visitors->identification_number }}</p>
                             </div>
                         </div>
                     </div>

@@ -1,3 +1,4 @@
+@section('body-class', 'bg-login')
 @extends('layouts.app')
 @section('title', 'Login')
 

@@ -23,12 +23,21 @@
                                 <th scope="col">descripcion</th>
                                 <th scope="col">tipo de habitacion</th>
                                 <th scope="col">Direcion</th>
+<<<<<<< HEAD
+                                <th scope="col">Estado</th>
+                                <th scope="col">Precio por noche</th>
+                                <th scope="col">Telefono</th>
+                                <th scope="col">Responsable</th>
+                                <th scope="col">Calificación</th>
+                                <th scope="col">Acciones</th>
+=======
                                 <th scope="col">estado</th>
                                 <th scope="col">precio por noche</th>
                                 <th scope="col">telefono</th>
                                 <th scope="col">responsable</th>
                                 <th scope="col">calificación</th>
-                                
+>>>>>>> 54bdaa5 (fix: bug fixes)
+
                             </tr>
                         </thead>
                         <tbody>
@@ -36,8 +45,8 @@
                                 <tr>
 
                                     <td>{{ $hotel->name }}</td>
-                                    <td>{{ $hotel->description }}</td>
-                                    <td>{{ $hotel->type_abitation }}</td>
+                                    <td>{{ $hotel->descriptions }}</td>
+                                    <td>{{ $hotel->type_habitation }}</td>
                                     <td>{{ $hotel->address }}</td>
                                     <td>{{ $hotel->status }}</td>
                                     <td>{{ $hotel->price_night }}</td>

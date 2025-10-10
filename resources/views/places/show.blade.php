@@ -26,7 +26,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label for="name" class="form-control-label">
+                                <label class="form-control-label" for="name">
                                     <i class="fas fa-user">Nombre</i>
                                 </label>
                                 <p>{{ $places->name }}</p>
@@ -37,7 +37,7 @@
                      <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label for="address" class="form-control-label">
+                                <label  class="form-control-label" for="address">
                                     <i class="fas fa-user">Direccion</i>
                                 </label>
                                 <p>{{ $places->address }}</p>
@@ -48,7 +48,7 @@
                        <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label for="availability_schedule" class="form-control-label">
+                                <label  class="form-control-label" for="availability_schedule">
                                     <i class="fas fa-user">Disponibilidad de horario</i>
                                 </label>
                                 <p>{{ $places->availability_schedule }}</p>
@@ -57,10 +57,12 @@
                     </div>
 
 
+
+
                      <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label for="description" class="form-control-label">
+                                <label  class="form-control-label" for="description">
                                     <i class="fas fa-user">Descripcion</i>
                                 </label>
                                 <p>{{ $places->description }}</p>
@@ -71,10 +73,10 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label class="form-control-label" for=supplier>
-                                    <i class="fas fa-user-graduate">Proveedor</i>
+                                <label class="form-control-label" for=tour_id>
+                                    <i class="fas fa-user-graduate">Tour</i>
                                 </label>
-                                <p>{{ $places->tour->name}}</p>
+                                <p>{{ $places->tours->name }}</p>
                             </div>
                         </div>
                     </div>
@@ -82,10 +84,10 @@
                      <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label class="form-control-label" for=responsible>
-                                    <i class="fas fa-user-graduate">Responsable</i>
+                                <label class="form-control-label" for=hotel_id>
+                                    <i class="fas fa-user-graduate">Hotel</i>
                                 </label>
-                                <p>{{ $places->hotel->name}}</p>
+                                <p>{{ $places->hotels->name }}</p>
                             </div>
                         </div>
                     </div>

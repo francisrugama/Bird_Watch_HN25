@@ -15,6 +15,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('description');
+            $table->string('type_activity');
             $table->string('duration');
             $table->string('location');
             $table->string('type_transport');
@@ -29,8 +30,8 @@ return new class extends Migration
             $table->foreign('guide_id')->references('id')->on('guides')
             ->onDelete('cascade')->onUpdate('cascade');
 
-            $table->integer('tour_category_id')->unsigned();
-            $table->foreign('tour_category_id')->references('id')->on('tours_categories')
+            $table->integer('tour_categorie_id')->unsigned();
+            $table->foreign('tour_categorie_id')->references('id')->on('tours_categories')
             ->onDelete('cascade')->onUpdate('cascade');
 
             $table->integer('admin_id')->unsigned();

@@ -3,19 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-//use App\Models\Tution;
-
 use App\Models\Tour;
 use App\Http\Request\TourRequest;
 use App\Models\Guide;
 use App\Models\Reservation;
-use App\Models\Tours_categorie;
+use App\Models\TourCategory;
 use App\Models\Admin;
 
 class TourController extends Controller
 {
-    
     public function index()
     {
         $tours = Tour::with('reservations, guides, tours_categories, admins')->paginate(10);
@@ -25,7 +21,6 @@ class TourController extends Controller
     public function create()
     {
         $tours = new Tour();
-        $guides = Guide::all();
         $reservations = Reservation::all();
         $tours_categories = Tours_categorie::all();
         $admins = Admin::all();
@@ -40,6 +35,7 @@ class TourController extends Controller
 
     public function show(string $id)
     {
+
         $tours = Tour::find($id);
         $guides = Guide::all();
         $reservations = Reservation::all();
@@ -48,17 +44,16 @@ class TourController extends Controller
        return view('tours.show', compact('tours'));
     }
 
-    public function edit(imt $id)
+    public function edit(int $id)
     {
         $tours = Tour::find($id);
-        $guides = Guide::all();
         $reservations = Reservation::all();
         $tours_categories = Tours_categorie::all();
         $admins = Admin::all();
         return view('tours.edit', compact('tours, reservations, guides, tours_categories, admins'));
     }
 
-    public function update(Request $request, int $id)
+    public function update(TourRequest $request, int $id)
     {
         $tours = Tour::find($id);
         $tours->update($request->validated());
