@@ -21,7 +21,7 @@ class Tour extends Model
         'max_capacity',
         'reservation_id',
         'guide_id',
-        'tour_categorie_id',
+        'tour_categoy_id',
         'admin_id'
     ];
 

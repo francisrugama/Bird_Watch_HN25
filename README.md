@@ -2,36 +2,25 @@
 
 [![Estado del Proyecto](https://img.shields.io/badge/estado-en_desarrollo-yellow.svg)](https://github.com/tuusuario/bird-watch)
 [![Licencia](https://img.shields.io/badge/licencia-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Framework](https://img.shields.io/badge/framework-Laravel-red.svg)](https://laravel.com)
-[![Dashboard](https://img.shields.io/badge/dashboard-Argon-success.svg)](https://www.creative-tim.com/product/argon-dashboard)
 
-**Bird Watch** es una aplicación web especializada en aviturismo que conecta a los amantes de la observación de aves con los mejores destinos y servicios en Nicaragua. Ofrecemos una plataforma intuitiva para reservar hospedaje y encontrar tours especializados que se adapten a las necesidades específicas de cada observador de aves.
+Este repositorio proporciona una plantilla prediseñada para proyectos de Laravel que requieren un panel de administración. La plantilla está integrada con Argon Dashboard, una plantilla de panel de administración hermosa y de código abierto desarrollada por Creative Tim.
 
-## 🦜 Características Principales
+## Características
 
-### Para Clientes
-- **Reserva de Hospedaje**: Sistema simplificado para encontrar y reservar hoteles especializados en aviturismo
-- **Tours Personalizados**: Catálogo de tours filtrables por tipo de aves, ubicación, dificultad y presupuesto
-- **Guías Especializados**: Acceso a guías locales expertos en aves nicaragüenses
-- **Galería de Aves**: Base de datos visual de especies autóctonas
-- **Reseñas y Calificaciones**: Sistema de opiniones de otros observadores de aves
+- Integración de Argon Dashboard para una interfaz de usuario elegante y moderna.
+- Estructura de carpetas predefinida para una organización eficiente del código.
+- Vistas predefinidas para páginas comunes como inicio, perfil, ajustes, etc.
+- Formularios predefinidos con validaciones básicas para una rápida implementación.
+- Autenticación de usuario lista para usar con páginas de inicio de sesión y registro.
+- Documentación clara y detallada para ayudar a los desarrolladores a comenzar rápidamente.
 
-### Para Proveedores
-- **Panel de Gestión**: Interfaz Argon Dashboard para administrar servicios
-- **Gestión de Reservas**: Sistema completo para manejar reservas de hoteles y tours
-- **Perfiles de Servicios**: Plataforma para mostrar sus servicios especializados
+## Requisitos Previos
 
-## 🛠️ Tecnologías
-
-- **Backend**: Laravel 10+
-- **Frontend**: Dashboard + Tailwind CSS
-- **Base de Datos**: MySQL
-- **Autenticación**: Laravel Breeze
-- **Pagos**: Integración con pasarelas de pago locales
-
-## 📋 Requisitos Previos
-
-Antes de instalar el proyecto, asegúrate de tener:
+<<<<<<< HEAD
+Antes de comenzar a utilizar esta plantilla, asegúrate de tener instalado:
+=======
+Antes de comenzar a utilizar este prollecto, asegúrate de tener instalado :
+>>>>>>> 9a3b1e9 (feed: edit readme)
 
 - [PHP](https://www.php.net/) >= 8.2
 - [Composer](https://getcomposer.org/)
@@ -41,15 +30,17 @@ Antes de instalar el proyecto, asegúrate de tener:
 
 ## 🚀 Instalación
 
-1. **Clona el repositorio**:
-   ```bash
-   git clone https://github.com/francisrugama/Bird_Watch_HN25.git
-   ```
+1. Clona este repositorio en tu máquina local:
 
-2. **Navega a la carpeta del proyecto:**:
-   ```bash
-   cd Bird_Watch_HN25
-   ```
+    ```bash
+    git clone https://github.com/StevenU21/argon](https://github.com/limberrodriguezCT/Argon.git
+    ```
+
+2. Navega a la carpeta del proyecto:
+
+    ```bash
+    cd argon
+    ```
 
 3. **Instala dependencias PHP**:
    ```bash
