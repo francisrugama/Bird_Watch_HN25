@@ -23,20 +23,12 @@
                                 <th scope="col">descripcion</th>
                                 <th scope="col">tipo de habitacion</th>
                                 <th scope="col">Direcion</th>
-<<<<<<< HEAD
                                 <th scope="col">Estado</th>
                                 <th scope="col">Precio por noche</th>
                                 <th scope="col">Telefono</th>
                                 <th scope="col">Responsable</th>
                                 <th scope="col">Calificación</th>
                                 <th scope="col">Acciones</th>
-=======
-                                <th scope="col">estado</th>
-                                <th scope="col">precio por noche</th>
-                                <th scope="col">telefono</th>
-                                <th scope="col">responsable</th>
-                                <th scope="col">calificación</th>
->>>>>>> 54bdaa5 (fix: bug fixes)
 
                             </tr>
                         </thead>
