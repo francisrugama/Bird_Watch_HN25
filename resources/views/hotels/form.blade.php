@@ -24,11 +24,7 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-<<<<<<< HEAD
                 <label class="form-control-label" for="type_habitation">Tipo de Habitación</label>
-=======
-                <label class="form-control-label" for="type_habitation">tipo de habitación</label>
->>>>>>> 54bdaa5 (fix: bug fixes)
                 <input type="text" id="type_habitation" name="type_habitation" class="form-control form-control-alternative"
                     placeholder="Ingresar tipo de habitación"
                     value="{{ old('type_habitation', $hotels->type_habitation ?? '') }}">
@@ -48,20 +44,6 @@
     </div>
 
     <div class="row">
-<<<<<<< HEAD
-=======
-        <div class="col-lg-6">
-            <div class="form-group">
-                <label class="form-control-label" for="status">estado</label>
-                <input type="text" id="status" name="status" class="form-control form-control-alternative"
-                    placeholder="Ingresar estado"
-                    value="{{ old('status', $hotels->status ?? '') }}">
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
->>>>>>> 54bdaa5 (fix: bug fixes)
         <div class="col-lg-6">
             <div class="form-group">
                 <label class="form-control-label" for="status">Estado</label>
@@ -97,11 +79,7 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-<<<<<<< HEAD
                 <label class="form-control-label" for="responsible">Responsable</label>
-=======
-                <label class="form-control-label" for="responsible">responsable</label>
->>>>>>> 54bdaa5 (fix: bug fixes)
                 <input type="text" id="responsible" name="responsible" class="form-control form-control-alternative"
                     placeholder="Ingresar responsable"
                     value="{{ old('responsible', $hotels->responsible ?? '') }}">
@@ -120,23 +98,6 @@
         </div>
     </div>
 </div>
-<<<<<<< HEAD
-=======
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> 54bdaa5 (fix: bug fixes)
 
 
 </div>
