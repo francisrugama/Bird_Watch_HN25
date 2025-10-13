@@ -44,7 +44,7 @@ class Historial_detailController extends Controller
        return view('historial_details.show', compact('historial_details'));
     }
 
-    public function edit(imt $id)
+    public function edit(int $id)
     {
         $historial_details = Historial_detail::find($id);
         $tours = Tour::all();
@@ -53,7 +53,7 @@ class Historial_detailController extends Controller
         return view('historial_details.edit', compact('historial_details', 'tours', 'reservations', 'visitors'));
     }
 
-    public function update(Request $request, int $id)
+    public function update(Historial_detailRequest $request, int $id)
     {
         $historial_details = Historial_detail::find($id);
         $historial_details->update($request->validated());
