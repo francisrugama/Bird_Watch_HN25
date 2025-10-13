@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tour;
-use App\Http\Request\TourRequest;
+use App\Http\Requests\TourRequest;
 use App\Models\Guide;
 use App\Models\Reservation;
-use App\Models\TourCategory;
+use App\Models\Tour_categorie;
 use App\Models\Admin;
 
 class TourController extends Controller
@@ -22,9 +22,9 @@ class TourController extends Controller
     {
         $tours = new Tour();
         $reservations = Reservation::all();
-        $tours_categories = Tours_categorie::all();
+        $tours_categories = Tour_categorie::all();
         $admins = Admin::all();
-        return view('tours.create', compact('tours, reservations, guides, tours_categories, admins'));
+        return view('tours.create', compact('tours'));
     }
 
     public function store(TourRequest $request)
@@ -39,7 +39,7 @@ class TourController extends Controller
         $tours = Tour::find($id);
         $guides = Guide::all();
         $reservations = Reservation::all();
-        $tours_categories = Tours_categorie::all();
+        $tours_categories = Tour_categorie::all();
         $admins = Admin::all();
        return view('tours.show', compact('tours'));
     }
@@ -48,7 +48,7 @@ class TourController extends Controller
     {
         $tours = Tour::find($id);
         $reservations = Reservation::all();
-        $tours_categories = Tours_categorie::all();
+        $tours_categories = Tour_categorie::all();
         $admins = Admin::all();
         return view('tours.edit', compact('tours, reservations, guides, tours_categories, admins'));
     }

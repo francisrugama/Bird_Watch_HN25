@@ -35,8 +35,8 @@ class Tour extends Model
         return $this->belongsTo(Guide::class, 'guide_id');
     }
 
-    public function tour_categories(){
-        return $this->belongsTo(TourCategory::class);
+    public function tours_categories(){
+        return $this->belongsTo(Tour_categorie::class);
     }
 
     public function admins()
