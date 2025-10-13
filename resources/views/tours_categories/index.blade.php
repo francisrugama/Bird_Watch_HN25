@@ -23,27 +23,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($tours_categories as $tours_categorie)
+                            @foreach ($tours_categories as $tour_categorie)
                                 <tr>
-                                    <td>{{ $tours_categorie->name }}</td>
-                                    <td>{{ $tours_categorie->description }}</td>
+                                    <td>{{ $tour_categorie->name }}</td>
+                                    <td>{{ $tour_categorie->description }}</td>
 
                                     <td style="white-space: nowrap; display: flex; align-items: center;">
-                                        <a href="{{ route('tours_categories.show', $tours_categorie->$id) }}"
-                                            class="btn btn-primary btn-sm" style="margin-right: 5px;">
+                                        <a href="{{ route('tours_categories.show', $tour_categorie->id) }}"class="btn btn-primary btn-sm" style="margin-right: 5px;">
                                             <i class="fas fa-eye">Mostrar</i>
                                         </a>
-                                        <a href="{{ route('tours_categories.edit', $tours_categorie->$id) }}" class="btn btn-info btn-sm"
-                                            style="margin-right: 5px">
+                                         <a href="{{ route('tours_categories.edit', $tour_categorie->id) }}" class="btn btn-info btn-sm" style="margin-right: 5px">
                                             <i class="fas fa-edit">Editar</i>
                                         </a>
-                                        <form action="{{ route('tours_categories.destroy', $tours_categorie->$id) }}" method="POST"
+                                       <form action="{{ route('tours_categories.destroy', $tour_categorie->id) }}" method="POST"
                                             style="display: inline-block; margin: 0; display: flex; align-items: center;"
-                                            onsubmit="return confirm('¿Está seguro que desea eliminar esta categoria de tur? Esta acción no se puede deshacer.')">
+                                            onsubmit="return confirm('¿Está seguro que desea eliminar este Tour? Esta acción no se puede deshacer.');">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm">
-                                                <i class="fas fa-trash">Eliminar</i>
+                                                <i class="fas fa-trash"></i> Eliminar
                                             </button>
                                         </form>
                                     </td>

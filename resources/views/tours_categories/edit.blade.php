@@ -10,7 +10,7 @@
                 <div class="row align-items-center">
                     <div class="col-8">
                         <h3 class="mb-0">
-                            <i class="fas fa-plus-circle"x</i> Actualizar categorias de turs
+                            <i class="fas fa-plus-circle"></i> Actualizar categorias de turs
                         </h3>
 
                     </div>
