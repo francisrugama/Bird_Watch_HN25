@@ -7,7 +7,7 @@
             <div class="card-header bg-white border-0">
                 <div class="row align-items-center">
                     <div class="col-8">
-                        <h3 class="mb-0 ">> <i class="fas fa_plus_circle"> </i> Registrar categorias de tur</h3>
+                        <h3 class="mb-0 "> <i class="fas fa_plus_circle"> </i> Registrar categorias de tur</h3>
                     </div>
                     <div class="colo-4 text-righ">
                         <a href="{{ route('tours_categories.index') }}" class="btn btn-sm btn-primary">
