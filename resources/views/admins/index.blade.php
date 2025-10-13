@@ -23,7 +23,7 @@
                                 <th scope="col">Edad</th>
                                 <th scope="col">País</th>
                                 <th scope="col">Genero</th>
-                                <th scope="col">acciones</th>
+                                <th scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -31,7 +31,7 @@
                                 <tr>
                                     <td>{{ $admin->name }}</td>
                                     <td>{{ $admin->email }}</td>
-                                    <td>{{ $admin->phone }}</td>
+                                    <td>{{ $admin->telephone }}</td>
                                     <td>{{ $admin->age }}</td>
                                     <td>{{ $admin->country }}</td>
                                     <td>{{ $admin->gender }}</td>

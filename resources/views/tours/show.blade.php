@@ -26,7 +26,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="name">
-                                    <i class="fa fa-user"></i> nombre del Recorrido
+                                    <i class="fa fa-user"></i> Nombre del Recorrido
                                 </label>
                                 <p>{{ $tours->name }}</p>
                             </div>
@@ -37,7 +37,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="description">
-                                    <i class="fa fa-user"></i> descripcion
+                                    <i class="fa fa-user"></i> Descripcion
                                 </label>
                                 <p>{{ $tours->description }}</p>
                             </div>
@@ -48,7 +48,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="type_activity">
-                                    <i class="fa fa-user"></i> tipo de actividad
+                                    <i class="fa fa-user"></i> Tipo de actividad
                                 </label>
                                 <p>{{ $tours->type_activity }}</p>
                             </div>
@@ -59,7 +59,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="duration">
-                                    <i class="fas fa-envelope"></i> duración
+                                    <i class="fas fa-envelope"></i> Duración
                                 </label>
                                 <p>{{ $tours->duration }}</p>
                             </div>
@@ -70,7 +70,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="location">
-                                    <i class="fa fa-user"></i> localidad
+                                    <i class="fa fa-user"></i> Ubicación
                                 </label>
                                 <p>{{ $tours->location }}</p>
                             </div>
@@ -81,7 +81,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="type_transport">
-                                    <i class="fa fa-user"></i> tipo de transporte
+                                    <i class="fa fa-user"></i> Tipo de transporte
                                 </label>
                                 <p>{{ $tours->type_transport }}</p>
                             </div>
@@ -92,7 +92,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="tour_language">
-                                    <i class="fa fa-user"></i> idioma del tour
+                                    <i class="fa fa-user"></i> Idioma del tour
                                 </label>
                                 <p>{{ $tours->tour_language }}</p>
                             </div>
@@ -121,7 +121,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="id_reservations">
-                                    <i class="fa fa-user"></i> id de reservas
+                                    <i class="fa fa-user"></i>Reservas
                                 </label>
                                 <p>{{ $tours->reservations->status }}</p>
                             </div>
@@ -137,7 +137,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="id_guides">
-                                    <i class="fa fa-user"></i> id de guía
+                                    <i class="fa fa-user"></i>guía
                                 </label>
                                 <p>{{ $tours->guides->name }}</p>
                             </div>
@@ -157,7 +157,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="id_tour_categorie">
-                                    <i class="fa fa-user"></i> Id de la categoría
+                                    <i class="fa fa-user"></i>categoría
                                 </label>
                                 <p>{{ $tours->tours_categories->name }}</p>
                             </div>
@@ -172,7 +172,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="Id_admin">
-                                    <i class="fa fa-user"></i> Id del administrador
+                                    <i class="fa fa-user"></i>administrador
                                 </label>
                                 <p>{{ $tours->admins->name }}</p>
                             </div>
