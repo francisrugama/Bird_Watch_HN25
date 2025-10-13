@@ -72,7 +72,7 @@ class TourRequest extends FormRequest
             'max_capacity.string' => 'La capacidad máxima debe ser un texto válido.',
             'max_capacity.max' => 'La capacidad máxima no puede superar los 45 caracteres.',
 
-            'reservations_id.required' => 'La reserva asociada es obligatoria.',
+            'reservation_id.required' => 'La reserva asociada es obligatoria.',
 
             'guide_id.required' => 'El guía es obligatorio.',
 

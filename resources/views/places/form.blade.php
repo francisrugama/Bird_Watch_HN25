@@ -28,7 +28,7 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="availability_schedule"> Fecha de dispunibilidad</label>
+                <label class="form-control-label" for="availability_schedule"> Fecha de disponibilidad</label>
                 <input type="date" id="availability_schedule" name="availability_schedule" class="form-control form-control-alternative"
                 placeholder="ingresar disponibilidad de horario"
                 value="{{ old('availability_schedule', $places->availability_schedule)}}">
