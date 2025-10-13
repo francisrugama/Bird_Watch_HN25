@@ -1,0 +1,188 @@
+@extends ('layouts.panel')
+@section("title", 'Recorrido/Show')
+
+@section("content")
+    <div class="col-xl-12 order-x-1">
+        <div class="card bg-secondary shadow">
+
+            <div class="card-header bg-white border-0">
+                <div class="row align-items-center">
+                    <div class="col-8">
+                        <h3 class="nb-0"> <i class="fas fa-newspaper"></i> Ver Tour</h3>
+                    </div>
+                    <div class="col-4 text-right">
+                        <a href="{{ route('tours.index' ) }}" class="btn btn-sm btn-primary">
+                            <i class="fa fa-list"></i> Volver
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <h6 class="heading-small text-muted mb-4">Información del Recorrido</h6>
+                <div class="pl-lg-4">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" for="name">
+                                    <i class="fa fa-user"></i> Nombre del Recorrido
+                                </label>
+                                <p>{{ $tours->name }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" for="description">
+                                    <i class="fa fa-user"></i> Descripcion
+                                </label>
+                                <p>{{ $tours->description }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" for="type_activity">
+                                    <i class="fa fa-user"></i> Tipo de actividad
+                                </label>
+                                <p>{{ $tours->type_activity }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" for="duration">
+                                    <i class="fas fa-envelope"></i> Duración
+                                </label>
+                                <p>{{ $tours->duration }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" for="location">
+                                    <i class="fa fa-user"></i> Ubicación
+                                </label>
+                                <p>{{ $tours->location }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" for="type_transport">
+                                    <i class="fa fa-user"></i> Tipo de transporte
+                                </label>
+                                <p>{{ $tours->type_transport }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" for="tour_language">
+                                    <i class="fa fa-user"></i> Idioma del tour
+                                </label>
+                                <p>{{ $tours->tour_language }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" for="max_capacity">
+                                    <i class="fa fa-user"></i> capacidad máxima
+                                </label>
+                                <p>{{ $tours->max_capacity }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                   <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" for="id_reservations">
+                                    <i class="fa fa-user"></i>Reservas
+                                </label>
+                                <p>{{ $tours->reservations->status }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                   <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" for="id_guides">
+                                    <i class="fa fa-user"></i>guía
+                                </label>
+                                <p>{{ $tours->guides->name }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" for="id_tour_categorie">
+                                    <i class="fa fa-user"></i>categoría
+                                </label>
+                                <p>{{ $tours->tours_categories->name }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" for="Id_admin">
+                                    <i class="fa fa-user"></i>administrador
+                                </label>
+                                <p>{{ $tours->admins->name }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+@endsection
