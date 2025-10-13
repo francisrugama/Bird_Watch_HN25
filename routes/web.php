@@ -10,11 +10,12 @@ use App\Http\Controllers\TourController;
 use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ReservationController;
-use App\Http\Controllers\HistorialDetailController;
-use App\Http\Controllers\TourCategoryController;
+use App\Http\Controllers\Historial_detailController;
+use App\Http\Controllers\Tour_categorieController;
+use App\Http\Controllers\CatalogController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Route::get('/dashboard', function () {
@@ -42,11 +43,14 @@ Route::middleware('auth')->group(function () {
     Route::resource('hotels', HotelController::class);
     Route::resource('guides', GuideController::class);
     Route::resource('places', PlaceController::class);
-    Route::resource('admins', AdminController::class);
+    Route::resource('admins', AdminController::class)->parameters([
+    'admins' => 'id'
+]);
     Route::resource('tours', TourController::class);
-    Route::resource('tour_categories', TourCategoryController::class);
+    Route::resource('tours_categories', Tour_categorieController::class);
     Route::resource('reservations', ReservationController::class);
-     Route::resource('historial_details', HistorialDetailController::class);
+    Route::resource('historial_details', Historial_detailController::class);
+    Route::resource('catalogs', CatalogController::class);
 
 
     //rutas con controlador y prefix

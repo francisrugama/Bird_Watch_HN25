@@ -19,12 +19,12 @@
                             <tr>
                                 <th scope="col">nombre</th>
                                 <th scope="col">estado</th>
-                                <th scope="col">persona</th>
                                 <th scope="col">tipo de servicio</th>
+                                <th scope="col">tipo de pago</th>
                                 <th scope="col">total</th>
-                                <th scope="col">nombre de reservacion</th>
+                                <th scope="col">estado de reservacion</th>
                                 <th scope="col">nombre de visitante</th>
-                                <th scope="col">nombre de tur</th>
+                                <th scope="col">nombre de recorido</th>
                                 <th scope="col">acciones</th>
                             </tr>
                         </thead>
@@ -33,24 +33,24 @@
                                 <tr>
                                     <td>{{ $historial_detail->name }}</td>
                                     <td>{{ $historial_detail->status }}</td>
-                                    <td>{{ $historial_detail->people }}</td>
                                     <td>{{ $historial_detail->type_service }}</td>
+                                    <td>{{ $historial_detail->type_payment }}</td>
                                     <td>{{ $historial_detail->total }}</td>
-                                    <td>{{ $historial_detail->reservation->name }}</td>
-                                    <td>{{ $historial_detail->visitor->name }}</td>
-                                    <td>{{ $historial_detail->tour->name }}</td>
+                                    <td>{{ $historial_detail->reservations->status }}</td>
+                                    <td>{{ $historial_detail->visitors->name }}</td>
+                                    <td>{{ $historial_detail->tours->name }}</td>
 
 
                                     <td style="white-space: nowrap; display: flex; align-items: center;">
-                                        <a href="{{ route('historial_details.show', $historial_detail->$id) }}"
+                                        <a href="{{ route('historial_details.show', $historial_detail->id) }}"
                                             class="btn btn-primary btn-sm" style="margin-right: 5px;">
                                             <i class="fas fa-eye">Mostrar</i>
                                         </a>
-                                        <a href="{{ route('historial_details.edit', $historial_detail->$id) }}" class="btn btn-info btn-sm"
+                                        <a href="{{ route('historial_details.edit', $historial_detail->id) }}" class="btn btn-info btn-sm"
                                             style="margin-right: 5px">
                                             <i class="fas fa-edit">Editar</i>
                                         </a>
-                                        <form action="{{ route('historial_details.destroy', $historial_detail->$id) }}" method="POST"
+                                        <form action="{{ route('historial_details.destroy', $historial_detail->id) }}" method="POST"
                                             style="display: inline-block; margin: 0; display: flex; align-items: center;""
                                             onsubmit="return confirm('¿Está seguro que desea eliminar este historial? Esta acción no se puede deshacer.')">
                                             @csrf
@@ -68,7 +68,7 @@
 
                 <div class="card-footer py-4">
                     <nav aria-label="..." class="d-flex flex-wrap justify-content-center justify-content-lg-start">
-                        {{ $tutions->links() }}
+                        {{ $historial_details->links() }}
                     </nav>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 @extends('layouts.panel')
-@section('title', 'categoria de tur/crear')
+@section('title', 'Categoria de recorrido/crear')
 @section('content')
 
     <div class="col-x1-12 order-x1-1">
@@ -19,7 +19,7 @@
             <div class="card-body container-fluid">
                 <form action="{{ route('tours_categories.store') }}" method="POST">
                     @csrf
-                    @include('tours_categories.from')
+                    @include('tours_categories.form')
                 </form>
             </div>
         </div>

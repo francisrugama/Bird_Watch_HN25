@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="col-x1-12 order-x1-1">
+    <div class="col-xl-12 order-xl-1">
         <div class="card bg-secondary shadow">
             <div class="card-header bg-white border-0">
                 <div class="row align-items-center">
@@ -15,15 +15,15 @@
 
                     </div>
                     <div class="col-4 text-right">
-                        <a href="ff route('tours_categories.index') ))" class="btn btn-sm btn-primary">
-                            <i class="fas fa-arrow- left"></i> Volver
+                        <a href="{{ route('tours_categories.index') }}" class="btn btn-sm btn-primary">
+                            <i class="fas fa-arrow-left"></i> Volver
                         </a>
                     </div>
                 </div>
             </div>
 
             <div class="card-body container-fluid">
-                <form action="f/ route('tours_categories.update', $tours_categories->$id) 1" method="POST">
+                <form action="{{ route('tours_categories.update', $tours_categories->id) }}" method="POST">
                     @csrf
                     @method('PUT')
                     @include('tours_categories.form')

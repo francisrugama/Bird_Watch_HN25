@@ -12,18 +12,19 @@ class Place extends Model
     protected $fillable =[
         'name',
         'address',
-        'avilability_schedule',
+        'availability_schedule',
         'description',
+        'type_reserve',
         'tour_id',
         'hotel_id'
 
     ];
 
-    public function places(){
-        return $this->belongsTo(Place::class);
+    public function tours(){
+        return $this->belongsTo(Tour::class,'tour_id' );
     }
 
     public function hotels(){
-        return $this->belongsTo(Hotel::class);
+        return $this->belongsTo(Hotel::class, 'hotel_id');
     }
 }

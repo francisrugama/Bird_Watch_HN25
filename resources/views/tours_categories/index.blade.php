@@ -1,14 +1,14 @@
 @extends('layouts.panel')
-@section('title', 'categorias de turs')
+@section('title', 'Categorías de Rcorrido')
 @section('content')
     <div class="row">
         <div class="col">
             <div class="card shadow">
                 <div class="card-header border-0">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h3 class="mb-0">categorias de turs</h3>
+                        <h3 class="mb-0">Categorías de Tours</h3>
                         <a href="{{ route('tours_categories.create') }}" class="btn btn-primary">
-                            <i class="fas fa-plus"> Nueva categoria de tur</i>
+                            <i class="fas fa-plus"></i> Nueva Categoría de recorrido
                         </a>
                     </div>
                 </div>
@@ -18,8 +18,8 @@
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col">Nombre</th>
-                                <th scope="col">descripcion</th>
-                                <th scope="col">acciones</th>
+                                <th scope="col">Descripción</th>
+                                <th scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,12 +55,10 @@
 
                 <div class="card-footer py-4">
                     <nav aria-label="..." class="d-flex flex-wrap justify-content-center justify-content-lg-start">
-                        {{ $teachers->links() }}
+                        {{ $tours_categories->links() }}
                     </nav>
                 </div>
             </div>
         </div>
     </div>
-
-
 @endsection

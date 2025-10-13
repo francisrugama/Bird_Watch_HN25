@@ -1,6 +1,6 @@
-# Plantilla de Laravel con Argon Dashboard Integrado
+# Bird Watch - Plataforma de Aviturismo Nicaragüense
 
-[![Estado de la construcción](https://img.shields.io/badge/estado-construcci%C3%B3n_exitosa-brightgreen.svg)](https://github.com/tuusuario/turepositorio)
+[![Estado del Proyecto](https://img.shields.io/badge/estado-en_desarrollo-yellow.svg)](https://github.com/tuusuario/bird-watch)
 [![Licencia](https://img.shields.io/badge/licencia-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 Este repositorio proporciona una plantilla prediseñada para proyectos de Laravel que requieren un panel de administración. La plantilla está integrada con Argon Dashboard, una plantilla de panel de administración hermosa y de código abierto desarrollada por Creative Tim.
@@ -16,14 +16,19 @@ Este repositorio proporciona una plantilla prediseñada para proyectos de Larave
 
 ## Requisitos Previos
 
+<<<<<<< HEAD
 Antes de comenzar a utilizar esta plantilla, asegúrate de tener instalado:
+=======
+Antes de comenzar a utilizar este prollecto, asegúrate de tener instalado :
+>>>>>>> 9a3b1e9 (feed: edit readme)
 
 - [PHP](https://www.php.net/) >= 8.2
 - [Composer](https://getcomposer.org/)
-- [Node.js](https://nodejs.org/)
+- [Node.js](https://nodejs.org/) >= 16
 - [npm](https://www.npmjs.com/)
+- [MySQL](https://www.mysql.com/) >= 8.0
 
-## Instalación
+## 🚀 Instalación
 
 1. Clona este repositorio en tu máquina local:
 
@@ -37,55 +42,66 @@ Antes de comenzar a utilizar esta plantilla, asegúrate de tener instalado:
     cd argon
     ```
 
-3. Instala las dependencias PHP usando Composer:
+3. **Instala dependencias PHP**:
+   ```bash
+   composer install
+   ```
 
-    ```bash
-    composer install
-    ```
+4. **Instala dependencias JavaScript**:
+   ```bash
+   npm install 
+   ```
 
-4. Instala las dependencias de JavaScript:
+5. **Configura el entorno**:
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-    ```bash
-    npm install
-    ```
+6. **Configura la base de datos**:
+   - Crea una base de datos MySQL
+   - Actualiza el archivo `.env` con tus credenciales:
+     ```env
+     DB_DATABASE=bird_watch
+     DB_USERNAME=tu_usuario
+     DB_PASSWORD=tu_contraseña
+     ```
 
-5. Copia el archivo de configuración de ejemplo y configura tu entorno:
+7. **Ejecuta migraciones y seeders**:
+   ```bash
+   php artisan migrate --seed
+   ```
 
-    ```bash
-    cp .env.example .env
-    php artisan key:generate
-    ```
+8. **Inicia el servidor**:
+   ```bash
+   php artisan serve
+   ```
 
-6. Configura Mailtrap para la funcionalidad de verificación de correo electrónico y otros servicios de correo:
-   
-   - Crea una cuenta en [Mailtrap](https://mailtrap.io/).
-   - Obtén tus credenciales de Mailtrap (username y password).
-   - Añade tus credenciales de Mailtrap en el archivo `.env` de tu proyecto:
+9. **Accede a la aplicación**:
+   Abre tu navegador en `http://localhost:8000`
 
-    ```env
-    MAIL_MAILER=smtp
-    MAIL_HOST=smtp.mailtrap.io
-    MAIL_PORT=2525
-    MAIL_USERNAME=your_mailtrap_username
-    MAIL_PASSWORD=your_mailtrap_password
-    MAIL_ENCRYPTION=null
-    MAIL_FROM_ADDRESS=example@example.com
-    MAIL_FROM_NAME="${APP_NAME}"
-    ```
 
-7. Ejecuta las migraciones de la base de datos y los seeders (si es necesario):
+## 🌟 Características Técnicas
 
-    ```bash
-    php artisan migrate --seed
-    ```
+- **Panel Administrativo**: Dashboard integrado
+- **Diseño Responsive**: Compatible con todos los dispositivos
+- **Sistema de Reservas**: Flujo completo de reservación
+- **Búsqueda Avanzada**: Filtros por especie, ubicación y temporada
+- **Gestión de Usuarios**: Roles y permisos
+- **API RESTful**: Para futuras integraciones móviles
 
-8. Inicia el servidor de desarrollo:
 
-    ```bash
-    php artisan serve
-    ```
-## Licencia
+## 📄 Licencia
 
-Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para obtener más detalles.
+Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+
+## 📞 Contacto
+
+**Bird Watch Nicaragua**  
+✉️ info@birdwatch.com.ni  
+🌐 [www.birdwatch.com.ni](https://www.birdwatch.com.ni)  
+📱 Síguenos en redes sociales
 
 ---
+
+*Descubre la majestuosidad de las aves nicaragüenses con Bird Watch - Tu ventana al mundo del aviturismo* 🦜

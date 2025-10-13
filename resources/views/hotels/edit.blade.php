@@ -22,7 +22,7 @@
 
                 <div class="card-body container-fluid">
 
-                    <form action="{{ route('hotels.update', $hotel->id) }}" method="POST">
+                    <form action="{{ route('hotels.update', $hotels->id) }}" method="POST">
                         @csrf
                         @method('PUT')
                         @include('hotels.form')

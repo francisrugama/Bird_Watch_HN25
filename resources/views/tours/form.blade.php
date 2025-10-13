@@ -57,15 +57,7 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-<div class="row">
+    <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
                 <label class="form-control-label" for="location">Localidad</label>
@@ -76,18 +68,13 @@
         </div>
     </div>
 
-
-
-
-
-
-<div class="row">
+    <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label class="form-control-label" for="type_transport">tipo de transporte</label>
+                <label class="form-control-label" for="type_transport">Tipo de transporte</label>
                 <input type="text" id="type_transport" name="type_transport" class="form-control form-control-alternative"
                     placeholder="Ingresar tipo de transporte"
-                    value="{{ old('type_transport', $tour->type_transport) }}">
+                    value="{{ old('type_transport', $tours->type_transport) }}">
             </div>
         </div>
     </div>
@@ -103,23 +90,18 @@
                 <label class="form-control-label" for="tour_language">lenguaje del tour</label>
                 <input type="text" id="tour_language" name="tour_language" class="form-control form-control-alternative"
                     placeholder="Ingresar lenguaje del tour"
-                    value="{{ old('tour_language', $tour->tour_language) }}">
+                    value="{{ old('tour_language', $tours->tour_language) }}">
             </div>
         </div>
     </div>
 
-
-
-
-
-
-<div class="row">
+    <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
                 <label class="form-control-label" for="max_capacity">capacidad máxima</label>
                 <input type="text" id="max_capacity" name="max_capacity" class="form-control form-control-alternative"
                     placeholder="Ingresar capacidad máxima"
-                    value="{{ old('max_capacity', $tour->max_capacity) }}">
+                    value="{{ old('max_capacity', $tours->max_capacity) }}">
             </div>
         </div>
     </div>
@@ -205,7 +187,7 @@
 <div class="pl-lg-4">
     <div class="form-group">
         <button type="submit" class="btn btn-primary">
-            <i class="fas fa-save"></i> Guardar Cliente
+            <i class="fas fa-save"></i> Guardar Rceorrido
         </button>
     </div>
 </div>

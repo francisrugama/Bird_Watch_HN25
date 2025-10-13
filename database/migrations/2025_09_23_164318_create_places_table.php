@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('availability_schedule');
+            $table->string('type_reserve');
             $table->string('description');
 
 

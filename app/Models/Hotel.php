@@ -11,7 +11,7 @@ class Hotel extends Model
 
     protected $fillable = [
         'name',
-        'description',
+        'descriptions',
         'type_habitation',
         'address',
         'status',
@@ -20,4 +20,8 @@ class Hotel extends Model
         'responsible',
         'qualification'
     ];
+    public function places ()
+    {
+        return $this->hasMany(Place::class, 'hotel_id');
+    }
 }
