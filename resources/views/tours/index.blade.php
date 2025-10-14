@@ -18,32 +18,35 @@
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col">nombre</th>
-                                <th scope="col">descripcion</th>
-                                <th scope="col">tipo de actividad</th>
-                                <th scope="col">duracion</th>
-                                <th scope="col">localidad</th>
-                                <th scope="col">tipo de transporte</th>
-                                <th scope="col">lenguaje del tour</th>
-                                <th scope="col">capacidad máxima</th>
-                                <th scope="col">id de reservacion</th>
-                                <th scope="col">id del guia</th>
-                                <th scope="col">id de categoria</th>
-                                <th scope="col">id del administrador</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Descripción</th>
+                                <th scope="col">Tipo de actividad</th>
+                                <th scope="col">Duracion</th>
+                                <th scope="col">Localidad</th>
+                                <th scope="col">Tipo de transporte</th>
+                                <th scope="col">Lenguaje del tour</th>
+                                <th scope="col">Capacidad máxima</th>
+                                <th scope="col">Reservacion</th>
+                                <th scope="col">Guia</th>
+                                <th scope="col">Categoria</th>
+                                <th scope="col">Administrador</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($tours as $tour)
                                 <tr>
                                     <td>{{ $tour->name }}</td>
-                                    <td>{{ Str::limit($tour->description, 50) }}</td>
+                                    <td>{{ $tour->description }}</td>
+                                    <td>{{ $tour->type_activity }}</td>
                                     <td>{{ $tour->duration }}</td>
                                     <td>{{ $tour->location }}</td>
+                                    <td>{{ $tour->type_transport }}</td>
+                                    <td>{{ $tour->tour_language }}</td>
                                     <td>{{ $tour->max_capacity }}</td>
-                                    <td>{{ $tour->id_reservations }}</td>
-                                    <td>{{ $tour->id_guides }}</td>
-                                    <td>{{ $tour->id_categories }}</td>
-                                    <td>{{ $tour->id_admin }}</td>
+                                    <td>{{ $tour->reservations->status }}</td>
+                                    <td>{{ $tour->guides->name }}</td>
+                                    <td>{{ $tour->tours_categories->name }}</td>
+                                    <td>{{ $tour->admins->name }}</td>
 
                                     <td style="white-space: nowrap; display: flex; align-items: center;">
                                         <a href="{{ route('tours.show', $tour->id) }}" class="btn btn-primary btn-sm" style="margin-right: 5px">

@@ -22,7 +22,7 @@
 
                     <div class="row">
                         <div class="col-1g-12">
-                            <div class-"form-group">
+                            <div class="form-group">
                                 <label class="form-control-label" for="name">
                                     <i class="fas fa-user">Nombre Completo</i>
                                 </label>
@@ -33,20 +33,20 @@
 
 
                     <div class="row">
-                        <div class-"col-1g-6">
+                        <div class="col-1g-6">
                             <div class="form-group">
-                                <label class="form-control-label" for="register_date">
+                                <label class="form-control-label" for="email">
                                     <i class="fas fa-calendar-check">Correo Electronico</i>
                                 </label>
-                                <p>{{ $admins->mail }}</p>
+                                <p>{{ $admins->email }}</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class-"col-1g-6">
+                        <div class="col-1g-6">
                             <div class="form-group">
-                                <label class="form-control-label" for="register_date">
+                                <label class="form-control-label" for="thelephone">
                                     <i class="fas fa-calendar-check">Telefono</i>
                                 </label>
                                 <p>{{ $admins->telephone }}</p>
@@ -55,9 +55,9 @@
                     </div>
 
                     <div class="row">
-                        <div class-"col-1g-6">
+                        <div class="col-1g-6">
                             <div class="form-group">
-                                <label class="form-control-label" for="register_date">
+                                <label class="form-control-label" for="age">
                                     <i class="fas fa-calendar-check">Edad</i>
                                 </label>
                                 <p>{{ $admins->age }}</p>
@@ -67,9 +67,9 @@
 
 
                     <div class="row">
-                        <div class-"col-1g-6">
+                        <div class="col-1g-6">
                             <div class="form-group">
-                                <label class="form-control-label" for="register_date">
+                                <label class="form-control-label" for="country">
                                     <i class="fas fa-calendar-check">Pais</i>
                                 </label>
                                 <p>{{ $admins->country }}</p>
@@ -78,9 +78,9 @@
                     </div>
 
                     <div class="row">
-                        <div class-"col-1g-6">
+                        <div class="col-1g-6">
                             <div class="form-group">
-                                <label class="form-control-label" for="register_date">
+                                <label class="form-control-label" for="gender">
                                     <i class="fas fa-calendar-check">Genero</i>
                                 </label>
                                 <p>{{ $admins->gender }}</p>

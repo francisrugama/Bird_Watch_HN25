@@ -21,9 +21,7 @@
         </div>
     </div>
 
-
-
-<div class="row">
+    <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
                 <label class="form-control-label" for="people_count">Cantidad maxima personas</label>
@@ -92,24 +90,21 @@
     </div>
 
 
-
-<div class="row">
-    <div class="col-lg-6">
-        <div class="form-group">
-            <label class="form-control-label" for="visitor_id">Visita</label>
-            <select id="visitor_id" name="visitor_id" class="form-control form-control-alternative">
-                <option value="">Seleccionar visita</option>
-                @foreach($visitors as $visitor)
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="form-control-label" for="visitor_id">Visita</label>
+                <select id="visitor_id" name="visitor_id" class="form-control form-control-alternative">
+                    <option value="">Seleccionar visita</option>
+                    @foreach($visitors as $visitor)
                     <option value="{{ $visitor->id }}" {{ old('visitor_id', $reservations->visitor_id) == $visitor->id ? 'selected' : '' }}>
                         {{ $visitor->name }}
                     </option>
-                @endforeach
-            </select>
+                    @endforeach
+                </select>
+            </div>
         </div>
     </div>
-</div>
-
-
 
 </div>
 
