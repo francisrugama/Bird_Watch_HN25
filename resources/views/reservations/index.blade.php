@@ -8,9 +8,9 @@
 
                 <div class="card-header border-0">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h3 class="mb-0">Reservas</h3>
+                        <h3 class="mb-0">Reservaciones</h3>
                         <a href="{{ route('reservations.create') }}" class="btn btn-primary">
-                            <i class="fas fa-plus"></i> Nueva Reserva
+                            <i class="fas fa-plus"></i> Nueva Reservación
                         </a>
                     </div>
                 </div>
