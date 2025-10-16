@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth; // ✅ Esto está correcto
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -8,6 +8,7 @@ use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Exception;
 
 class SocialController extends Controller
 {
@@ -18,10 +19,15 @@ class SocialController extends Controller
 
     public function handleProviderCallback()
     {
-        $googleUser = Socialite::driver('google')->stateless()->user();
+        try {
+            $googleUser = Socialite::driver('google')->stateless()->user();
+        } catch (Exception $e) {
+            return redirect('/login')->with('error', 'Error al autenticar con Google: ' . $e->getMessage());
+        }
 
-        $user = User::where('google_id', $googleUser->getId())->first()
-            ?? User::where('email', $googleUser->getEmail())->first();
+        $user = User::where('google_id', $googleUser->getId())
+                    ->orWhere('email', $googleUser->getEmail())
+                    ->first();
 
         if ($user) {
             $user->update([
@@ -30,15 +36,16 @@ class SocialController extends Controller
             ]);
         } else {
             $user = User::create([
-                'name' => $googleUser->getName() ?? $googleUser->getNickname() ?? 'Usuario',
+                'name' => $googleUser->getName() ?? explode('@', $googleUser->getEmail())[0],
                 'email' => $googleUser->getEmail(),
                 'google_id' => $googleUser->getId(),
                 'password' => bcrypt(Str::random(16)),
+                'email_verified_at' => now(),
             ]);
         }
 
         Auth::login($user, true);
 
-        return redirect()->intended('/home');
+        return redirect()->intended('/dashboard');
     }
 }
