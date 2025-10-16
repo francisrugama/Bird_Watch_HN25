@@ -19,6 +19,8 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 
+        Route::get('auth/google', [SocialController::class, 'redirectToProvider'])->name('login.google');
+        Route::get('auth/google/callback', [SocialController::class, 'handleProviderCallback']);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -30,8 +32,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/update', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/destroy', [ProfileController::class, 'destroy'])->name('profile.destroy');
-        Route::get('auth/google', [SocialController::class, 'redirectToProvider'])->name('login.google');
-        Route::get('auth/google/callback', [SocialController::class, 'handleProviderCallback']);
     });
 
     Route::prefix('/ejemplo')->group(function () {
