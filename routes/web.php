@@ -13,14 +13,17 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\Historial_detailController;
 use App\Http\Controllers\Tour_categorieController;
 use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\Auth\SocialController;
 
 Route::get('/', function () {
     return redirect()->route('login');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+        Route::get('auth/google', [SocialController::class, 'redirectToProvider'])->name('login.google');
+        Route::get('auth/google/callback', [SocialController::class, 'handleProviderCallback']);
+        Route::get('/dashboard', function () {
+            return view('dashboard');
+        })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
 
@@ -31,7 +34,6 @@ Route::middleware('auth')->group(function () {
         Route::delete('/destroy', [ProfileController::class, 'destroy'])->name('profile.destroy');
     });
 
-    //rutas de ejemplo sin controlador con prefijo
     Route::prefix('/ejemplo')->group(function () {
         Route::get('/index', fn () => view('examples.ejemplo.index'))->name('ejemplo.index');
         Route::get('/create', fn () => view('examples.ejemplo.create'))->name('ejemplo.create');
@@ -51,12 +53,6 @@ Route::middleware('auth')->group(function () {
     Route::resource('reservations', ReservationController::class);
     Route::resource('historial_details', Historial_detailController::class);
     Route::resource('catalogs', CatalogController::class);
-
-
-    //rutas con controlador y prefix
-
-
-    //rutas de posts de tipo resource
 
 });
 
