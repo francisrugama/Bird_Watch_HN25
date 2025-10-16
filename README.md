@@ -3,24 +3,11 @@
 [![Estado del Proyecto](https://img.shields.io/badge/estado-en_desarrollo-yellow.svg)](https://github.com/tuusuario/bird-watch)
 [![Licencia](https://img.shields.io/badge/licencia-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-Este repositorio proporciona una plantilla prediseñada para proyectos de Laravel que requieren un panel de administración. La plantilla está integrada con Argon Dashboard, una plantilla de panel de administración hermosa y de código abierto desarrollada por Creative Tim.
-
-## Características
-
-- Integración de Argon Dashboard para una interfaz de usuario elegante y moderna.
-- Estructura de carpetas predefinida para una organización eficiente del código.
-- Vistas predefinidas para páginas comunes como inicio, perfil, ajustes, etc.
-- Formularios predefinidos con validaciones básicas para una rápida implementación.
-- Autenticación de usuario lista para usar con páginas de inicio de sesión y registro.
-- Documentación clara y detallada para ayudar a los desarrolladores a comenzar rápidamente.
+Este repositorio proporciona una plantilla prediseñada para proyecto Bird Watch de Laravel que requieren un panel de administración.
 
 ## Requisitos Previos
 
-<<<<<<< HEAD
 Antes de comenzar a utilizar esta plantilla, asegúrate de tener instalado:
-=======
-Antes de comenzar a utilizar este prollecto, asegúrate de tener instalado :
->>>>>>> 9a3b1e9 (feed: edit readme)
 
 - [PHP](https://www.php.net/) >= 8.2
 - [Composer](https://getcomposer.org/)
@@ -33,13 +20,13 @@ Antes de comenzar a utilizar este prollecto, asegúrate de tener instalado :
 1. Clona este repositorio en tu máquina local:
 
     ```bash
-    git clone https://github.com/StevenU21/argon](https://github.com/limberrodriguezCT/Argon.git
+    git clone https://github.com/francisrugama/Bird_Watch_HN25.git
     ```
 
 2. Navega a la carpeta del proyecto:
 
     ```bash
-    cd argon
+    cd Bird_Watch_HN25
     ```
 
 3. **Instala dependencias PHP**:
