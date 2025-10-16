@@ -21,9 +21,9 @@ Route::get('/', function () {
 
         Route::get('auth/google', [SocialController::class, 'redirectToProvider'])->name('login.google');
         Route::get('auth/google/callback', [SocialController::class, 'handleProviderCallback']);
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+        Route::get('/dashboard', function () {
+            return view('dashboard');
+        })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
 
