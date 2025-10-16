@@ -20,7 +20,7 @@ Antes de comenzar a utilizar esta plantilla, asegúrate de tener instalado:
 1. Clona este repositorio en tu máquina local:
 
     ```bash
-    git clone https://github.com/StevenU21/argon](https://github.com/limberrodriguezCT/Argon.git
+    git clone [https://github.com/StevenU21/argon](https://github.com/limberrodriguezCT/Argon.git)
     ```
 
 2. Navega a la carpeta del proyecto:
