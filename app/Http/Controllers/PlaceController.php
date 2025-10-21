@@ -55,7 +55,7 @@ class PlaceController extends Controller
         $places = Place::find($id);
         $places->update($request->validated());;
 
-        return redirect()->route('places.index')->with('update', 'el lugar actualizado con éxito');
+        return redirect()->route('places.index')->with('updated', 'el lugar actualizado con éxito');
     }
 
     public function destroy(int $id)
