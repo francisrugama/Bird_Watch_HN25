@@ -31,7 +31,7 @@
                 @endif
 
                 <ul class="list-unstyled mt-3">
-                    <li><strong>ID:</strong> {{ $catalogs->id }}</li>
+                    {{-- <li><strong>ID:</strong> {{ $catalogs->id }}</li> --}}
                     @if($catalogs->created_at)
                         <li><strong>Creado:</strong> {{ $catalogs->created_at->format('d/m/Y H:i') }}</li>
                     @endif

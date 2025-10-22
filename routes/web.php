@@ -15,9 +15,11 @@ use App\Http\Controllers\Tour_categorieController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\Auth\SocialController;
 
+
 Route::get('/', function () {
-    return redirect()->route('login');
-});
+    return view('welcome');
+})->name('home');
+
 
         Route::get('auth/google', [SocialController::class, 'redirectToProvider'])->name('login.google');
         Route::get('auth/google/callback', [SocialController::class, 'handleProviderCallback']);

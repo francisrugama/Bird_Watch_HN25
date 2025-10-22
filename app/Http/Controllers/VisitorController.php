@@ -44,7 +44,7 @@ class VisitorController extends Controller
     $visitors = Visitor::find($id);
     $visitors->update($request->validated());
 
-    return redirect()->route('visitors.index')->with('update', 'visitante actualizado con éxito');
+    return redirect()->route('visitors.index')->with('updated', 'visitante actualizado con éxito');
     }
 
     public function destroy(int $id)
