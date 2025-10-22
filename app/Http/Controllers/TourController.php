@@ -60,7 +60,7 @@ class TourController extends Controller
         $tours = Tour::find($id);
         $tours->update($request->validated());
 
-        return redirect()->route('tours.index')->with('update', 'el tur actualizado con éxito');
+        return redirect()->route('tours.index')->with('updated', 'el tur actualizado con éxito');
     }
 
     public function destroy(int $id)

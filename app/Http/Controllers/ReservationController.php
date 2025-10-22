@@ -50,7 +50,7 @@ class ReservationController extends Controller
         $reservations = Reservation::find($id);
         $reservations->update($request->validated());
 
-        return redirect()->route('reservations.index')->with('update', 'la reservacion actualizada con éxito');
+        return redirect()->route('reservations.index')->with('updated', 'la reservacion actualizada con éxito');
     }
 
     public function destroy(int $id)

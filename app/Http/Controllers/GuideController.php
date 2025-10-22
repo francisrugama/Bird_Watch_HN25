@@ -44,7 +44,7 @@ class GuideController extends Controller
     $guides = Guide::find($id);
     $guides->update($request->validated());
 
-    return redirect()->route('guides.index')->with('update', 'guia actualizado con éxito');
+    return redirect()->route('guides.index')->with('updated', 'guia actualizado con éxito');
     }
 
     public function destroy(int $id)

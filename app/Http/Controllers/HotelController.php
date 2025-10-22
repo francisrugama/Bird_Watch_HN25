@@ -44,7 +44,7 @@ class HotelController extends Controller
     $hotels = Hotel::find($id);
     $hotels->update($request->validated());
 
-    return redirect()->route('hotels.index')->with('update', 'hotel actualizado con éxito');
+    return redirect()->route('hotels.index')->with('updated', 'hotel actualizado con éxito');
     }
 
     public function destroy(int $id)
