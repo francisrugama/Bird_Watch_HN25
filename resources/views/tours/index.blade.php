@@ -2,82 +2,58 @@
 @section('title', 'Tour')
 
 @section('content')
-    <div class="row">
+    <div class="row mb-3">
         <div class="col">
-            <div class="card shadow">
-                <div class="card-header border-0">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h3 class="mb-0">Recorrido</h3>
-                        <a href="{{ route('tours.create') }}" class="btn btn-primary">
-                            <i class="fas fa-plus"></i> Nuevo Recorrido
-                        </a>
-                    </div>
-                </div>
-
-                <div class="table-responsive">
-                    <table class="table align-items-center table-flush">
-                        <thead class="thead-light">
-                            <tr>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Descripción</th>
-                                <th scope="col">Tipo de actividad</th>
-                                <th scope="col">Duracion</th>
-                                <th scope="col">Localidad</th>
-                                <th scope="col">Tipo de transporte</th>
-                                <th scope="col">Lenguaje del tour</th>
-                                <th scope="col">Capacidad máxima</th>
-                                <th scope="col">Reservacion</th>
-                                <th scope="col">Guia</th>
-                                <th scope="col">Categoria</th>
-                                <th scope="col">Administrador</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($tours as $tour)
-                                <tr>
-                                    <td>{{ $tour->name }}</td>
-                                    <td>{{ $tour->description }}</td>
-                                    <td>{{ $tour->type_activity }}</td>
-                                    <td>{{ $tour->duration }}</td>
-                                    <td>{{ $tour->location }}</td>
-                                    <td>{{ $tour->type_transport }}</td>
-                                    <td>{{ $tour->tour_language }}</td>
-                                    <td>{{ $tour->max_capacity }}</td>
-                                    <td>{{ $tour->reservations->status }}</td>
-                                    <td>{{ $tour->guides->name }}</td>
-                                    <td>{{ $tour->tours_categories->name }}</td>
-                                    <td>{{ $tour->admins->name }}</td>
-
-                                    <td style="white-space: nowrap; display: flex; align-items: center;">
-                                        <a href="{{ route('tours.show', $tour->id) }}" class="btn btn-primary btn-sm" style="margin-right: 5px">
-                                            <i class="fas fa-eye"></i> Mostrar
-                                        </a>
-
-                                        <a href="{{ route('tours.edit', $tour->id) }}" class="btn btn-info btn-sm" style="margin-right: 5px">
-                                            <i class="fas fa-edit"></i> Editar
-                                        </a>
-                                        <form action="{{ route('tours.destroy', $tour->id) }}" method="POST"
-                                            style="display: inline-block; margin: 0; display: flex; align-items: center;"
-                                            onsubmit="return confirm('¿Está seguro que desea eliminar este Tour? Esta acción no se puede deshacer.');">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm">
-                                                <i class="fas fa-trash"></i> Eliminar
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="card-footer py-4">
-                    <nav aria-label="..." class="d-flex flex-wrap justify-content-center justify-content-lg-start">
-                        {{ $tours->links() }}
-                    </nav>
-                </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <h3>Recorrido</h3>
+                <a href="{{ route('tours.create') }}" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Nuevo Recorrido
+                </a>
             </div>
         </div>
+    </div>
+
+    <div class="row">
+        @foreach ($tours as $tour)
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{ $tour->name }}</h5>
+                        <p class="card-text">{{ Str::limit($tour->description, 100) }}</p>
+                        <ul class="list-unstyled mb-3">
+                            <li><strong>Tipo de actividad:</strong> {{ $tour->type_activity }}</li>
+                            <li><strong>Duración:</strong> {{ $tour->duration }}</li>
+                            <li><strong>Localidad:</strong> {{ $tour->location }}</li>
+                            <li><strong>Transporte:</strong> {{ $tour->type_transport }}</li>
+                            <li><strong>Idioma:</strong> {{ $tour->tour_language }}</li>
+                            <li><strong>Capacidad máxima:</strong> {{ $tour->max_capacity }}</li>
+                            <li><strong>Reservación:</strong> {{ $tour->reservations->status ?? 'N/A' }}</li>
+                            <li><strong>Guía:</strong> {{ $tour->guides->name ?? 'N/A' }}</li>
+                            <li><strong>Categoría:</strong> {{ $tour->tours_categories->name ?? 'N/A' }}</li>
+                            <li><strong>Administrador:</strong> {{ $tour->admins->name ?? 'N/A' }}</li>
+                        </ul>
+                        <div class="mt-auto d-flex justify-content-between">
+                            <a href="{{ route('tours.show', $tour->id) }}" class="btn btn-primary btn-sm">
+                                <i class="fas fa-eye"></i> Mostrar
+                            </a>
+                            <a href="{{ route('tours.edit', $tour->id) }}" class="btn btn-info btn-sm">
+                                <i class="fas fa-edit"></i> Editar
+                            </a>
+                            <form action="{{ route('tours.destroy', $tour->id) }}" method="POST" onsubmit="return confirm('¿Está seguro que desea eliminar este Tour? Esta acción no se puede deshacer.');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm">
+                                    <i class="fas fa-trash"></i> Eliminar
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+
+    <div class="d-flex justify-content-center">
+        {{ $tours->links() }}
     </div>
 @endsection
