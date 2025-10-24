@@ -54,14 +54,90 @@
         </div>
     </div>
 
+    <!-- Barra de búsqueda -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label class="form-control-label">Buscar ubicación</label>
+                <div class="input-group">
+                    <input type="text" id="search-input" class="form-control form-control-alternative" 
+                           placeholder="Ej: Estelí, Nicaragua, Parque Central, Universidad">
+                    <div class="input-group-append">
+                        <button type="button" id="search-button" class="btn btn-primary">
+                            <i class="fas fa-search"></i> Buscar
+                        </button>
+                    </div>
+                </div>
+                <small class="form-text text-muted">Busca lugares en Estelí y alrededores</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Controles del mapa -->
+    <div class="row mb-3">
+        <div class="col-lg-12">
+            <div class="btn-group" role="group">
+                <button type="button" id="btn-route" class="btn btn-info">
+                    <i class="fas fa-route"></i> Indicaciones
+                </button>
+                <button type="button" id="btn-clear-route" class="btn btn-warning">
+                    <i class="fas fa-times"></i> Limpiar Ruta
+                </button>
+                <button type="button" id="btn-current-location" class="btn btn-success">
+                    <i class="fas fa-location-arrow"></i> Mi Ubicación
+                </button>
+                <button type="button" id="btn-toggle-satellite" class="btn btn-secondary">
+                    <i class="fas fa-satellite"></i> Vista Satélite
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Mapa OpenStreetMap -->
     <div class="row">
         <div class="col-lg-12">
             <div class="form-group">
                 <label class="form-control-label">Selecciona la ubicación en el mapa</label>
-                <div id="map" style="height: 400px; width: 100%; border: 1px solid #ccc; border-radius: 4px; background-color: #f8f9fa;"></div>
-                <small class="form-text text-muted">Haz clic en el mapa para establecer la ubicación</small>
+                <div id="map" style="height: 500px; width: 100%; border: 1px solid #ccc; border-radius: 4px; background-color: #f8f9fa;"></div>
+                <small class="form-text text-muted">
+                    Haz clic en el mapa para establecer la ubicación o usa la barra de búsqueda
+                </small>
                 <div id="map-status" class="mt-2"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Panel de indicaciones (VISIBLE desde el inicio) -->
+    <div class="row" id="route-panel">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h6 class="mb-0"><i class="fas fa-directions"></i> Indicaciones de Ruta</h6>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Punto de partida</label>
+                                <input type="text" id="route-from" class="form-control" placeholder="Ej: Parque Central Estelí, Universidad...">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Destino</label>
+                                <input type="text" id="route-to" class="form-control" 
+                                       value="{{ $places->name ? $places->name . ' - ' . $places->address : 'Ubicación seleccionada' }}" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" id="btn-calculate-route" class="btn btn-primary">
+                        <i class="fas fa-calculator"></i> Calcular Ruta
+                    </button>
+                    <button type="button" id="btn-close-route" class="btn btn-outline-secondary">
+                        <i class="fas fa-times"></i> Cerrar
+                    </button>
+                    <div id="route-instructions" class="mt-3" style="max-height: 200px; overflow-y: auto;"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -158,33 +234,44 @@
     </div>
 </div>
 
-<!-- CARGAR LEAFLET CON MANEJO DE ERRORES -->
+<!-- CARGAR TODAS LAS LIBRERÍAS NECESARIAS -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
 
 <script>
 // Prevenir que otros errores detengan nuestro mapa
 window.addEventListener('error', function(e) {
     if (e.message.includes('exampleFormControlSelect2')) {
-        console.log('⚠️ Error de otro script ignorado:', e.message);
+        console.log('⚠️ Error de otro script ignorado');
         e.preventDefault();
         return true;
     }
 });
 
+// Variables globales
+var map, marker, routingControl;
+var currentLayer = 'osm';
+var baseLayers = {};
+
 // Esperar a que TODO esté listo
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🗺️ Iniciando carga del mapa...');
+    console.log('🗺️ Iniciando carga del mapa de Estelí...');
     
-    // Esperar un poco más para asegurar que Leaflet esté cargado
     setTimeout(function() {
         initializeMap();
+        setupEventListeners();
+        // Ocultar panel de rutas al inicio
+        document.getElementById('route-panel').style.display = 'none';
     }, 100);
 });
 
 function initializeMap() {
     try {
-        console.log('🔧 Inicializando mapa...');
+        console.log('🔧 Inicializando mapa de Estelí...');
         
         // Verificar que Leaflet esté cargado
         if (typeof L === 'undefined') {
@@ -193,30 +280,66 @@ function initializeMap() {
         
         console.log('✅ Leaflet cargado:', L.version);
         
-        // Coordenadas por defecto
-        var defaultLat = {{ old('latitude', $places->latitude ?? '40.4168') }};
-        var defaultLng = {{ old('longitude', $places->longitude ?? '-3.7038') }};
+        // Coordenadas de Estelí, Nicaragua
+        var defaultLat = {{ old('latitude', $places->latitude ?? '13.0917') }};
+        var defaultLng = {{ old('longitude', $places->longitude ?? '-86.3539') }};
         
-        // Crear el mapa
-        var map = L.map('map', {
-            preferCanvas: true // Mejor rendimiento
-        }).setView([defaultLat, defaultLng], 13);
+        // Crear el mapa centrado en Estelí
+        map = L.map('map', {
+            preferCanvas: true,
+            zoomControl: true
+        }).setView([defaultLat, defaultLng], 14);
         
-        console.log('✅ Mapa creado');
+        console.log('✅ Mapa de Estelí creado');
         
-        // Agregar capa de OpenStreetMap
+        // DEFINIR MÚLTIPLES CAPAS DE MAPA
+        // Capa OpenStreetMap estándar
         var osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
             maxZoom: 19
-        }).addTo(map);
+        });
         
-        console.log('✅ Capa OpenStreetMap agregada');
+        // Capa OpenStreetMap Hot (estilo diferente)
+        var osmHotLayer = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors, Tiles style by Humanitarian OpenStreetMap Team',
+            maxZoom: 19
+        });
         
-        var marker = null;
+        // Capa Satélite (Usando Esri World Imagery)
+        var satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+            maxZoom: 19
+        });
+        
+        // Capa Topográfica
+        var topographicLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data: &copy; OpenStreetMap contributors, SRTM | Map style: &copy; OpenTopoMap',
+            maxZoom: 17
+        });
+        
+        // Agregar capa por defecto
+        osmLayer.addTo(map);
+        
+        // Guardar referencia a las capas
+        baseLayers = {
+            'Mapa Estándar': osmLayer,
+            'Mapa Hot': osmHotLayer,
+            'Vista Satélite': satelliteLayer,
+            'Mapa Topográfico': topographicLayer
+        };
+        
+        // Agregar control de capas al mapa
+        L.control.layers(baseLayers).addTo(map);
+        
+        console.log('✅ Múltiples capas de mapa agregadas');
+        
+        marker = null;
         
         // Si hay coordenadas, agregar marcador
         if (defaultLat && defaultLng) {
-            marker = L.marker([defaultLat, defaultLng]).addTo(map);
+            marker = L.marker([defaultLat, defaultLng]).addTo(map)
+                .bindPopup('{{ $places->name ?: "Ubicación seleccionada" }}')
+                .openPopup();
             console.log('✅ Marcador inicial agregado');
         }
         
@@ -237,6 +360,10 @@ function initializeMap() {
             } else {
                 marker = L.marker(e.latlng).addTo(map);
             }
+            
+            // Actualizar el destino en las indicaciones
+            var placeName = document.getElementById('name').value || 'Ubicación seleccionada';
+            document.getElementById('route-to').value = placeName;
         });
         
         // Forzar redimensionamiento del mapa
@@ -246,14 +373,304 @@ function initializeMap() {
         }, 500);
         
         document.getElementById('map-status').innerHTML = 
-            '<div class="alert alert-success">✅ Mapa cargado - Haz clic para seleccionar ubicación</div>';
+            '<div class="alert alert-success">✅ Mapa de Estelí cargado - Haz clic para seleccionar ubicación</div>';
             
-        console.log('🎉 ¡Mapa completamente cargado!');
+        console.log('🎉 ¡Mapa de Estelí completamente cargado!');
         
     } catch (error) {
         console.error('❌ Error al cargar el mapa:', error);
         document.getElementById('map-status').innerHTML = 
             '<div class="alert alert-danger">❌ Error: ' + error.message + '</div>';
     }
+}
+
+function setupEventListeners() {
+    // Buscar ubicación
+    document.getElementById('search-button').addEventListener('click', searchLocation);
+    document.getElementById('search-input').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') searchLocation();
+    });
+    
+    // Indicaciones de ruta
+    document.getElementById('btn-route').addEventListener('click', toggleRoutePanel);
+    document.getElementById('btn-clear-route').addEventListener('click', clearRoute);
+    document.getElementById('btn-calculate-route').addEventListener('click', calculateRoute);
+    document.getElementById('btn-close-route').addEventListener('click', function() {
+        document.getElementById('route-panel').style.display = 'none';
+    });
+    
+    // Mi ubicación actual
+    document.getElementById('btn-current-location').addEventListener('click', getCurrentLocation);
+    
+    // Cambiar a vista satélite
+    document.getElementById('btn-toggle-satellite').addEventListener('click', toggleSatelliteView);
+}
+
+function toggleSatelliteView() {
+    var btn = document.getElementById('btn-toggle-satellite');
+    if (currentLayer === 'osm') {
+        // Cambiar a satélite
+        map.removeLayer(baseLayers['Mapa Estándar']);
+        baseLayers['Vista Satélite'].addTo(map);
+        currentLayer = 'satellite';
+        btn.innerHTML = '<i class="fas fa-map"></i> Vista Mapa';
+        btn.classList.remove('btn-secondary');
+        btn.classList.add('btn-info');
+    } else {
+        // Cambiar a mapa estándar
+        map.removeLayer(baseLayers['Vista Satélite']);
+        baseLayers['Mapa Estándar'].addTo(map);
+        currentLayer = 'osm';
+        btn.innerHTML = '<i class="fas fa-satellite"></i> Vista Satélite';
+        btn.classList.remove('btn-info');
+        btn.classList.add('btn-secondary');
+    }
+}
+
+function toggleRoutePanel() {
+    var panel = document.getElementById('route-panel');
+    if (panel.style.display === 'none') {
+        panel.style.display = 'block';
+        document.getElementById('btn-route').classList.add('active');
+        
+        // Actualizar el destino con el nombre del lugar si existe
+        var placeName = document.getElementById('name').value;
+        var placeAddress = document.getElementById('address').value;
+        if (placeName) {
+            document.getElementById('route-to').value = placeName + (placeAddress ? ' - ' + placeAddress : '');
+        }
+    } else {
+        panel.style.display = 'none';
+        document.getElementById('btn-route').classList.remove('active');
+        clearRoute();
+    }
+}
+
+function searchLocation() {
+    var query = document.getElementById('search-input').value;
+    if (!query) {
+        alert('Por favor, ingresa un lugar para buscar');
+        return;
+    }
+    
+    // Agregar "Estelí, Nicaragua" por defecto para mejorar resultados
+    var searchQuery = query.includes('Estelí') ? query : query + ', Estelí, Nicaragua';
+    
+    document.getElementById('map-status').innerHTML = 
+        '<div class="alert alert-info">🔍 Buscando: ' + query + '</div>';
+    
+    // Realiza una petición a la API de Nominatim
+    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(searchQuery)}&limit=5`)
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.length > 0) {
+                var result = data[0];
+                var lat = parseFloat(result.lat);
+                var lon = parseFloat(result.lon);
+                var displayName = result.display_name;
+                
+                // Mueve el mapa a la ubicación encontrada
+                map.setView([lat, lon], 16);
+                
+                // Actualiza el marcador y los campos de coordenadas
+                if (marker) {
+                    marker.setLatLng([lat, lon]);
+                } else {
+                    marker = L.marker([lat, lon]).addTo(map);
+                }
+                
+                document.getElementById('latitude').value = lat.toFixed(6);
+                document.getElementById('longitude').value = lon.toFixed(6);
+                
+                document.getElementById('map-status').innerHTML = 
+                    '<div class="alert alert-success">✅ Ubicación encontrada: ' + displayName + '</div>';
+                
+                // Llenar automáticamente el campo de dirección si está vacío
+                if (!document.getElementById('address').value) {
+                    document.getElementById('address').value = displayName.split(',')[0];
+                }
+                
+                // Actualizar el nombre si está vacío
+                if (!document.getElementById('name').value) {
+                    var suggestedName = displayName.split(',')[0];
+                    document.getElementById('name').value = suggestedName;
+                }
+                
+            } else {
+                document.getElementById('map-status').innerHTML = 
+                    '<div class="alert alert-warning">⚠️ Ubicación no encontrada. Intenta con otros términos.</div>';
+            }
+        })
+        .catch(error => {
+            console.error('Error en la búsqueda:', error);
+            document.getElementById('map-status').innerHTML = 
+                '<div class="alert alert-danger">❌ Error en la búsqueda: ' + error.message + '</div>';
+        });
+}
+
+function calculateRoute() {
+    var from = document.getElementById('route-from').value;
+    var to = document.getElementById('route-to').value;
+    
+    if (!from) {
+        alert('Por favor, ingresa un punto de partida');
+        return;
+    }
+    
+    if (!marker) {
+        alert('Primero selecciona una ubicación en el mapa haciendo clic');
+        return;
+    }
+    
+    document.getElementById('map-status').innerHTML = 
+        '<div class="alert alert-info">🧭 Calculando ruta...</div>';
+    
+    // Mostrar loading en las instrucciones
+    document.getElementById('route-instructions').innerHTML = 
+        '<div class="text-center"><i class="fas fa-spinner fa-spin"></i> Calculando ruta...</div>';
+    
+    // Primero geocodificar el punto de partida
+    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(from + ', Estelí, Nicaragua')}&limit=1`)
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.length > 0) {
+                var startLat = parseFloat(data[0].lat);
+                var startLng = parseFloat(data[0].lon);
+                
+                var endLat = marker.getLatLng().lat;
+                var endLng = marker.getLatLng().lng;
+                
+                // Limpiar ruta anterior
+                if (routingControl) {
+                    map.removeControl(routingControl);
+                }
+                
+                // Crear nueva ruta
+                routingControl = L.Routing.control({
+                    waypoints: [
+                        L.latLng(startLat, startLng),
+                        L.latLng(endLat, endLng)
+                    ],
+                    router: L.Routing.osrmv1({
+                        serviceUrl: 'https://router.project-osrm.org/route/v1'
+                    }),
+                    routeWhileDragging: false,
+                    showAlternatives: false,
+                    show: false, // Ocultar el panel por defecto de Leaflet Routing Machine
+                    lineOptions: {
+                        styles: [{color: 'blue', opacity: 0.6, weight: 5}]
+                    }
+                }).addTo(map);
+                
+                routingControl.on('routesfound', function(e) {
+                    var routes = e.routes;
+                    var instructions = '';
+                    
+                    if (routes && routes[0]) {
+                        var route = routes[0];
+                        instructions = '<h6>Instrucciones de la ruta:</h6><ol>';
+                        
+                        route.instructions.forEach(function(instruction) {
+                            var distance = instruction.distance > 1000 ? 
+                                (instruction.distance / 1000).toFixed(2) + ' km' : 
+                                instruction.distance + ' m';
+                            instructions += '<li>' + instruction.text + ' <small class="text-muted">(' + distance + ')</small></li>';
+                        });
+                        
+                        instructions += '</ol>';
+                        instructions += '<div class="alert alert-success mt-2">';
+                        instructions += '<strong>Distancia total: ' + (route.summary.totalDistance / 1000).toFixed(2) + ' km</strong><br>';
+                        instructions += '<strong>Tiempo estimado: ' + (route.summary.totalTime / 60).toFixed(0) + ' minutos</strong>';
+                        instructions += '</div>';
+                    }
+                    
+                    document.getElementById('route-instructions').innerHTML = instructions;
+                    document.getElementById('map-status').innerHTML = 
+                        '<div class="alert alert-success">✅ Ruta calculada exitosamente</div>';
+                });
+                
+            } else {
+                document.getElementById('map-status').innerHTML = 
+                    '<div class="alert alert-warning">⚠️ No se pudo encontrar el punto de partida</div>';
+                document.getElementById('route-instructions').innerHTML = 
+                    '<div class="alert alert-warning">No se pudo encontrar el punto de partida. Verifica la dirección.</div>';
+            }
+        })
+        .catch(error => {
+            console.error('Error calculando ruta:', error);
+            document.getElementById('map-status').innerHTML = 
+                '<div class="alert alert-danger">❌ Error calculando ruta: ' + error.message + '</div>';
+            document.getElementById('route-instructions').innerHTML = 
+                '<div class="alert alert-danger">Error al calcular la ruta. Intenta nuevamente.</div>';
+        });
+}
+
+function clearRoute() {
+    if (routingControl) {
+        map.removeControl(routingControl);
+        routingControl = null;
+    }
+    document.getElementById('route-instructions').innerHTML = '';
+    document.getElementById('route-from').value = '';
+}
+
+function getCurrentLocation() {
+    if (!navigator.geolocation) {
+        alert('La geolocalización no es soportada por tu navegador');
+        return;
+    }
+    
+    document.getElementById('map-status').innerHTML = 
+        '<div class="alert alert-info">📍 Obteniendo tu ubicación actual...</div>';
+    
+    navigator.geolocation.getCurrentPosition(
+        function(position) {
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+            
+            map.setView([lat, lng], 16);
+            
+            if (marker) {
+                marker.setLatLng([lat, lng]);
+            } else {
+                marker = L.marker([lat, lng]).addTo(map);
+            }
+            
+            document.getElementById('latitude').value = lat.toFixed(6);
+            document.getElementById('longitude').value = lng.toFixed(6);
+            
+            // Obtener la dirección usando reverse geocoding
+            fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`)
+                .then(response => response.json())
+                .then(data => {
+                    var address = data.display_name || 'Ubicación actual';
+                    document.getElementById('map-status').innerHTML = 
+                        '<div class="alert alert-success">✅ Ubicación actual: ' + address + '</div>';
+                    
+                    // Llenar automáticamente la dirección si está vacía
+                    if (!document.getElementById('address').value) {
+                        document.getElementById('address').value = address.split(',')[0];
+                    }
+                });
+        },
+        function(error) {
+            var errorMessage = 'Error obteniendo ubicación: ';
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    errorMessage += 'Permiso denegado';
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    errorMessage += 'Posición no disponible';
+                    break;
+                case error.TIMEOUT:
+                    errorMessage += 'Tiempo de espera agotado';
+                    break;
+                default:
+                    errorMessage += 'Error desconocido';
+            }
+            document.getElementById('map-status').innerHTML = 
+                '<div class="alert alert-danger">❌ ' + errorMessage + '</div>';
+        }
+    );
 }
 </script>
