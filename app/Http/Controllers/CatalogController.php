@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Catalog;
 use App\Http\Requests\CatalogRequest;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
 
 class CatalogController extends Controller
 {
@@ -22,23 +23,14 @@ class CatalogController extends Controller
 
     public function store(CatalogRequest $request)
     {
-        // Valida los datos del request (CatalogRequest ya hace esto)
+
         $data = $request->validated();
 
-        // Log opcional para depuración
-        \Log::info('Creando catálogo', ['data' => $data]);
-
-        // Si hay una imagen, la guardamos en /public/images/catalogs
+        Log::info('Creando catálogo', ['data' => $data]);
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-
-            // Generamos un nombre único para evitar duplicados
             $imageName = time() . '_' . $image->getClientOriginalName();
-
-            // Movemos el archivo al directorio deseado
             $image->move(public_path('images/catalogs'), $imageName);
-
-            // Guardamos la ruta relativa (para usar con asset())
             $data['image'] = 'images/catalogs/' . $imageName;
         }
 
