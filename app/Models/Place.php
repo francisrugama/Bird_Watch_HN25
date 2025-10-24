@@ -15,6 +15,8 @@ class Place extends Model
         'availability_schedule',
         'description',
         'type_reserve',
+        'latitude',
+        'longitude',
         'tour_id',
         'hotel_id'
 
