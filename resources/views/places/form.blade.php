@@ -265,8 +265,8 @@ function initializeMap() {
         }
         console.log('✅ Leaflet cargado:', L.version);
 
-        var defaultLat = {{ old('latitude', $places->latitude ?? '13.0917') }};
-        var defaultLng = {{ old('longitude', $places->longitude ?? '-86.3539') }};
+    var defaultLat = parseFloat("{{ old('latitude', $places->latitude ?? '13.0917') }}");
+    var defaultLng = parseFloat("{{ old('longitude', $places->longitude ?? '-86.3539') }}");
 
         map = L.map('map', {
             preferCanvas: true,
