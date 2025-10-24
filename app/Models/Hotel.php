@@ -18,7 +18,9 @@ class Hotel extends Model
         'price_night',
         'telephone',
         'responsible',
-        'qualification'
+        'qualification',
+         'latitude',
+         'longitude'
     ];
     public function places ()
     {

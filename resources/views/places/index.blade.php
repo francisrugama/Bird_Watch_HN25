@@ -9,7 +9,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <h3 class="mb-0">Lugares</h3>
                         <a href="{{ route('places.create') }}" class="btn btn-primary">
-                            <i class="fas fa-plus">Nueva Lugar</i>
+                            <i class="fas fa-plus"></i> Nuevo Lugar
                         </a>
                     </div>
                 </div>
@@ -19,14 +19,14 @@
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col">Nombre</th>
-                                <th scope="col">Direccion</th>
-                                <th scope="col">Disponibilidad de horario</th>
+                                <th scope="col">Dirección</th>
+                                <th scope="col">Coordenadas</th>
+                                <th scope="col">Disponibilidad</th>
                                 <th scope="col">Tipo de reserva</th>
-                                <th scope="col">Descripción</th>
-                                <th scope="col">Recorrido</th>
+                                <th scope="col">Tour</th>
                                 <th scope="col">Hotel</th>
+                                <th scope="col">Fecha Creación</th>
                                 <th scope="col">Acciones</th>
-
                             </tr>
                         </thead>
                         <tbody>
@@ -34,22 +34,27 @@
                                 <tr>
                                     <td>{{ $place->name }}</td>
                                     <td>{{ $place->address }}</td>
+                                    <td>
+                                        @if($place->latitude && $place->longitude)
+                                            {{ number_format($place->latitude, 6) }}, {{ number_format($place->longitude, 6) }}
+                                        @else
+                                            <span class="text-muted">No definido</span>
+                                        @endif
+                                    </td>
                                     <td>{{ $place->availability_schedule }}</td>
                                     <td>{{ $place->type_reserve }}</td>
-                                    <td>{{ $place->description }}</td>
                                     <td>{{ $place->tours->name }}</td>
                                     <td>{{ $place->hotels->name }}</td>
-                                    <td>{{ $place->created_at->format('d-m-y')}}</td>
-
+                                    <td>{{ $place->created_at->format('d-m-Y') }}</td>
 
                                     <td style="white-space: nowrap; display: flex; align-items: center;">
                                         <a href="{{ route('places.show', $place->id) }}"
                                             class="btn btn-primary btn-sm" style="margin-right: 5px;">
-                                            <i class="fas fa-eye">Mostrar</i>
+                                            <i class="fas fa-eye"></i> Mostrar
                                         </a>
                                         <a href="{{ route('places.edit', $place->id) }}" class="btn btn-info btn-sm"
                                             style="margin-right: 5px">
-                                            <i class="fas fa-edit">Editar</i>
+                                            <i class="fas fa-edit"></i> Editar
                                         </a>
                                         <form action="{{ route('places.destroy', $place->id) }}" method="POST"
                                             style="display: inline-block; margin: 0; display: flex; align-items: center;"
@@ -57,7 +62,7 @@
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm">
-                                                <i class="fas fa-trash">Eliminar</i>
+                                                <i class="fas fa-trash"></i> Eliminar
                                             </button>
                                         </form>
                                     </td>
@@ -75,6 +80,4 @@
             </div>
         </div>
     </div>
-
-
 @endsection
