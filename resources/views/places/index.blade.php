@@ -2,53 +2,82 @@
 @section('title', 'Lugar/Listar')
 
 @section('content')
-    <div class="row mb-3">
-        <div class="col d-flex justify-content-between align-items-center">
-            <h3>Lugares</h3>
-            <a href="{{ route('places.create') }}" class="btn btn-primary">
-                <i class="fas fa-plus"></i> Nuevo Lugar
-            </a>
-        </div>
-    </div>
-
     <div class="row">
-        @foreach ($places as $place)
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card shadow-sm h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">{{ $place->name }}</h5>
-                        <p><strong>Dirección:</strong> {{ $place->address }}</p>
-                        <p><strong>Horario:</strong> {{ $place->availability_schedule }}</p>
-                        <p><strong>Tipo de reserva:</strong> {{ $place->type_reserve }}</p>
-                        <p><strong>Descripción:</strong> {{ Str::limit($place->description, 100) }}</p>
-                        <p><strong>Recorrido:</strong> {{ $place->tours->name ?? 'N/A' }}</p>
-                        <p><strong>Hotel:</strong> {{ $place->hotels->name ?? 'N/A' }}</p>
-                        <p class="text-muted"><small>Creado el: {{ $place->created_at->format('d-m-Y') }}</small></p>
-
-                        <div class="mt-auto d-flex justify-content-between">
-                            <a href="{{ route('places.show', $place->id) }}" class="btn btn-primary btn-sm">
-                                <i class="fas fa-eye"></i> Mostrar
-                            </a>
-                            <a href="{{ route('places.edit', $place->id) }}" class="btn btn-info btn-sm">
-                                <i class="fas fa-edit"></i> Editar
-                            </a>
-                            <form action="{{ route('places.destroy', $place->id) }}" method="POST" 
-                                  onsubmit="return confirm('¿Estás seguro que deseas eliminar este lugar? ¡Esta acción no se puede deshacer!');"
-                                  style="display:inline-block;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm">
-                                    <i class="fas fa-trash"></i> Eliminar
-                                </button>
-                            </form>
-                        </div>
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3 class="mb-0">Lugares</h3>
+                        <a href="{{ route('places.create') }}" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Nuevo Lugar
+                        </a>
                     </div>
                 </div>
-            </div>
-        @endforeach
-    </div>
 
-    <div class="d-flex justify-content-center">
-        {{ $places->links() }}
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Dirección</th>
+                                <th scope="col">Coordenadas</th>
+                                <th scope="col">Disponibilidad</th>
+                                <th scope="col">Tipo de reserva</th>
+                                <th scope="col">Tour</th>
+                                <th scope="col">Hotel</th>
+                                <th scope="col">Fecha Creación</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($places as $place)
+                                <tr>
+                                    <td>{{ $place->name }}</td>
+                                    <td>{{ $place->address }}</td>
+                                    <td>
+                                        @if($place->latitude && $place->longitude)
+                                            {{ number_format($place->latitude, 6) }}, {{ number_format($place->longitude, 6) }}
+                                        @else
+                                            <span class="text-muted">No definido</span>
+                                        @endif
+                                    </td>
+                                    <td>{{ $place->availability_schedule }}</td>
+                                    <td>{{ $place->type_reserve }}</td>
+                                    <td>{{ $place->tours->name }}</td>
+                                    <td>{{ $place->hotels->name }}</td>
+                                    <td>{{ $place->created_at->format('d-m-Y') }}</td>
+
+                                    <td style="white-space: nowrap; display: flex; align-items: center;">
+                                        <a href="{{ route('places.show', $place->id) }}"
+                                            class="btn btn-primary btn-sm" style="margin-right: 5px;">
+                                            <i class="fas fa-eye"></i> Mostrar
+                                        </a>
+                                        <a href="{{ route('places.edit', $place->id) }}" class="btn btn-info btn-sm"
+                                            style="margin-right: 5px">
+                                            <i class="fas fa-edit"></i> Editar
+                                        </a>
+                                        <form action="{{ route('places.destroy', $place->id) }}" method="POST"
+                                            style="display: inline-block; margin: 0; display: flex; align-items: center;"
+                                            onsubmit="return confirm('¿Estás seguro que desea eliminar este lugar? ¡Esta acción no se puede deshacer.!')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm">
+                                                <i class="fas fa-trash"></i> Eliminar
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card-footer py-4">
+                    <nav aria-label="..." class="d-flex flex-wrap justify-content-center justify-content-lg-start">
+                        {{ $places->links() }}
+                    </nav>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
