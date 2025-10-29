@@ -57,14 +57,17 @@
         <div class="col-lg-12">
             <div class="form-group">
                 <label class="form-control-label">Buscar ubicación</label>
-                <div class="input-group">
-                    <input type="text" id="search-input" class="form-control form-control-alternative" 
-                           placeholder="Ej: Estelí, Nicaragua, Parque Central, Universidad">
-                    <div class="input-group-append">
-                        <button type="button" id="search-button" class="btn btn-primary">
-                            <i class="fas fa-search"></i> Buscar
-                        </button>
+                <div class="search-container">
+                    <div class="input-group">
+                        <input type="text" id="search-input" class="form-control form-control-alternative" 
+                               placeholder="Ej: Estelí, Nicaragua, Parque Central, Universidad" autocomplete="off">
+                        <div class="input-group-append">
+                            <button type="button" id="search-button" class="btn btn-primary">
+                                <i class="fas fa-search"></i> Buscar
+                            </button>
+                        </div>
                     </div>
+                    <div id="autocomplete-results" class="autocomplete-results"></div>
                 </div>
                 <small class="form-text text-muted">Busca lugares en Estelí y alrededores</small>
             </div>
@@ -232,6 +235,85 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+<style>
+.search-container {
+    position: relative;
+}
+
+.autocomplete-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+}
+
+.autocomplete-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+}
+
+.autocomplete-item:hover {
+    background-color: #f8f9fa;
+}
+
+.autocomplete-item:last-child {
+    border-bottom: none;
+}
+
+.autocomplete-icon {
+    margin-right: 8px;
+    color: #6c757d;
+    width: 16px;
+    text-align: center;
+}
+
+.autocomplete-text {
+    flex: 1;
+}
+
+.autocomplete-type {
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin-left: 8px;
+}
+
+.loading-spinner {
+    display: none;
+    text-align: center;
+    padding: 8px;
+    color: #6c757d;
+}
+
+.loading-spinner i {
+    margin-right: 5px;
+}
+
+.route-instruction {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.route-instruction:last-child {
+    border-bottom: none;
+}
+
+.route-distance {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+</style>
+
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
 
@@ -247,6 +329,7 @@ window.addEventListener('error', function(e) {
 var map, marker, routingControl;
 var currentLayer = 'osm';
 var baseLayers = {};
+var autocompleteTimeout;
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🗺️ Iniciando carga del mapa de Estelí...');
@@ -355,8 +438,20 @@ function initializeMap() {
 
 function setupEventListeners() {
     document.getElementById('search-button').addEventListener('click', searchLocation);
-    document.getElementById('search-input').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') searchLocation();
+    
+    // Autocompletado
+    document.getElementById('search-input').addEventListener('input', handleAutocomplete);
+    document.getElementById('search-input').addEventListener('focus', function() {
+        if (this.value.length >= 2) {
+            fetchAutocompleteResults(this.value);
+        }
+    });
+    
+    // Cerrar autocompletado al hacer clic fuera
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.search-container')) {
+            hideAutocomplete();
+        }
     });
 
     document.getElementById('btn-route').addEventListener('click', toggleRoutePanel);
@@ -369,6 +464,149 @@ function setupEventListeners() {
     document.getElementById('btn-current-location').addEventListener('click', getCurrentLocation);
 
     document.getElementById('btn-toggle-satellite').addEventListener('click', toggleSatelliteView);
+}
+
+function handleAutocomplete() {
+    var query = document.getElementById('search-input').value;
+    
+    // Limpiar timeout anterior
+    clearTimeout(autocompleteTimeout);
+    
+    // Si la consulta es muy corta, ocultar resultados
+    if (query.length < 2) {
+        hideAutocomplete();
+        return;
+    }
+    
+    // Configurar nuevo timeout para evitar muchas solicitudes
+    autocompleteTimeout = setTimeout(function() {
+        fetchAutocompleteResults(query);
+    }, 300);
+}
+
+function fetchAutocompleteResults(query) {
+    var searchQuery = query.includes('Estelí') ? query : query + ', Estelí, Nicaragua';
+    var resultsContainer = document.getElementById('autocomplete-results');
+    var loadingSpinner = document.querySelector('.loading-spinner');
+    
+    // Mostrar spinner de carga
+    if (!loadingSpinner) {
+        loadingSpinner = document.createElement('div');
+        loadingSpinner.className = 'loading-spinner';
+        loadingSpinner.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Buscando...';
+        resultsContainer.appendChild(loadingSpinner);
+    }
+    loadingSpinner.style.display = 'block';
+    
+    // Mostrar contenedor de resultados
+    resultsContainer.style.display = 'block';
+    
+    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(searchQuery)}&limit=5`)
+        .then(response => response.json())
+        .then(data => {
+            // Ocultar spinner
+            loadingSpinner.style.display = 'none';
+            
+            if (data && data.length > 0) {
+                displayAutocompleteResults(data);
+            } else {
+                resultsContainer.innerHTML = '<div class="autocomplete-item">No se encontraron resultados</div>';
+            }
+        })
+        .catch(error => {
+            console.error('Error en autocompletado:', error);
+            loadingSpinner.style.display = 'none';
+            resultsContainer.innerHTML = '<div class="autocomplete-item">Error al buscar</div>';
+        });
+}
+
+function displayAutocompleteResults(results) {
+    var resultsContainer = document.getElementById('autocomplete-results');
+    resultsContainer.innerHTML = '';
+    
+    results.forEach(function(result) {
+        var item = document.createElement('div');
+        item.className = 'autocomplete-item';
+        
+        // Determinar icono según el tipo
+        var icon = 'map-marker-alt';
+        var type = 'Lugar';
+        
+        if (result.type === 'city' || result.type === 'town') {
+            icon = 'city';
+            type = 'Ciudad';
+        } else if (result.type === 'administrative') {
+            icon = 'landmark';
+            type = 'Área administrativa';
+        } else if (result.class === 'amenity') {
+            icon = 'utensils';
+            type = 'Servicio';
+        } else if (result.class === 'tourism') {
+            icon = 'camera';
+            type = 'Turismo';
+        } else if (result.class === 'shop') {
+            icon = 'shopping-cart';
+            type = 'Tienda';
+        }
+        
+        item.innerHTML = `
+            <div class="autocomplete-icon">
+                <i class="fas fa-${icon}"></i>
+            </div>
+            <div class="autocomplete-text">
+                <strong>${result.display_name.split(',')[0]}</strong>
+                <div class="text-muted small">${result.display_name.split(',').slice(1, 3).join(',')}</div>
+            </div>
+            <div class="autocomplete-type">${type}</div>
+        `;
+        
+        item.addEventListener('click', function() {
+            selectAutocompleteResult(result);
+        });
+        
+        resultsContainer.appendChild(item);
+    });
+}
+
+function selectAutocompleteResult(result) {
+    // Establecer el valor en el campo de búsqueda
+    document.getElementById('search-input').value = result.display_name;
+    
+    // Ocultar resultados de autocompletado
+    hideAutocomplete();
+    
+    // Centrar el mapa en la ubicación seleccionada
+    var lat = parseFloat(result.lat);
+    var lon = parseFloat(result.lon);
+    
+    map.setView([lat, lon], 16);
+    
+    if (marker) {
+        marker.setLatLng([lat, lon]);
+    } else {
+        marker = L.marker([lat, lon]).addTo(map);
+    }
+    
+    // Actualizar campos de coordenadas
+    document.getElementById('latitude').value = lat.toFixed(6);
+    document.getElementById('longitude').value = lon.toFixed(6);
+    
+    // Actualizar campos de nombre y dirección si están vacíos
+    if (!document.getElementById('name').value) {
+        document.getElementById('name').value = result.display_name.split(',')[0];
+    }
+    
+    if (!document.getElementById('address').value) {
+        document.getElementById('address').value = result.display_name;
+    }
+    
+    // Mostrar mensaje de estado
+    document.getElementById('map-status').innerHTML = 
+        '<div class="alert alert-success">✅ Ubicación seleccionada: ' + result.display_name + '</div>';
+}
+
+function hideAutocomplete() {
+    document.getElementById('autocomplete-results').style.display = 'none';
 }
 
 function toggleSatelliteView() {
@@ -520,16 +758,17 @@ function calculateRoute() {
 
                     if (routes && routes[0]) {
                         var route = routes[0];
-                        instructions = '<h6>Instrucciones de la ruta:</h6><ol>';
+                        instructions = '<h6>Instrucciones de la ruta:</h6><div class="route-instructions">';
 
                         route.instructions.forEach(function(instruction) {
                             var distance = instruction.distance > 1000 ? 
                                 (instruction.distance / 1000).toFixed(2) + ' km' : 
                                 instruction.distance + ' m';
-                            instructions += '<li>' + instruction.text + ' <small class="text-muted">(' + distance + ')</small></li>';
+                            instructions += '<div class="route-instruction">' + instruction.text + 
+                                            ' <span class="route-distance">(' + distance + ')</span></div>';
                         });
 
-                        instructions += '</ol>';
+                        instructions += '</div>';
                         instructions += '<div class="alert alert-success mt-2">';
                         instructions += '<strong>Distancia total: ' + (route.summary.totalDistance / 1000).toFixed(2) + ' km</strong><br>';
                         instructions += '<strong>Tiempo estimado: ' + (route.summary.totalTime / 60).toFixed(0) + ' minutos</strong>';
